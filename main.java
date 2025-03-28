@@ -19,6 +19,13 @@ public class main{
 
     }
 
+    class Adminisrator{
+        String role;
+        String name;
+        String email;
+        int adminid;
+    }
+
 
     public static void main(String[] args){
 
