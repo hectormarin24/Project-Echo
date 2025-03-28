@@ -5,7 +5,9 @@ public class echo{
 
     class membership{
 
-        String name;
+        String Fname;
+        String Lname;
+        String Minitial;
         String email;
         int number;
         String address;
