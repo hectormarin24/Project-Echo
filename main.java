@@ -14,6 +14,8 @@ public class main{
         String password;
         String username;
         String dob;
+        boolean isMember;
+        int dues;
 
     }
 
