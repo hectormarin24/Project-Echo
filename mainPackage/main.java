@@ -1,4 +1,5 @@
-import java.util.*;
+package mainPackage;
+//import java.util.*;
 
 public class main{
 
@@ -25,18 +26,6 @@ public class main{
         String email;
         int adminid;
     }
-
-    class Book{
-        String title;
-        String author;
-        String ISBN;
-        String genre;
-        String publisher;
-        String location;
-        int year;
-        boolean isAvailable;
-    }
-
 
     public static void main(String[] args){
 
