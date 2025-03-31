@@ -1,6 +1,6 @@
 package mainPackage;
 
-class Book{
+class BookObject{
 	//Fields
 	
     private String title;
@@ -13,7 +13,7 @@ class Book{
     private boolean isAvailable;
     
     //constructor
-    public Book(String title, String author, String ISBN, String genre, String publisher, String location, int year, boolean isAvailable) {
+    public BookObject(String title, String author, String ISBN, String genre, String publisher, String location, int year, boolean isAvailable) {
     	
     	this.title = title;
     	this.author = author;
