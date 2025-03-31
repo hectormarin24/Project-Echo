@@ -127,6 +127,36 @@ public class BookDatabase{
 		
 	}
 	
+	public void searchbyGenre(String genre) {
+		ArrayList<String> dataList = new ArrayList<>();
+		for(int i = 0; i < bookList.size(); i++)
+		{
+			String data = bookList.get(i).getGenre();
+		
+			if(genre.equalsIgnoreCase(data))
+			{
+				dataList.add(bookList.get(i).getGenre());
+			}
+		}
+		
+		if(dataList.size() > 0) {
+			pn("");
+			for(int i = 0; i < dataList.size(); i++)
+			{
+				pn(dataList.get(i));
+			}
+			pn("");
+			pn("");
+		}
+		else
+		{
+			pn("");
+			pn("No titles found for actor");
+			pn("");
+			pn("");
+		}
+	}
+	
 	/*public void searchByAuthor(String author){
 		ArrayList<String> dataList = new ArrayList<>();
 		for(int i = 0; i < bookList.size(); i++)
