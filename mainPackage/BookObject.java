@@ -10,10 +10,10 @@ class BookObject{
     private String publisher;
     private String location;
     private int year;
-    private boolean isAvailable;
+    private String isAvailable;
     
     //constructor
-    public BookObject(String title, String author, String ISBN, String genre, String publisher, String location, int year, boolean isAvailable) {
+    public BookObject(String title, String author, String ISBN, String genre, String publisher, String location, int year, String isAvailable) {
     	
     	this.title = title;
     	this.author = author;
@@ -30,31 +30,31 @@ class BookObject{
     	return title;
     }
     
-    public String author() {
+    public String getAuthor() {
     	return author;
     }
     
-    public String ISBN() {
+    public String getISBN() {
     	return ISBN;
     }
     
-    public String genre() {
+    public String getGenre() {
     	return genre;
     }
     
-    public String publisher() {
+    public String getPublisher() {
     	return publisher;
     }
     
-    public String location() {
+    public String getLocation() {
     	return location;
     }
     
-    public int year() {
+    public Integer getYear() {
     	return year;
     }
     
-    public boolean availability() {
+    public String getAvailability() {
     	return isAvailable;
     }
 }
