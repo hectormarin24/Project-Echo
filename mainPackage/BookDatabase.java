@@ -1,16 +1,7 @@
 package mainPackage;
 
-public class BookDatabase{
+import java.util.HashMap;
 
-	class Book{
-	    String title;
-	    String author;
-	    String ISBN;
-	    String genre;
-	    String publisher;
-	    String location;
-	    int year;
-	    boolean isAvailable;
-	}
+public class BookDatabase{
 
 }
