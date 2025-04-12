@@ -6,9 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
+/*import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.SQLException;*/
 
 
 public class Main extends Application {
@@ -25,36 +25,24 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException{
+	public static void main(String[] args) throws ClassNotFoundException{
 		launch(args);
 		
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	   /*Class.forName("com.mysql.cj.jdbc.Driver");
 	       
        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "Echo215555$");
-       System.out.println("Connection created");
+       System.out.println("Connection created");*/
 	}
 }
 
-
-
-
-/*public class Main{
-
-
-    
-
-    class Administrator{
-        String role;
-        String name;
-        String email;
-        int adminid;
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, SQLException{
-
-       Class.forName("com.mysql.cj.jdbc.Driver");
-       
-       Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "Echo215555$");
-       System.out.println("Connection created");
-    }
-}*/
