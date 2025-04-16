@@ -37,11 +37,11 @@ public class UserDatabase{
 	}
 	
 	// Methods
-		public void addEntry() throws IOException{
+		public static void addEntry() throws IOException{
 			fileWrite fw = new fileWrite("db.txt");
 			keyboardInput b = new keyboardInput();
 			
-			String Fname = " ";
+			String Fname;
 			pn("Enter First Name: ");
 			Fname = b.getKeyboardLine();
 			while(Fname.length() < 3)
@@ -52,14 +52,14 @@ public class UserDatabase{
 			}
 			
 			
-			String Lname = " ";
+			String Lname;
 			pn("Enter Last Name: ");
-			Fname = b.getKeyboardLine();
-			while(Fname.length() < 3)
+			Lname = b.getKeyboardLine();
+			while(Lname.length() < 3)
 			{
 				pn("First Name Must Be Longer Than Three Characters");
 				pn("Enter First Name: ");
-				Fname = b.getKeyboardLine();
+				Lname = b.getKeyboardLine();
 			}
 			
 			String Minitial = " ";
@@ -69,7 +69,7 @@ public class UserDatabase{
 				Minitial = null;
 			}
 			
-			String email = " ";
+			String email;
 			pn("Enter email: ");
 			email = b.getKeyboardLine();
 			while(email.length() < 3)
@@ -79,7 +79,7 @@ public class UserDatabase{
 				email = b.getKeyboardLine();
 			}
 			
-			String number = " ";
+			String number;
 			pn("Enter Number: ");
 			number = b.getKeyboardLine();
 			while(number.length() < 3)
@@ -89,7 +89,7 @@ public class UserDatabase{
 				number = b.getKeyboardLine();
 			}
 			
-			String address = " ";
+			String address;
 			pn("Enter Full Address: ");
 			address = b.getKeyboardLine();
 			while(address.length() < 3)
@@ -99,8 +99,8 @@ public class UserDatabase{
 				address = b.getKeyboardLine();
 			}
 			
-			String password = " ";
-			pn("Enter Password: ");
+			String password;
+			pn("Enter Password:");
 			password = b.getKeyboardLine();
 			while(password.length() < 8)
 			{
@@ -108,13 +108,17 @@ public class UserDatabase{
 				pn("Enter Password: ");
 				password = b.getKeyboardLine();
 			}
-			String passwordcheck = " ";
-			while(password != passwordcheck) {
-				pn("Re-enter password: ");
-				passwordcheck = b.getKeyboardLine();
-			}
 			
-			String username = " ";
+			/*String passwordcheck = " ";
+			while(password != passwordcheck) {
+				pn("Re-enter password:");
+				passwordcheck = b.getKeyboardLine();
+				if(password == passwordcheck) {
+					break;
+				}
+			}*/
+			
+			String username;
 			pn("Enter Username: ");
 			username = b.getKeyboardLine();
 			while(username.length() < 7)
@@ -131,9 +135,10 @@ public class UserDatabase{
 			
 			pn(" ");
 			pn(" ");
-			String newLine = (Fname + "*" + Lname + "*" + Minitial + "*" + email + "*" + number + "*" + address + "*" + password + "*" + username + "*" + dob);
-			fw.writeLine(newLine);
-			fw.saveFile();
+			DBUtil.insertUser(Fname, Lname, Minitial, email, number, address, password, username, dob);
+			//String newLine = (Fname + "*" + Lname + "*" + Minitial + "*" + email + "*" + number + "*" + address + "*" + password + "*" + username + "*" + dob);
+			//fw.writeLine(newLine);
+			//fw.saveFile();
 		}
 		
 		
@@ -158,6 +163,12 @@ public class UserDatabase{
 			pn("Date of Birth " + dataList.get(8));
 			pn(" ");
 			pn(" ");
+		}
+		
+		
+		//Search methods
+		public static void searchByID(int id) {
+			DBUtil.searchUserByID(id);
 		}
 		
 		
