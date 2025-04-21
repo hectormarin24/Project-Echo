@@ -10,13 +10,14 @@ import java.util.ArrayList;
 
 public class WishlistController {
 	
-	WishlistController() {
+	public WishlistController() {
 		String url = "jdbc:sqlite:db/echo.db";
 		
 		String sql = "CREATE TABLE IF NOT EXISTS wishlists ("
-                + "	userID INTEGER PRIMARY KEY,"
-                + "	bookID INTEGER"
-                + ");";
+	            + "	userID INTEGER,"
+	            + "	bookID INTEGER,"
+	            + " PRIMARY KEY (userID, bookID)"
+	            + ");";
 		
 		try (Connection conn = DriverManager.getConnection(url);
 	         Statement stmt = conn.createStatement()) {
