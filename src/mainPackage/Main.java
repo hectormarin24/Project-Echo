@@ -7,10 +7,14 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+
 //Image stuff imported
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
+
+import javafx.scene.control.Button;
+
 import javafx.scene.layout.BorderPane;
 
 
@@ -24,9 +28,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/*import java.sql.Connection;
+import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;*/
+import java.sql.SQLException;
 
 
 public class Main extends Application {
@@ -34,34 +39,37 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception
 	{
 		try {
-			//To get this to work either put a "/" in front of the file; or youtake the fxml file to the application process.
+
+			//To get this to work either put a "/" in front of the file; or you take the fxml file to the application process.
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
 			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException{
+	public static void main(String[] args) throws ClassNotFoundException, IOException{
 		launch(args);
 		
 		
+			
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	   /*Class.forName("com.mysql.cj.jdbc.Driver");
 	      
       Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "Echo215555$");
       System.out.println("Connection created");*/
+
 	}
+
+
+	
+
 }
