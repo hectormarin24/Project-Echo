@@ -135,7 +135,7 @@ public class UserDatabase{
 			
 			pn(" ");
 			pn(" ");
-			DBUtil.insertUser(Fname, Lname, Minitial, email, number, address, password, username, dob);
+			DBUserMethods.insertUser(Fname, Lname, Minitial, email, number, address, password, username, dob);
 			//String newLine = (Fname + "*" + Lname + "*" + Minitial + "*" + email + "*" + number + "*" + address + "*" + password + "*" + username + "*" + dob);
 			//fw.writeLine(newLine);
 			//fw.saveFile();
@@ -168,7 +168,7 @@ public class UserDatabase{
 		
 		//Search methods
 		public static void searchByID(int id) {
-			DBUtil.searchUserByID(id);
+			DBUserMethods.searchUserByID(id);
 		}
 		
 		

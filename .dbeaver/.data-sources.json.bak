@@ -14,20 +14,6 @@
 				"closeIdleConnection": true,
 				"auth-model": "native"
 			}
-		},
-		"sqlite_jdbc-1965a3e7bcc-57405b59c3f1b4b1": {
-			"provider": "sqlite",
-			"driver": "sqlite_jdbc",
-			"name": "reservations.db",
-			"save-password": true,
-			"configuration": {
-				"database": "C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\reservations.db",
-				"url": "jdbc:sqlite:C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\reservations.db",
-				"configurationType": "MANUAL",
-				"type": "dev",
-				"closeIdleConnection": true,
-				"auth-model": "native"
-			}
 		}
 	},
 	"connection-types": {

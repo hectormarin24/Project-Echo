@@ -1,14 +1,2 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-.contact-button {
-    -fx-padding: 0; /* Equivalent of margin-right/left 0, since JavaFX doesn't use margin directly */
-}
-
-.contact-button:hover {
-    -fx-background-color: hsla(204, 59.88%, 51.81%, 1.0);
-    -fx-border-color: #32343a;
-    -fx-border-width: 3px;
-    -fx-border-style: none; /* Optional, JavaFX uses 'solid', 'dashed', etc. */
-    -fx-text-fill: hsla(225, 0%, 100%, 1.0);
-    /* transform: scale(1.05); -> Not directly supported in CSS, see below */
-}
