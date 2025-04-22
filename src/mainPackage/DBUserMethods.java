@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DBUtil {
+public class DBUserMethods {
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
 
     
@@ -150,7 +150,7 @@ public class DBUtil {
 	public static void searchUserByID(int userid) {
 	    String sql = "SELECT * FROM users WHERE id = ?";
 
-	    try (Connection conn = DBUtil.connect();
+	    try (Connection conn = DBUserMethods.connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 	        pstmt.setLong(1, userid);
@@ -169,7 +169,7 @@ public class DBUtil {
 		String Lnamesql = "SELECT * FROM users where Lname = ?";
 		String Minitial = "SELECT * FROM users where Minitial = ?";
 		
-		try(Connection conn = DBUtil.connect();
+		try(Connection conn = DBUserMethods.connect();
 			PreparedStatement pstmt = conn.prepareStatement(Fnamesql)) {
 			
 			pstmt.setString(1, firstname);			
@@ -183,7 +183,7 @@ public class DBUtil {
 		String Fnamesql = "SELECT * FROM users where Fname = ?";
 		String Lnamesql = "SELECT * FROM users where Lname = ?";
 		
-		try(Connection conn = DBUtil.connect();
+		try(Connection conn = DBUserMethods.connect();
 				PreparedStatement pstmt = conn.prepareStatement(Fnamesql)) {
 				
 				pstmt.setString(1, name);			
