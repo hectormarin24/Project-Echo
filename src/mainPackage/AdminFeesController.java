@@ -8,8 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AdminFeesController {
@@ -63,14 +68,35 @@ public class AdminFeesController {
 	Label typeLabelBox1;
 	@FXML
 	Label typeLabelBox2;
-	
+	@FXML
+	Label userId1;
+	@FXML
+	Label userId2;	
 	//Actual images to be imported
 	//int imageRange = 2;
 	//Image myImage1 = new Image(getClass().getResourceAsStream("/EchoLibrary.png"));
 	//Image myImage2 = new Image(getClass().getResourceAsStream("/gabriel.png"));
 	
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+
 	public void displayAdminFeesInfo(String title1, String title2, String authorLabel1, String authorLabel2, String bookLabel1, String bookLabel2,
-	String genreLab1, String genreLab2, String prompt1, String prompt2, String status1, String status2, String IDBook1, String IDBook2, String admin, String Type1, String Type2)
+	String genreLab1, String genreLab2, String prompt1, String prompt2, String status1, String status2, String IDBook1, String IDBook2, String admin, String Type1, String Type2, String user1, String user2)
 	{
 		titleLabel1.setText("Title: " + title1);
 		titleLabel2.setText("Title: " + title2);
@@ -89,6 +115,8 @@ public class AdminFeesController {
 		adminIdLabel1.setText("ADMINID: " +  admin);
 		typeLabelBox1.setText("Type: " +  Type1);
 		typeLabelBox2.setText("Type: " +  Type2);
+		userId1.setText("USERID: " +  user1);
+		userId2.setText("USERID: " +  user2);
 		
 		//bookPicture1.setImage(myImage2);
 		//bookPicture2.setImage(myImage1);
@@ -157,7 +185,7 @@ public class AdminFeesController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminFees.fxml"));
 			root = loader.load();
 			AdminFeesController adminFeesController = loader.getController();
-			adminFeesController.displayAdminFeesInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17");
+			adminFeesController.displayAdminFeesInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminFees.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -211,7 +239,7 @@ public class AdminFeesController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLoans.fxml"));
 			root = loader.load();
 			AdminLoansController adminLoansController = loader.getController();
-			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15", "16", "17");
+			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminLoans.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

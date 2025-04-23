@@ -222,6 +222,11 @@ public class HomePageController
 			ProfileController profileController = loader.getController();
 			profileController.displayInfo("1", "2", "3", "4", "5", "6");
 			
+			
+			/*FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccount.fxml"));
+			root = loader.load();
+			AdminAccountController adminAccountController = loader.getController();
+			adminAccountController.displayAdminAccountInfo("1","2","3","4","5","6");*/
 			//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);

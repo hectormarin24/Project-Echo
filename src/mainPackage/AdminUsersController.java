@@ -8,8 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AdminUsersController {
@@ -53,6 +58,26 @@ public class AdminUsersController {
 	//int imageRange = 2;
 	//Image myImage1 = new Image(getClass().getResourceAsStream("/EchoLibrary.png"));
 	//Image myImage2 = new Image(getClass().getResourceAsStream("/gabriel.png"));
+	
+	
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+
 	
 	public void displayAdminUsersInfo(String userID1, String userID2, String Name1, String Name2, String email1, String email2,
 	String phone1, String phone2, String membership1, String membership2, String fees1, String fees2, String borrowedBook1, String borrowedBook2, String adminId)
@@ -140,7 +165,7 @@ public class AdminUsersController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminFees.fxml"));
 			root = loader.load();
 			AdminFeesController adminFeesController = loader.getController();
-			adminFeesController.displayAdminFeesInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17");
+			adminFeesController.displayAdminFeesInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminFees.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -194,7 +219,7 @@ public class AdminUsersController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLoans.fxml"));
 			root = loader.load();
 			AdminLoansController adminLoansController = loader.getController();
-			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15", "16", "17");
+			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminLoans.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

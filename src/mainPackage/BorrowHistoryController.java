@@ -8,9 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class BorrowHistoryController 
@@ -66,6 +71,25 @@ public class BorrowHistoryController
 	//int imageRange = 2;
 	//Image myImage1 = new Image(getClass().getResourceAsStream("/EchoLibrary.png"));
 	//Image myImage2 = new Image(getClass().getResourceAsStream("/gabriel.png"));
+	
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+
 	
 	public void displayBorrowHistoryInfo(String title1, String title2, String authorLabel1, String authorLabel2, String bookLabel1, String bookLabel2,
 	String genreLab1, String genreLab2, String prompt1, String prompt2, String status1, String status2, String IDBook1, String IDBook2, String userId)

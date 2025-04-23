@@ -28,7 +28,7 @@ public class CreateAccountController {
 	@FXML
 	TextField emailBox;
 	@FXML
-	TextField middlemiddleInitialBox;
+	TextField middleInitialBox;
 	
 	@FXML
 	Label errorLabel;

@@ -8,11 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AdminAccountController {
@@ -34,6 +38,28 @@ public class AdminAccountController {
 	@FXML
 	Label adminIdLabel1;
 	
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+	
+	
+	
+	
+	
 	public void displayAdminAccountInfo(String title1, String username, String email, String phoneNumber, String membership, String adminID)
 	{
 		nameLabel1.setText("Title: " + title1);
@@ -50,7 +76,7 @@ public class AdminAccountController {
 	{
 		try 
 		{	
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountAccount.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccount.fxml"));
 			root = loader.load();
 			AdminAccountController adminAccountController = loader.getController();
 			adminAccountController.displayAdminAccountInfo("1","2","3","4","5","6");
@@ -77,10 +103,10 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountBooks.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminBooks.fxml"));
 			root = loader.load();
 			AdminBooksController adminBooksController = loader.getController();
-			adminBooksController.displayAdminBooksInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17");
+			adminBooksController.displayAdminBooksInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminBooks.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -104,7 +130,7 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountFees.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminFees.fxml"));
 			root = loader.load();
 			AdminFeesController adminFeesController = loader.getController();
 			adminFeesController.displayAdminFeesInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
@@ -131,7 +157,7 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountUsers.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminUsers.fxml"));
 			root = loader.load();
 			AdminUsersController adminUsersController = loader.getController();
 			adminUsersController.displayAdminUsersInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
@@ -158,10 +184,10 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountLoans.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLoans.fxml"));
 			root = loader.load();
 			AdminLoansController adminLoansController = loader.getController();
-			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
+			adminLoansController.displayAdminLoansInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17", "18", "19");
 			
 			//root = FXMLLoader.load(getClass().getResource("AdminLoans.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

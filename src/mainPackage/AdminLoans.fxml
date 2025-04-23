@@ -12,13 +12,13 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.AdminLoansController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0">
+      <AnchorPane fx:id="scenePane" layoutX="10.0" layoutY="10.0">
          <children>
             <AnchorPane layoutX="5.0">
                <children>
                   <AnchorPane prefHeight="554.0" prefWidth="774.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="635.0" layoutX="-18.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="635.0" layoutX="-18.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
                         <Button fx:id="usersButton" layoutX="54.0" layoutY="198.0" mnemonicParsing="false" onAction="#adminUsersAccess" prefHeight="39.0" prefWidth="139.0" text="Users">
                            <font>
                               <Font size="18.0" />
@@ -108,7 +108,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="signOutButton" layoutX="750.0" layoutY="49.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
+                        <Button fx:id="signOut" layoutX="750.0" layoutY="49.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -120,9 +120,9 @@
                            </font>
                         </Button>
                         <Label fx:id="typeLabelBox2" layoutX="645.0" layoutY="351.0" text="Type:" textFill="#ad6449" />
-                        <Label fx:id="typeLabelBox21" layoutX="642.0" layoutY="197.0" text="Type:" textFill="#ad6449" />
+                        <Label fx:id="typeLabelBox1" layoutX="642.0" layoutY="197.0" text="Type:" textFill="#ad6449" />
                         <Label fx:id="userId1" layoutX="271.0" layoutY="62.0" text="USER ID:" textFill="#ad6449" />
-                        <Label fx:id="userId11" layoutX="271.0" layoutY="234.0" text="USER ID:" textFill="#ad6449" />
+                        <Label fx:id="userId2" layoutX="271.0" layoutY="234.0" text="USER ID:" textFill="#ad6449" />
                      </children>
                   </AnchorPane>
                </children>

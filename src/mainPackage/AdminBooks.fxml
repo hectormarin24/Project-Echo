@@ -12,7 +12,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.AdminBooksController">
    <children>
-      <AnchorPane layoutY="2.0">
+      <AnchorPane fx:id="scenePane" layoutY="2.0">
          <children>
             <AnchorPane layoutX="10.0" layoutY="10.0">
                <children>
@@ -110,7 +110,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="signOutButton" layoutX="750.0" layoutY="49.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
+                              <Button fx:id="signOut" layoutX="750.0" layoutY="49.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
                                  <font>
                                     <Font size="10.0" />
                                  </font>

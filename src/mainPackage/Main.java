@@ -2,15 +2,21 @@ package mainPackage;
 //import java.util.*;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 //Image stuff imported
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 
@@ -40,10 +46,34 @@ public class Main extends Application {
 			stage.setScene(scene);
 			stage.show();
 			
+			
+			stage.setOnCloseRequest(event ->
+			{ event.consume();
+			SignOut(stage);
+			});
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(Stage stage)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+
+			stage.close();	
+		}
+	}
+	
 	
 	public static void main(String[] args) throws ClassNotFoundException{
 		launch(args);

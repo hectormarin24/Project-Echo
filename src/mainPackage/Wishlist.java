@@ -8,6 +8,7 @@ public class Wishlist
 	private String addedDate;
 	
 	
+	
 	//constructor method
 	public Wishlist(int wishId, int userId, int bookId, String addedDate)
 	{
