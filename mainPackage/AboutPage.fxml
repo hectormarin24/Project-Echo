@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <AnchorPane prefHeight="488.0" prefWidth="816.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="488.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
+            <Button layoutX="594.0" layoutY="425.0" mnemonicParsing="false" onAction="#openGH" prefHeight="36.0" prefWidth="35.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/GitHubLogo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="497.0" layoutY="426.0" mnemonicParsing="false" onAction="#openLI" prefHeight="34.0" prefWidth="42.0">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/LinkedInLogo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="384.0" layoutY="424.0" mnemonicParsing="false" onAction="#openIG" prefHeight="35.0" prefWidth="42.0">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/InstagramLogo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="272.0" layoutY="427.0" mnemonicParsing="false" onAction="#openX" prefHeight="0.0" prefWidth="0.0">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/XLogo.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+      <Button fx:id="FB" layoutX="153.0" layoutY="426.0" mnemonicParsing="false" onAction="#openFB" prefHeight="34.0" prefWidth="42.0">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/FacebookLogo.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+         
+      <Button layoutX="419.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToCredit" text="Credit" textFill="#ad6449" />
+      <Button layoutX="329.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToContact" text="Contact" textFill="#ad6449" />
+      <Button layoutX="250.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToAbout" text="About" textFill="#ad6449" />
+      <Button layoutX="172.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToHome" text="Home" textFill="#ad6449" />
+      <ImageView fx:id="Logo" fitHeight="129.0" fitWidth="168.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/FullLogo_Transparent.png" />
+         </image>
+      </ImageView>
+      <Text fill="#ad6449" layoutX="31.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Project Echo—a student-driven initiative created by a passionate and diverse team of future software engineers. Developed as part of the CSC-131 Computer Software Engineering course at Sacramento State, this project showcases our ability to design and implement a fully functional Library Management System using modern development technologies and industry best practices. Our application is built with both users and administrators in mind. From book searches and reservations to automated notifications and account management, every feature was designed to improve the library experience. Behind the scenes, our development process followed the Waterfall model, ensuring a structured, thoughtful approach to each phase—from requirements gathering and system design to implementation, testing, and deployment. We’re proud to demonstrate not only our technical skills in front-end and back-end development, but also our commitment to collaboration, usability, and real-world problem-solving. Whether you're checking out a book or managing an entire catalog, Project Echo is here to streamline the way libraries work—one feature at a time." textAlignment="CENTER" wrappingWidth="753.3367309570312" />
+      <Text fill="#ad6449" layoutX="140.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hector Marin" />
+      <Text fill="#ad6449" layoutX="278.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caden Pestana" />
+      <Text fill="#ad6449" layoutX="443.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sarah Lee" />
+      <Text fill="#ad6449" layoutX="579.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alan Kushnir" />
+      <Text fill="#ad6449" layoutX="147.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Binyi Chen" />
+      <Text fill="#ad6449" layoutX="276.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kaylina Savatdy" />
+      <Text fill="#ad6449" layoutX="433.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ethan Richard" />
+      <Text fill="#ad6449" layoutX="571.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nicholas Safran" />
+      </children></AnchorPane>
+   </children>
+</AnchorPane>
