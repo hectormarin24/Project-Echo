@@ -42,8 +42,7 @@ public class EmailSender {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject(subject);
             message.setText(text);
-
-            // send the email message
+		
             Transport.send(message);
 
             System.out.println("Message sent successfully.");
