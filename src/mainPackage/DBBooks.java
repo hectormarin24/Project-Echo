@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBBooks {
-    private static final String DB_URL = "jdbc:sqlite:db/books.db";
+    private static final String DB_URL = "jdbc:sqlite:db/echo.db";
 
     
-    public static Connection connect() {
+    private static Connection connect() {
         try {
             return DriverManager.getConnection(DB_URL);
         } catch (SQLException e) {
@@ -21,15 +22,38 @@ public class DBBooks {
     }
     
     
+    private static BookObject bookDataList(ResultSet rs) throws SQLException {
+		BookObject book = null;
+		if (rs.next()) {
+			int id = rs.getInt("id");
+            String title = rs.getString("title");
+            String author = rs.getString("author");
+            String genre = rs.getString("genre");
+            String publisher = rs.getString("publisher");
+            String ISBN = rs.getString("ISBN");
+            String shelfLocation = rs.getString("shelfLocation");
+            String releaseDate = rs.getString("releaseDate");
+            String status = rs.getString("status");
+           
+            book = new BookObject(id, title, author, genre, publisher, ISBN, shelfLocation, releaseDate, status);
+        } else {
+            System.out.println("No book found with that ID.");
+        }
+		return book;
+	}
+
+    
     public static void createTable() {
 	    String sql = """
 	        CREATE TABLE IF NOT EXISTS books (
 	            id INTEGER PRIMARY KEY AUTOINCREMENT,
-	            Title TEXT NOT NULL,
-	            Author TEXT NOT NULL,
-	            Genre TEXT NOT NULL,
-	            ShelfLocation TEXT NOT NULL,
-	            ISBN INTEGER NOT NULL,
+	            title TEXT NOT NULL,
+	            author TEXT NOT NULL,
+	            genre TEXT NOT NULL,
+	            publisher TEXT NOT NULL,
+	            ISBN TEXT NOT NULL,
+	            shelfLocation TEXT NOT NULL,
+	            releaseDate TEXT NOT NULL,
 	            status TEXT NOT NULL
 	        );
 	        """;
@@ -59,19 +83,22 @@ public class DBBooks {
     }
     
     
-    public static void insertBook(String title, String author, String genre, String shelfLocation, int ISBN, String status) {
-	    String sql = "INSERT INTO users(title, author, genre, shelfLocation"
-	    		+ " ISBN, status) "
-	    		+ "VALUES(?, ?, ?, ?, ?, ?)";
+    public static void insertBook(String title, String author, String genre, String publisher, 
+    		String ISBN, String shelfLocation, String releaseDate, String status) {
+	    String sql = "INSERT INTO users(title, author, genre, publisher, ISBN, shelfLocation, "
+	    		+ "releaseDate, status) "
+	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
 	        var pstmt = conn.prepareStatement(sql)) {
 	        pstmt.setString(1, title);
 	        pstmt.setString(2, author);
 	        pstmt.setString(3, genre);
-	        pstmt.setString(4, shelfLocation);
-	        pstmt.setInt(5, ISBN);
-	        pstmt.setString(6, status);
+	        pstmt.setString(4, publisher);
+	        pstmt.setString(5, ISBN);
+	        pstmt.setString(6, shelfLocation);
+	        pstmt.setString(7, releaseDate);
+	        pstmt.setString(8, status);
 	       
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
@@ -81,9 +108,8 @@ public class DBBooks {
 	}
     
     
-    
     public static void deleteBook(int id) {
-		String sql = "DELETE FROM book WHERE id = ?;";
+		String sql = "DELETE FROM books WHERE id = ?;";
 		
 		try (Connection conn = connect();
 			 var stmt = conn.prepareStatement(sql)) {
@@ -103,70 +129,39 @@ public class DBBooks {
 		}
 	}
     
-    public static void bookDataList(ResultSet rs) throws SQLException {
-		
-		if (rs.next()) {
-            String title = rs.getString("title");
-            String author = rs.getString("author");
-            String genre = rs.getString("genre");
-            String shelfLocation = rs.getString("shelfLocation");
-            int ISBN = rs.getInt("ISBN");
-            String status = rs.getString("status");
-           
-
-            System.out.println("User found:");
-            System.out.println("Title: " + title);
-            System.out.println("Author: " + author);
-            System.out.println("Genre: " + genre);
-            System.out.println("Shelf Location: " + shelfLocation);
-            System.out.println("ISBN: " + ISBN);
-            System.out.println("Status: " + status);
-        } else {
-            System.out.println("No book found with that ID.");
-        }
-
-	}
     
-    
-    public static void searchBookByID(int bookid) {
+    public static BookObject searchBookByID(int bookid) {
+    	BookObject book = null;
 	    String sql = "SELECT * FROM book WHERE id = ?";
 
-	    try (Connection conn = DBUserMethods.connect();
+	    try (Connection conn = connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-	        pstmt.setLong(1, bookid);
+	        pstmt.setInt(1, bookid);
 	        ResultSet rs = pstmt.executeQuery();
 
-	        bookDataList(rs);
+	        book = bookDataList(rs);
 	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    return book;
 	}
     
     
-    
-    public static void showAllBooks() {
+    public static ArrayList<BookObject> showAllBooks() {
+    	ArrayList<BookObject> bookList = new ArrayList<>();
 	    String sql = "SELECT * FROM books";
 
 	    try (Connection conn = connect();
 	         var stmt = conn.createStatement();
 	         var rs = stmt.executeQuery(sql)) {
 	        while (rs.next()) {
-	            System.out.println(rs.getInt("id") + ": " +
-	                               rs.getString("title") + " - " +
-	                               rs.getString("author") + " - " +
-	                               rs.getString("genre") + " - " +
-	                               rs.getString("shelfLocation") + " - " +
-	                               rs.getString("ISBN") + " - " +
-	                               rs.getString("status"));
+	            bookList.add(bookDataList(rs));
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    return bookList;
 	}
-    
-    
-    
-    
 }

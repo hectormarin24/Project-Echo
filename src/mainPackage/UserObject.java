@@ -2,21 +2,22 @@ package mainPackage;
 
 public class UserObject{
 	//Fields 
+	private String id;
 	private String Fname;
     private String Lname;
     private String Minitial;
     private String email;
-    private int number;
+    private String number;
     private String address;
     private String password;
     private String username;
     private String dob;
-    private String isMember;
-    private int dues;
+    private String dues;
     
     //Constructor
-    public UserObject(String Fname, String Lname, String Minitial, String email, int number, String address, String password, String username, String dob, String isMember, int dues) {
-    
+    public UserObject(int id, String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, int dues) {
+    	
+    	this.id = Integer.toString(id);
     	this.Fname = Fname;
     	this.Lname = Lname;
     	this.Minitial = Minitial;
@@ -26,10 +27,13 @@ public class UserObject{
     	this.password = password;
     	this.username = username;
     	this.dob = dob;
-    	this.dues = dues;
+    	this.dues = Integer.toString(dues);
     }
     
     //Methods
+    public String getID() {
+    	return id;
+    }
     
     public String getFname() {
     	return Fname;
@@ -47,7 +51,7 @@ public class UserObject{
     	return email;
     }
     
-    public Integer getNumber() {
+    public String getNumber() {
     	return number;
     }
     
@@ -67,11 +71,7 @@ public class UserObject{
     	return dob;
     }
     
-    public String getIsMember() {
-    	return isMember;
-    }
-    
-    public int getDues() {
+    public String getDues() {
     	return dues;
     }
 }

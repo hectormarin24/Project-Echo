@@ -1,14 +1,16 @@
 module ProjectEcho {
 	
 	requires jakarta.mail;
+	
 	requires javafx.controls;
 	requires javafx.base;
 	requires javafx.graphics;
 	requires javafx.fxml;
 	requires javafx.web;
+	
+	requires java.sql;
 	 
 	// requires jdbc
-	//requires java.sql;
 	 
 	exports mainPackage;
 	 
