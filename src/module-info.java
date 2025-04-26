@@ -4,9 +4,10 @@ module ProjectEcho {
 	 requires javafx.base;
 	 requires javafx.graphics;
 	 requires javafx.fxml;
-	requires javafx.web;
+	 requires javafx.web;
+	 requires java.sql;
 	 
-	// requires jdbc
+	 //requires jdbc
 	 //requires java.sql;
 	 
 	 exports mainPackage;

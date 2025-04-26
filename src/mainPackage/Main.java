@@ -58,14 +58,11 @@ public class Main extends Application {
 	public static void main(String[] args) throws ClassNotFoundException, IOException{
 		launch(args);
 		
-		//DBLoans.createTable();
-		//DBLoans.createLoan(45, 40, "4/30/2025");
-		//DBLoans.createLoan(55, 60, "10/20/2009");
-		DBLoans.deleteLoan(45);
-		DBLoans.showAllLoans();
-		//DBLoans.searchLoansByUserId(45);
 		
-
+		DBUserMethods.showAllUsers();
+		
+	
+	
 	}
 
 
