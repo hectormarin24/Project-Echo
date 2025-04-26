@@ -33,7 +33,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="287.0" layoutY="64.0" text="Log in to Echo Library">
+                  <Label layoutX="286.0" layoutY="63.0" text="Log in to Echo Library">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -46,6 +46,7 @@
                   <TextField fx:id="usernameBox" layoutX="287.0" layoutY="150.0" prefHeight="36.0" prefWidth="240.0" />
                   <TextField fx:id="passwordBox" layoutX="287.0" layoutY="211.0" prefHeight="36.0" prefWidth="240.0" />
                   <Hyperlink fx:id="createAccountLink" layoutX="371.0" layoutY="346.0" onAction="#createAccount" text="Create one?" />
+                  <Label fx:id="errorLabel" layoutX="322.0" layoutY="99.0" text="Please fill out all required fields." textAlignment="CENTER" textFill="#d1c0ba" />
                </children>
             </AnchorPane>
          </children>

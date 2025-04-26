@@ -1,5 +1,6 @@
 module ProjectEcho {
 	
+
 	requires jakarta.mail;
 	
 	requires javafx.controls;
@@ -10,7 +11,8 @@ module ProjectEcho {
 	
 	requires java.sql;
 	 
-	// requires jdbc
+	
+
 	 
 	exports mainPackage;
 	 
