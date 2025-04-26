@@ -6,12 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBUserMethods {
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
 
-    
-    public static Connection connect() {
+    private static Connection connect() {
         try {
             return DriverManager.getConnection(DB_URL);
         } catch (SQLException e) {
@@ -19,6 +19,29 @@ public class DBUserMethods {
             return null;
         }
     }
+    
+    
+    private static UserObject userDataList(ResultSet rs) throws SQLException {
+		UserObject user = null;
+		if (rs.next()) {
+			Integer id = rs.getInt("id");
+            String Fname = rs.getString("Fname");
+            String Lname = rs.getString("Lname");
+            String Minitial = rs.getString("Minitial");
+            String email = rs.getString("email");
+            String number = rs.getString("number");
+            String address = rs.getString("address");
+            String password = rs.getString("password");
+            String username = rs.getString("username");
+            String dob = rs.getString("dob");
+            Integer dues = rs.getInt("dues");
+
+            user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
+        } else {
+            System.out.println("User not found.");
+        }
+		return user;
+	}
     
     
     public static void createTable() {
@@ -29,12 +52,11 @@ public class DBUserMethods {
 	            Lname TEXT NOT NULL,
 	            Minitial TEXT,
 	            email TEXT UNIQUE NOT NULL,
-	            number INTEGER NOT NULL,
+	            number TEXT NOT NULL,
 	            address TEXT NOT NULL,
 	            password TEXT UNIQUE NOT NULL,
 	            username TEXT UNIQUE NOT NULL,
 	            dob TEXT,
-	            isMember Text,
 	            dues INTEGER
 	        );
 	        """;
@@ -47,7 +69,6 @@ public class DBUserMethods {
 	        e.printStackTrace();
 	    }
 	}
-    
     
     
     public static void deleteTable() {
@@ -64,7 +85,6 @@ public class DBUserMethods {
     	}
     }
 	
-    
 	
 	public static void insertUser(String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob ) {
 	    String sql = "INSERT INTO users(Fname, Lname, Minitial, email,"
@@ -91,7 +111,6 @@ public class DBUserMethods {
 	}
 	
 	
-	
 	public static void deleteUser(Integer id) {
 		String sql = "DELETE FROM users WHERE id = ?;";
 		
@@ -114,111 +133,63 @@ public class DBUserMethods {
 	}
 	
 	
-	
-	public static void userDataList(ResultSet rs) throws SQLException {
-		
-		if (rs.next()) {
-            String Fname = rs.getString("Fname");
-            String Lname = rs.getString("Lname");
-            String Minitial = rs.getString("Minitial");
-            String email = rs.getString("email");
-            String number = rs.getString("number");
-            String address = rs.getString("address");
-            String password = rs.getString("password");
-            String username = rs.getString("username");
-            String dob = rs.getString("dob");
-
-
-            System.out.println("User found:");
-            System.out.println("First Name: " + Fname);
-            System.out.println("Middle Initial: " + Minitial);
-            System.out.println("Last Name: " + Lname);
-            System.out.println("Email: " + email);
-            System.out.println("Number: " + number);
-            System.out.println("Address: " + address);
-            System.out.println("Password: " + password);
-            System.out.println("Username: " + username);
-            System.out.println("Date of Birth: " + dob);
-        } else {
-            System.out.println("No user found with that email.");
-        }
-
-	}
-	
-	
-	
-	public static void searchUserByID(int userid) {
+	public static UserObject searchUserByID(int userid) {
+		UserObject user = null;
 	    String sql = "SELECT * FROM users WHERE id = ?";
 
 	    try (Connection conn = DBUserMethods.connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-	        pstmt.setLong(1, userid);
+	        pstmt.setInt(1, userid);
 	        ResultSet rs = pstmt.executeQuery();
 
-	        userDataList(rs);
+	        user = userDataList(rs);
 	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    return user;
 	}
 	
 	
-	public static void searchUserByName(String firstname, String lastname, String middleInitial) {
-		String Fnamesql = "SELECT * FROM users where Fname = ?";
-		String Lnamesql = "SELECT * FROM users where Lname = ?";
-		String Minitial = "SELECT * FROM users where Minitial = ?";
+	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
+		UserObject user = null;
+		String sql = "SELECT * FROM users "
+				+ "WHERE Fname = ?"
+				+ "AND Lname = ?" 
+				+ "AND Minitial = ?;";
 		
 		try(Connection conn = DBUserMethods.connect();
-			PreparedStatement pstmt = conn.prepareStatement(Fnamesql)) {
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
-			pstmt.setString(1, firstname);			
+			pstmt.setString(1, firstname);
+			pstmt.setString(2, lastname);
+			pstmt.setString(3, middleInitial);
+			
+			ResultSet rs = pstmt.executeQuery();
+			user = userDataList(rs);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public static void searchUserByName(String name) {
-		String Fnamesql = "SELECT * FROM users where Fname = ?";
-		String Lnamesql = "SELECT * FROM users where Lname = ?";
-		
-		try(Connection conn = DBUserMethods.connect();
-				PreparedStatement pstmt = conn.prepareStatement(Fnamesql)) {
-				
-				pstmt.setString(1, name);			
-				
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
-		
+		return user;
 	}
 	
 	
-
-	
-	
-	public static void showAllUsers() {
+	public static ArrayList<UserObject> showAllUsers() {
+		ArrayList<UserObject> userList = new ArrayList<>();
 	    String sql = "SELECT * FROM users";
 
 	    try (Connection conn = connect();
-	         var stmt = conn.createStatement();
-	         var rs = stmt.executeQuery(sql)) {
+	        var stmt = conn.createStatement();
+	        var rs = stmt.executeQuery(sql)) {
+	    	
 	        while (rs.next()) {
-	            System.out.println(rs.getInt("id") + ": " +
-	                               rs.getString("Fname") + " - " +
-	                               rs.getString("Lname") + " - " +
-	                               rs.getString("Minitial") + " - " +
-	                               rs.getString("email") + " - " +
-	                               rs.getString("number") + " - " +
-	                               rs.getString("address") + " - " +
-	                               rs.getString("password") + " - " +
-	                               rs.getString("username") + " - " +
-	                               rs.getString("dob"));
+	        	userList.add(userDataList(rs));
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	    return userList;
 	}
-
 }
