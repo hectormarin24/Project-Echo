@@ -176,6 +176,22 @@ public class DBUserMethods {
 	}
 	
 	
+	public static void payDues(int userId) {
+		String sql = "UPDATE users SET dues = 0 "
+				+ "WHERE id = ?;";
+		
+		try (Connection conn = connect();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, userId);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public static ArrayList<UserObject> showAllUsers() {
 		ArrayList<UserObject> userList = new ArrayList<>();
 	    String sql = "SELECT * FROM users";

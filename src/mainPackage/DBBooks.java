@@ -54,7 +54,8 @@ public class DBBooks {
 	            ISBN TEXT NOT NULL,
 	            shelfLocation TEXT NOT NULL,
 	            releaseDate TEXT NOT NULL,
-	            status TEXT NOT NULL
+	            status TEXT NOT NULL,
+	            count INTEGER NOT NULL
 	        );
 	        """;
 	
@@ -86,8 +87,8 @@ public class DBBooks {
     public static void insertBook(String title, String author, String genre, String publisher, 
     		String ISBN, String shelfLocation, String releaseDate, String status) {
 	    String sql = "INSERT INTO users(title, author, genre, publisher, ISBN, shelfLocation, "
-	    		+ "releaseDate, status) "
-	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	    		+ "releaseDate, status, count) "
+	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
 	        var pstmt = conn.prepareStatement(sql)) {
@@ -99,6 +100,7 @@ public class DBBooks {
 	        pstmt.setString(6, shelfLocation);
 	        pstmt.setString(7, releaseDate);
 	        pstmt.setString(8, status);
+	        pstmt.setInt(9, 0);
 	       
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
@@ -128,6 +130,49 @@ public class DBBooks {
 			e.printStackTrace();
 		}
 	}
+    
+    public int getBookAvailability(int bookid) {
+    	int count = 0;
+    	String sql = "SELECT count FROM books"
+    			+ "WHERE id = ?;";
+    	try (Connection conn = connect();
+   	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    			
+    			pstmt.setInt(1, bookid);
+    			
+	   	        ResultSet rs = pstmt.executeQuery();
+	   	        if (rs.next()) {
+	   	        	count = rs.getInt("count");
+	   	        }
+   	    } catch (SQLException e) {
+   	        e.printStackTrace();
+   	    }
+    	return count;
+    }
+    
+    public void changeBookAvailability(int bookid, char type) {
+    	
+    	// If type == '0': decrement book availability
+    	// If type == '1': increment book availability
+    	
+    	int currCount = getBookAvailability(bookid);
+    	String sql = "UPDATE books SET count = ?"
+    			+ "WHERE id = ?;";
+    	
+    	try (Connection conn = connect();
+    		 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    		if (type == '0') {
+    			pstmt.setInt(1, currCount - 1);
+    		} else {
+    			pstmt.setInt(1, currCount + 1);
+    		}
+    		pstmt.setInt(2,  bookid);
+   	        
+    		pstmt.executeUpdate();
+   	    } catch (SQLException e) {
+   	        e.printStackTrace();
+   	    }
+    }
     
     
     public static BookObject searchBookByID(int bookid) {
