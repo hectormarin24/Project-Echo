@@ -101,6 +101,9 @@ public class DBLoans {
 	    		pstmt.setString(6, status);
 	    		
 	    		pstmt.executeUpdate();
+	    		
+	    		// Decrease book availability
+	    		DBBooks.changeBookAvailability(bookId, '0');
 	    		System.out.println("Loan added.");
 	    		
 	    	} catch (SQLException e) {
@@ -131,34 +134,55 @@ public class DBLoans {
     }
     
     
-    public static LoanObject searchLoansByUserId(int userId) {
-    	LoanObject loan = null;
-		String sql = "SELECT * FROM loans where userId = ?";
+    // Admin function: person brings book back to counter.
+    // Admin clicks on button or enters fields which calls this.
+    public static void returnBook(int userId, int bookId) {
+    	String sql = "UPDATE loans SET status = 'Returned' "
+    			+ "AND SET returnDate = ? "
+    			+ "WHERE userId = ? AND bookId = ?;";
+    	
+    	try (Connection conn = connect();
+   		     PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    			
+    			pstmt.setString(1,  LocalDate.now().toString());
+   		        pstmt.setInt(2, userId);
+   		        pstmt.setInt(3, bookId);
+   		        pstmt.executeUpdate();
+   		        
+   		        // Increase book availability
+   		        DBBooks.changeBookAvailability(bookId, '1');
+   		} catch (SQLException e) {
+   			e.printStackTrace();
+   		}
+    }
+    
+    
+    // Brings up all of a person's loans. Can be used for loan history.
+    public static ArrayList<LoanObject> searchLoansByUserId(int userId) {
+    	ArrayList<LoanObject> loans = new ArrayList<>();
+		String sql = "SELECT * FROM loans where userId = ?;";
 		
 		try (Connection conn = connect();
 		     PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
 		        pstmt.setInt(1, userId);
 		        ResultSet rs = pstmt.executeQuery();
-
-		        loan = loanDataList(rs);
+		        
+		        while (rs.next()) {
+		        	loans.add(loanDataList(rs));
+		        }
 		        
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-    	return loan;
+    	return loans;
 	}
-    
-    /*public static void checkOverdueLoans() { ... }
-    getUserLoanHistory(int userId)
-    getActiveLoans()
-    getLoanByBook(int bookId)*/
     
     
     public static ArrayList<LoanObject> showAllLoans() {
     	ArrayList<LoanObject> loanList = new ArrayList<>();
-	    String sql = "SELECT * FROM loans";
+	    String sql = "SELECT * FROM loans;";
 
 	    try (Connection conn = connect();
 	         var stmt = conn.createStatement();
@@ -170,5 +194,40 @@ public class DBLoans {
 	        e.printStackTrace();
 	    }
 	    return loanList;
+    }
+    
+    
+    // Call this at the start of the program
+    public static void checkForOverdueLoans() {
+    	LocalDate todayDate = LocalDate.now();
+    	
+    	String sql = "UPDATE loans SET status = 'Overdue' "
+    			+ "WHERE userId = ?;";
+    	
+    	ArrayList<LoanObject> loans = showAllLoans();
+    	for (int l = 0; l < loans.size(); l++ ) {
+    		LoanObject loan = loans.get(l);
+    		if (todayDate.isAfter(LocalDate.parse(loan.getDueDate()))) {
+    			try (Connection conn = connect();
+			         var pstmt = conn.prepareStatement(sql)) {
+			         
+    				int userId = Integer.parseInt(loan.getUserId());
+    				pstmt.setInt(1, userId);
+    				pstmt.executeUpdate();
+    				
+    				// Send email notification
+    				int bookId = Integer.parseInt(loan.getBookId());
+    				String email = DBUserMethods.searchUserByID(userId).getEmail();
+    				String bookTitle = DBBooks.searchBookByID(bookId).getTitle();
+    				String subject = "[Echo Library] Your loan is now due";
+    				String message = "Your loan of " + bookTitle + " " + bookId + " is now due. "
+    						+ "Fees may be incurred following long overdue periods.";
+    				EmailSender emailSend = new EmailSender(email, subject, message);
+    				emailSend.send();
+			    } catch (SQLException e) {
+			        e.printStackTrace();
+			    }
+    		}
+    	}
     }
 }

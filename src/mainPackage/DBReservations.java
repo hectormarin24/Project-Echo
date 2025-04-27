@@ -13,6 +13,7 @@ import java.time.LocalDate;
 public class DBReservations {
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
     
+    
     private static Connection connect() {
         try {
             return DriverManager.getConnection(DB_URL);
@@ -91,8 +92,7 @@ public class DBReservations {
 		        pstmt.executeUpdate();
 		        
 		        // Decrease book availability due to reservation
-		        DBBooks decBook = new DBBooks();
-		        decBook.changeBookAvailability(bookId, '0'); // decrement book availability
+		        DBBooks.changeBookAvailability(bookId, '0'); // decrement book availability
 		        
 		        // Send email notification to user
 		        UserObject user = DBUserMethods.searchUserByID(userId);
@@ -141,8 +141,7 @@ public class DBReservations {
 			int rowsDeleted = pstmt.executeUpdate();
 			
 			if(rowsDeleted > 0) {
-				DBBooks decBook = new DBBooks();
-		        decBook.changeBookAvailability(bookId, '1'); // increment book availability
+		        DBBooks.changeBookAvailability(bookId, '1'); // increment book availability
 				System.out.println("Reservation with Book ID: " + bookId + " was deleted.");
 			} else {
 				System.out.println("No reservations with Book ID: " + bookId + " found.");
@@ -196,7 +195,7 @@ public class DBReservations {
 	
 	// Admins will use this to update reservations together with "searchReservationByUserId" method.
 	// Also called from within the "updateAllReservations" method.
-	public void updateReservationStatus(int id, String status) {
+	public static void updateReservationStatus(int id, String status) {
 		String sql = "UPDATE reservations SET status = ? "
 				+ "WHERE id = ?;";
 		
@@ -215,7 +214,7 @@ public class DBReservations {
 	
 	// Call this at the start of the program. 
 	// Updates every reservation entry and sets expired entries to "Completed".
-	public void updateAllReservations() {
+	public static void updateAllReservations() {
 		LocalDate todayDate = LocalDate.now();
 		
 		String sql = "Select * FROM reservations "
@@ -229,8 +228,7 @@ public class DBReservations {
 				LocalDate resDate = LocalDate.parse(rs.getString("resDate"));
 				resDate = resDate.plusDays(1);
 				if (todayDate.isAfter(resDate)) {
-					DBBooks decBook = new DBBooks();
-			        decBook.changeBookAvailability(rs.getInt("id"), '1'); // increment book availability
+			        DBBooks.changeBookAvailability(rs.getInt("id"), '1'); // increment book availability
 			        
 			        updateReservationStatus(rs.getInt("id"), "Completed");
 				}

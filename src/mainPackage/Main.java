@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Main extends Application {
@@ -53,13 +54,14 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
+		
 		launch(args);
 		
-		
-		DBUserMethods.showAllUsers();
-		
-	
-	
+		ArrayList<UserObject> users = DBUserMethods.showAllUsers();
+		for (int i = 0; i < users.size(); i++) {
+			UserObject user = users.get(i);
+			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
+		}
 	}
 
 

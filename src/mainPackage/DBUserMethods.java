@@ -12,30 +12,7 @@ public class DBUserMethods {
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
     
     
-    private static UserObject userDataList(ResultSet rs) throws SQLException {
-		UserObject user = null;
-		if (rs.next()) {
-			Integer id = rs.getInt("id");
-            String Fname = rs.getString("Fname");
-            String Lname = rs.getString("Lname");
-            String Minitial = rs.getString("Minitial");
-            String email = rs.getString("email");
-            String number = rs.getString("number");
-            String address = rs.getString("address");
-            String password = rs.getString("password");
-            String username = rs.getString("username");
-            String dob = rs.getString("dob");
-            Integer dues = rs.getInt("dues");
-
-            user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
-        } else {
-            System.out.println("User not found.");
-        }
-		return user;
-	}
-    
-    
-    public static Connection connect() {
+    private static Connection connect() {
         try {
             return DriverManager.getConnection(DB_URL);
         } catch (SQLException e) {
@@ -43,6 +20,27 @@ public class DBUserMethods {
             return null;
         }
     }
+    
+    
+    private static UserObject userDataList(ResultSet rs) throws SQLException {
+		UserObject user = null;
+		
+		Integer id = rs.getInt("id");
+        String Fname = rs.getString("Fname");
+        String Lname = rs.getString("Lname");
+        String Minitial = rs.getString("Minitial");
+        String email = rs.getString("email");
+        String number = rs.getString("number");
+        String address = rs.getString("address");
+        String password = rs.getString("password");
+        String username = rs.getString("username");
+        String dob = rs.getString("dob");
+        Integer dues = rs.getInt("dues");
+
+        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
+
+		return user;
+	}
     
     
     public static void createTable() {
@@ -174,6 +172,32 @@ public class DBUserMethods {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	
+	public static void chargeUser(int userId, int dues) {
+		String sql = "UPDATE users SET dues = dues + ? "
+				+ "WHERE id = ?;";
+		
+		try (Connection conn = connect();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, dues);
+			pstmt.setInt(2, userId);
+			
+			pstmt.executeUpdate();
+			
+			UserObject user = DBUserMethods.searchUserByID(userId);
+			String email = user.getEmail();
+			String name = user.getFname();
+			String subject = "[Echo Library] New Fees";
+			String message = "Hello " + name + ",\n\nYou have new fees of " + dues
+					+ " posted to your account.";
+			EmailSender emailSend = new EmailSender(email, subject, message);
+			emailSend.send();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
