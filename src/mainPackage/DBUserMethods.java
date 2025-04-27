@@ -36,6 +36,7 @@ public class DBUserMethods {
         String username = rs.getString("username");
         String dob = rs.getString("dob");
         Integer dues = rs.getInt("dues");
+        String type = rs.getString("type");
 
         pn("id " + id);
         pn("fname " +Fname);
@@ -51,6 +52,7 @@ public class DBUserMethods {
         pn("");
         
         user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
+
 
 		return user;
 	}
@@ -69,7 +71,8 @@ public class DBUserMethods {
 	            password TEXT UNIQUE NOT NULL,
 	            username TEXT UNIQUE NOT NULL,
 	            dob TEXT,
-	            dues INTEGER
+	            dues INTEGER,
+	            type TEXT NOT NULL DEFAULT 'User' -- User, Admin
 	        );
 	        """;
 	
@@ -98,10 +101,10 @@ public class DBUserMethods {
     }
 	
 	
-	public static void insertUser(String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob ) {
+	public static void insertUser(String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, String type) {
 	    String sql = "INSERT INTO users(Fname, Lname, Minitial, email,"
-	    		+ " number, address, password, username, dob) "
-	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    		+ " number, address, password, username, dob, type) "
+	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
 	        var pstmt = conn.prepareStatement(sql)) {
@@ -114,12 +117,31 @@ public class DBUserMethods {
 	        pstmt.setString(7, password);
 	        pstmt.setString(8, username);
 	        pstmt.setString(9, dob);
+	        pstmt.setString(10, type);
 
 	        pstmt.executeUpdate();
 	        System.out.println("User added.");
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	}
+	
+	
+	// For developers only! Insert admin account separate from the app.
+	// 
+	public static void insertCustomAdmin() {
+		String Fname = "admin";
+		String Lname = "123";
+		String Minitial = "test";
+		String email = "gsnyriusbg@eniubeiugbsiugbs.com";
+		String number = "null";
+		String address = "null";
+		String password = "qwerty";
+		String username = "admin";
+		String dob = "null";
+		String type = "Admin";
+		
+		insertUser(Fname, Lname, Minitial, email, number, address, password, username, dob, type);
 	}
 	
 	

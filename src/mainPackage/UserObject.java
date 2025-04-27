@@ -13,9 +13,10 @@ public class UserObject{
     private String username;
     private String dob;
     private String dues;
+    private String isAdmin;
     
     //Constructor
-    public UserObject(int id, String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, int dues) {
+    public UserObject(int id, String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, int dues, String isAdmin) {
     	
     	this.id = Integer.toString(id);
     	this.Fname = Fname;
@@ -28,6 +29,7 @@ public class UserObject{
     	this.username = username;
     	this.dob = dob;
     	this.dues = Integer.toString(dues);
+    	this.isAdmin = isAdmin;
     }
     
     //Methods
@@ -73,5 +75,9 @@ public class UserObject{
     
     public String getDues() {
     	return dues;
+    }
+    
+    public String getAdminStatus() {
+    	return isAdmin;
     }
 }

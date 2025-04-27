@@ -84,6 +84,7 @@ public class CreateAccountController {
 			    String middleInitial = "";
 			    String address = "";
 			    String dob = "";
+			    String type = "User";
 	
 			    // Basic validation
 			    if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty()
@@ -97,7 +98,7 @@ public class CreateAccountController {
 			    // You could add more specific validation like email format, password strength, etc.
 	
 			    //DBUserMethods dao = new DBUserMethods();
-			    DBUserMethods.insertUser(firstName, lastName, middleInitial, email, phoneNumber, address, password, username, dob);
+			    DBUserMethods.insertUser(firstName, lastName, middleInitial, email, phoneNumber, address, password, username, dob, type);
 			    errorLabel.setText("Account created successfully!");
 			    
 			
