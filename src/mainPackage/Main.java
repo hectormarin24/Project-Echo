@@ -103,6 +103,8 @@ public class Main extends Application {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
 		}*/
+		
+		DBUserMethods.showAllUsers();
 	}
 
 
