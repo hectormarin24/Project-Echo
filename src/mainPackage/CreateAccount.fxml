@@ -77,9 +77,8 @@
                            </font>
                         </Hyperlink>
 
-                        <Label layoutX="415.0" layoutY="537.0" text="Already have an account?">
-
-                        //<Label alignment="TOP_LEFT" layoutX="408.0" layoutY="476.0" text="*required        Already have an account?" AnchorPane.leftAnchor="370.0">
+                        
+                        <Label alignment="TOP_LEFT" layoutX="408.0" layoutY="476.0" text="*required        Already have an account?" AnchorPane.leftAnchor="370.0">
 
                            <font>
                               <Font size="15.0" />

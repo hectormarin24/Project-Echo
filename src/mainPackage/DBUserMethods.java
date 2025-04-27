@@ -37,6 +37,19 @@ public class DBUserMethods {
         String dob = rs.getString("dob");
         Integer dues = rs.getInt("dues");
 
+        pn("id " + id);
+        pn("fname " +Fname);
+        pn("lname " +Lname);
+        pn("minit " +Minitial);
+        pn("email " +email);
+        pn("num " +number);
+        pn("addr " +address);
+        pn("username " +username);
+        pn("dob" +dob);
+        pn("dues " +dues);
+        pn("");
+        pn("");
+        
         user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
 
 		return user;
@@ -167,7 +180,7 @@ public class DBUserMethods {
 	        e.printStackTrace();
 	        return false;
 	    }
-		//return true;
+		
 	}
 	
 	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
@@ -252,4 +265,17 @@ public class DBUserMethods {
 	    }
 	    return userList;
 	}
+	
+	
+	/* Helper method for easy printing on same line */
+	public static <E> void p(E item){
+		System.out.print(item + " ");
+	}
+	
+	/* Helper method for easy printing with line return */
+	public static <E> void pn(E item){
+		System.out.println(item);
+	}
+	
+	
 }
