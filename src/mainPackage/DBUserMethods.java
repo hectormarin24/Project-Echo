@@ -51,7 +51,7 @@ public class DBUserMethods {
         pn("");
         pn("");
         
-        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
+        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, type);
 
 
 		return user;
