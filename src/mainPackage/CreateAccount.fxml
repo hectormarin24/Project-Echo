@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -18,10 +19,10 @@
                   <AnchorPane layoutX="-8.0" layoutY="-10.0" prefHeight="421.0" prefWidth="549.0">
                      <children>
                         <TextField fx:id="passwordBox" layoutX="287.0" layoutY="211.0" prefHeight="36.0" prefWidth="240.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1c0ba" height="602.0" layoutX="-14.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" width="828.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="602.0" layoutX="-14.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" width="828.0" />
                         <ImageView fitHeight="341.0" fitWidth="349.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/EchoLibrary.png" />
+                              <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="errorLabel" layoutX="370.0" layoutY="64.0" text="Create Account for Echo Library">
@@ -34,14 +35,19 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="firstNameBox" layoutX="361.0" layoutY="137.0" prefHeight="36.0" prefWidth="183.0" />
-                        <Label layoutX="578.0" layoutY="108.0" text="LastName: *">
+
+                        <TextField fx:id="firstNameBox" layoutX="361.0" layoutY="137.0" prefHeight="36.0" prefWidth="131.0" />
+                        <Label layoutX="617.0" layoutY="111.0" text="LastName:">
+
+ 
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="lastNameBox" layoutX="578.0" layoutY="134.0" prefHeight="36.0" prefWidth="190.0" />
-                        <Label layoutX="368.0" layoutY="190.0" text="Email: *">
+
+                        <TextField fx:id="lastNameBox" layoutX="618.0" layoutY="134.0" prefHeight="36.0" prefWidth="150.0" />
+                        <Label layoutX="368.0" layoutY="190.0" text="Email:">
+
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -65,16 +71,41 @@
                            </font>
                         </Label>
                         <TextField fx:id="phoneNumberBox" layoutX="365.0" layoutY="296.0" prefHeight="36.0" prefWidth="403.0" />
-                        <Hyperlink fx:id="logInLink" layoutX="656.0" layoutY="472.0" onAction="#returnLogin" text="Log In!">
+                        <Hyperlink fx:id="logInLink" layoutX="663.0" layoutY="533.0" onAction="#returnLogin" text="Log In!">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Hyperlink>
-                        <Label alignment="TOP_LEFT" layoutX="408.0" layoutY="476.0" text="*required        Already have an account?" AnchorPane.leftAnchor="370.0">
+
+                        <Label layoutX="415.0" layoutY="537.0" text="Already have an account?">
+
+                        //<Label alignment="TOP_LEFT" layoutX="408.0" layoutY="476.0" text="*required        Already have an account?" AnchorPane.leftAnchor="370.0">
+
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
+                        <Label layoutX="499.0" layoutY="111.0" text="Middle Initial:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="middleInitialBox" layoutX="499.0" layoutY="137.0" prefHeight="36.0" prefWidth="102.0" promptText="*Optional*" />
+                        <ImageView fitHeight="58.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="58.0" fitWidth="102.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="createAccountButon" layoutX="500.0" layoutY="475.0" mnemonicParsing="false" onAction="#createNewAcount" text="Create Account!">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </children>

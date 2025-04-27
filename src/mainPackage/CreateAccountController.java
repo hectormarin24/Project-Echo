@@ -34,6 +34,8 @@ public class CreateAccountController {
 	
 	@FXML
 	TextField emailBox;
+	@FXML
+	TextField middleInitialBox;
 	
 	@FXML
 	Label errorLabel;
@@ -51,7 +53,9 @@ public class CreateAccountController {
 		String lastName = lastNameBox.getText();
 		String phoneNumber = phoneNumberBox.getText();
 		String email = emailBox.getText();
+		String middleName = middleInitialBox.getText();
 		
+		//UserObject newUser = new UserObject(firstName, lastName, middleName, email, 0, "", password, username, "", "", 0);
 		//Some sort of if statement to make sure they don't have the same names, email, usernames, ect.
 		/*if(usnername.equals(otherUsername))
 		{

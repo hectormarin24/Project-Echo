@@ -53,7 +53,6 @@ public class SocialMediaController implements Initializable
 	public void loadPage()
 	{
 		engine.load(newLink.getText());
-		
 	}
 	
 	
@@ -61,17 +60,22 @@ public class SocialMediaController implements Initializable
 	//MAKE SURE TO REPLACE THE LINKS WITH THE ACTUAL PAGES
 	public void loadTwitter()
 	{
-		engine.load("https://x.com/");
+		engine.load("https://x.com/Echo_Library");
 		
 	}
 	public void loadFaceBook()
 	{
-		engine.load("https://www.facebook.com/");
+		engine.load("https://www.facebook.com/profile.php?id=61575188941914");
 		
 	}
 	public void loadInstaGram()
 	{
-		engine.load("https://www.instagram.com/");
+		engine.load("https://www.instagram.com/echo_library_unlocknewworlds/");
+		
+	}
+	public void loadLinkedIn()
+	{
+		engine.load("https://www.linkedin.com/in/echo-library-0546b3361/");
 		
 	}
 	public void refreshPage()
@@ -115,8 +119,10 @@ public class SocialMediaController implements Initializable
 	
 	public void returnHomePage(ActionEvent event) throws IOException
 	{
-		try 
+		
+		try
 		{
+			
 				root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				scene = new Scene(root);
@@ -131,6 +137,5 @@ public class SocialMediaController implements Initializable
 		{
 			System.out.println(e2);
 		}
-
 	}
 }
