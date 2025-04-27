@@ -123,6 +123,7 @@
                         <Label fx:id="typeLabelBox1" layoutX="642.0" layoutY="197.0" text="Type:" textFill="#ad6449" />
                         <Label fx:id="userId1" layoutX="271.0" layoutY="62.0" text="USER ID:" textFill="#ad6449" />
                         <Label fx:id="userId2" layoutX="271.0" layoutY="234.0" text="USER ID:" textFill="#ad6449" />
+                        <Button fx:id="linkedInButton" layoutX="260.0" layoutY="567.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
                      </children>
                   </AnchorPane>
                </children>

@@ -9,10 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 public class HomePageController
 {
 	private Stage stage;
@@ -63,6 +67,26 @@ public class HomePageController
 	int current2 = 2;
 	int current3 = 3;
 	int current4 = 4;
+	@FXML
+	TextField searchBar1;
+	@FXML
+	private Button signOut;
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+
 
 	public void createAccount(ActionEvent event) throws IOException
 	{
@@ -175,7 +199,7 @@ public class HomePageController
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("SearchBook.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -247,77 +271,113 @@ public class HomePageController
 	
 	
 	//SOCIAL MEDIA PARTS
-	public void facebook(ActionEvent event) throws IOException
-	{
-		try 
+		public void faceBookAccess(ActionEvent event) throws IOException
 		{
-			root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
+			try
+			{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+				root = loader.load();
+				SocialMediaController socialMedia = loader.getController();
+				socialMedia.loadFaceBook();
+				
+				
+				//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
+			
+			
 		}
-		
-		catch(IOException e)
+		public void instagramAccess(ActionEvent event) throws IOException
 		{
-			System.out.println(e);
+			try
+			{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+				root = loader.load();
+				SocialMediaController socialMedia = loader.getController();
+				socialMedia.loadInstaGram();
+				
+				
+				//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}		
 		}
-		catch(Exception e2)
+		public void twitterAccess(ActionEvent event) throws IOException
 		{
-			System.out.println(e2);
+			try
+			{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+				root = loader.load();
+				SocialMediaController socialMedia = loader.getController();
+				socialMedia.loadTwitter();
+				
+				
+				//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
 		}
-		
-		
-	}
-	public void instagram(ActionEvent event) throws IOException
-	{
-		try 
+		public void linkedInAccess(ActionEvent event) throws IOException
 		{
-			root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
+			try
+			{
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+				root = loader.load();
+				SocialMediaController socialMedia = loader.getController();
+				socialMedia.loadLinkedIn();
+				
+				
+				//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
 		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-		
-	}
-	public void twitter(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-	}
-	
-	
-	
-	
-	
+
 	
 	
 	//THESE NEXT METHODS AREN"T ENTIRELY SET UP YET
@@ -359,11 +419,35 @@ public class HomePageController
 		genreLabel4.setText("Genre " + current4 + ":");
 
 	}
-	public void searchBarToString(ActionEvent event)
+	public void searchBarToSearch(ActionEvent event)
 	{
-		String search = searchBar.getText();
+		try 
+		{
+			String search = searchBar.getText();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
+			root = loader.load();
+			SearchBookController searchBook = loader.getController();
+			searchBook.searchForBook(search);
+			
+			//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		
+		}
+		
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		catch(Exception e2)
+		{
+			System.out.println(e2);
+		}
 		
 	}
+
 	
 
 

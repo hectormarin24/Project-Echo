@@ -118,6 +118,7 @@
                      </font>
                   </Button>
                   <Label fx:id="userIdLabel" layoutX="740.0" layoutY="80.0" text="USER ID:" textFill="#ad6449" />
+                  <Button fx:id="linkedInButton" layoutX="265.0" layoutY="570.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
                </children>
             </AnchorPane>
          </children>

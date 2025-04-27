@@ -3,6 +3,7 @@ package mainPackage;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -16,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -39,12 +41,13 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws Exception
 	{
+		
 		try {
-			//To get this to work either put a "/" in front of the file; or youtake the fxml file to the application process.
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-			Scene scene = new Scene(root);
+			Scene scene = new Scene(root);	
 			stage.setScene(scene);
 			stage.show();
+	
 			
 			
 			stage.setOnCloseRequest(event ->

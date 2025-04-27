@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="658.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.HomePageController">
+<AnchorPane fx:id="scenePane" prefHeight="658.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.HomePageController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0">
          <children>
@@ -30,7 +30,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="searchBar" layoutX="34.0" layoutY="293.0" prefHeight="50.0" prefWidth="622.0" />
+                  <TextField fx:id="searchBar" layoutX="34.0" layoutY="293.0" onAction="#searchBarToSearch" prefHeight="50.0" prefWidth="622.0" />
                   <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="-44.0" layoutY="-12.0">
                      <image>
                         <Image url="@../../../../../Downloads/echoLibraryTransparent.png" />
@@ -73,7 +73,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="searchBarButton" layoutX="668.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchBarToString" prefHeight="50.0" prefWidth="108.0" text="Search" />
+                  <Button fx:id="searchBarButton" layoutX="668.0" layoutY="292.0" mnemonicParsing="false" onAction="#searchBarToSearch" prefHeight="50.0" prefWidth="108.0" text="Search" />
                   <Hyperlink fx:id="locationLink" layoutX="479.0" layoutY="31.0" onAction="#location" text="Location  |" />
                   <Hyperlink fx:id="homeLink" layoutX="543.0" layoutY="31.0" onAction="#home" text="Home" />
                   <Hyperlink fx:id="searchLink" layoutX="591.0" layoutY="31.0" onAction="#search" text="|  Search" />
@@ -85,9 +85,9 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="facebookButton" layoutX="292.0" layoutY="619.0" mnemonicParsing="false" onAction="#facebook" text="FaceBook" />
-                  <Button fx:id="instagramButton" layoutX="375.0" layoutY="619.0" mnemonicParsing="false" onAction="#instagram" text="Instagram" />
-                  <Button fx:id="twitterButton" layoutX="470.0" layoutY="619.0" mnemonicParsing="false" onAction="#twitter" text="Twitter" />
+                  <Button fx:id="facebookButton" layoutX="292.0" layoutY="619.0" mnemonicParsing="false" onAction="#faceBookAccess" text="FaceBook" />
+                  <Button fx:id="instagramButton" layoutX="375.0" layoutY="619.0" mnemonicParsing="false" onAction="#instagramAccess" text="Instagram" />
+                  <Button fx:id="twitterButton" layoutX="470.0" layoutY="619.0" mnemonicParsing="false" onAction="#twitterAccess" text="Twitter" />
                   <Label fx:id="genreLabel1" layoutX="113.0" layoutY="465.0" text="Genre 1" textFill="#ad6449">
                      <font>
                         <Font size="16.0" />
@@ -118,6 +118,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
+                  <Button fx:id="linkedInButton" layoutX="216.0" layoutY="619.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
                </children>
             </AnchorPane>
          </children>

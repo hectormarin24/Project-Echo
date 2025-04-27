@@ -102,6 +102,7 @@
                               <Label fx:id="userIdLabel2" layoutX="301.0" layoutY="283.0" text="UserId:" textFill="#ad6449" />
                               <Label fx:id="overdueFeesLabel2" layoutX="329.0" layoutY="389.0" prefHeight="17.0" prefWidth="92.0" text="Overdue fees:" textFill="#ad6449" />
                               <Label fx:id="booksBorrowedLabel2" layoutX="330.0" layoutY="409.0" text="Books borrowed:" textFill="#ad6449" />
+                              <Button fx:id="linkedInButton" layoutX="258.0" layoutY="569.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
                            </children>
                         </AnchorPane>
                      </children>
