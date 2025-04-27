@@ -150,6 +150,25 @@ public class DBUserMethods {
 	    return user;
 	}
 	
+	public static boolean checkUserExist(String username, String password) {
+	    String sql = "SELECT * FROM users WHERE username = ?"
+	    		+ "			+ password = ?";
+
+	    try (Connection conn = DBUserMethods.connect();
+	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+	        pstmt.setString(1, username);
+	        pstmt.setString(2, password);
+	        ResultSet rs = pstmt.executeQuery();
+	       return true;
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+		//return true;
+	}
 	
 	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
 		UserObject user = null;

@@ -54,7 +54,9 @@ public class LoginController {
 		try 
 		{
 			String username = usernameBox.getText();
+			System.out.println(username);
 			String password = passwordBox.getText();
+			System.out.println(password);
 
 			
 			if(username.isEmpty() || password.isEmpty()) {
@@ -63,13 +65,20 @@ public class LoginController {
 		    	return;
 			}
 			
-			
+			if(DBUserMethods.checkUserExist(username, password) == true)
+			{
 			
 					root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 					scene = new Scene(root);
 					stage.setScene(scene);
 					stage.show();
+			}
+			else {
+				errorLabel.setText("Username And/Or Password Incorrect");
+		    	errorLabel.setTextFill(Color.RED);
+		    	return;
+			}
 			
 		}
 		catch(IOException e)
