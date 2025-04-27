@@ -98,11 +98,13 @@ public class Main extends Application {
 		
 		launch(args);
 		
-		ArrayList<UserObject> users = DBUserMethods.showAllUsers();
+		/*ArrayList<UserObject> users = DBUserMethods.showAllUsers();
 		for (int i = 0; i < users.size(); i++) {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
-		}
+		}*/
+		
+		DBUserMethods.showAllUsers();
 	}
 
 

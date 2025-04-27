@@ -38,7 +38,21 @@ public class DBUserMethods {
         Integer dues = rs.getInt("dues");
         String type = rs.getString("type");
 
-        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, type);
+        pn("id " + id);
+        pn("fname " +Fname);
+        pn("lname " +Lname);
+        pn("minit " +Minitial);
+        pn("email " +email);
+        pn("num " +number);
+        pn("addr " +address);
+        pn("username " +username);
+        pn("dob" +dob);
+        pn("dues " +dues);
+        pn("");
+        pn("");
+        
+        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues);
+
 
 		return user;
 	}
@@ -171,6 +185,25 @@ public class DBUserMethods {
 	    return user;
 	}
 	
+	public static boolean checkUserExist(String username, String password) {
+	    String sql = "SELECT * FROM users WHERE username = ?"
+	    		+ "			+ password = ?";
+
+	    try (Connection conn = DBUserMethods.connect();
+	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+	        pstmt.setString(1, username);
+	        pstmt.setString(2, password);
+	        ResultSet rs = pstmt.executeQuery();
+	       return true;
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+		
+	}
 	
 	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
 		UserObject user = null;
@@ -254,4 +287,17 @@ public class DBUserMethods {
 	    }
 	    return userList;
 	}
+	
+	
+	/* Helper method for easy printing on same line */
+	public static <E> void p(E item){
+		System.out.print(item + " ");
+	}
+	
+	/* Helper method for easy printing with line return */
+	public static <E> void pn(E item){
+		System.out.println(item);
+	}
+	
+	
 }
