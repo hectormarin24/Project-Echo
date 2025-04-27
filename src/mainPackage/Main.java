@@ -50,12 +50,9 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException, IOException{
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		launch(args);
 		
 		

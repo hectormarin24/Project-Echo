@@ -10,15 +10,6 @@ import java.util.ArrayList;
 
 public class DBUserMethods {
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
-
-    private static Connection connect() {
-        try {
-            return DriverManager.getConnection(DB_URL);
-        } catch (SQLException e) {
-            System.out.println("Connection failed: " + e.getMessage());
-            return null;
-        }
-    }
     
     
     private static UserObject userDataList(ResultSet rs) throws SQLException {
@@ -42,6 +33,16 @@ public class DBUserMethods {
         }
 		return user;
 	}
+    
+    
+    public static Connection connect() {
+        try {
+            return DriverManager.getConnection(DB_URL);
+        } catch (SQLException e) {
+            System.out.println("Connection failed: " + e.getMessage());
+            return null;
+        }
+    }
     
     
     public static void createTable() {
