@@ -1,31 +1,38 @@
 package mainPackage;
 
-class BookObject{
+public class BookObject {
 	//Fields
 	
+	private String id;
     private String title;
     private String author;
-    private String ISBN;
     private String genre;
     private String publisher;
-    private String location;
-    private int year;
-    private String isAvailable;
+    private String ISBN;
+    private String shelfLocation;
+    private String releaseDate;
+    private String status;
     
     //constructor
-    public BookObject(String title, String author, String ISBN, String genre, String publisher, String location, int year, String isAvailable) {
+    public BookObject(Integer id, String title, String author, String genre, String publisher, String ISBN,
+    		String shelfLocation, String releaseDate, String status) {
     	
+    	this.id = Integer.toString(id);
     	this.title = title;
     	this.author = author;
     	this.ISBN = ISBN;
     	this.genre = genre;
     	this.publisher = publisher;
-    	this.location = location;
-    	this.year = year;
-    	this.isAvailable = isAvailable;
+    	this.shelfLocation = shelfLocation;
+    	this.releaseDate = releaseDate;
+    	this.status = status;
     }
     
     //Methods
+    public String getId() {
+    	return id;
+    }
+    
     public String getTitle() {
     	return title;
     }
@@ -47,14 +54,14 @@ class BookObject{
     }
     
     public String getLocation() {
-    	return location;
+    	return shelfLocation;
     }
     
-    public Integer getYear() {
-    	return year;
+    public String getReleaseDate() {
+    	return releaseDate;
     }
     
-    public String getAvailability() {
-    	return isAvailable;
+    public String getStatus() {
+    	return status;
     }
 }

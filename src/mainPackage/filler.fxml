@@ -9,8 +9,8 @@
    <children>
       <AnchorPane prefHeight="559.0" prefWidth="698.0">
          <children>
-            <Button fx:id="returnLoginButton" layoutX="246.0" layoutY="188.0" mnemonicParsing="false" onAction="#returnLogin" prefHeight="226.0" prefWidth="220.0" text="RETURN LOGIN" />
-            <Label layoutX="179.0" layoutY="99.0" text="FILLER SLIDE FOR WHEN IMPLEMENTED">
+            <Button fx:id="returnLoginButton" layoutX="246.0" layoutY="188.0" mnemonicParsing="false" onAction="#returnLogin" prefHeight="226.0" prefWidth="220.0" text="RETURN LOGIN" AnchorPane.bottomAnchor="145.33333333333337" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="188.0" />
+            <Label layoutX="179.0" layoutY="99.0" text="FILLER SLIDE FOR WHEN IMPLEMENTED" AnchorPane.bottomAnchor="430.00000000000006" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="164.66666666666663" AnchorPane.topAnchor="99.0">
                <font>
                   <Font size="20.0" />
                </font>

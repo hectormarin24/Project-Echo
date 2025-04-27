@@ -11,20 +11,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CreateAccountController {
 
 	@FXML
 	TextField usernameBox;
+	
 	@FXML
 	TextField passwordBox;
+	
 	@FXML
 	TextField firstNameBox;
+	
 	@FXML
 	TextField lastNameBox;
+	
 	@FXML
 	TextField phoneNumberBox;
+	
 	@FXML
 	TextField emailBox;
 	@FXML
@@ -66,6 +73,34 @@ public class CreateAccountController {
 	{
 		try 
 		{
+				String username = usernameBox.getText().trim();
+			    String password = passwordBox.getText().trim();
+			    String firstName = firstNameBox.getText().trim();
+			    String lastName = lastNameBox.getText().trim();
+			    String phoneNumber = phoneNumberBox.getText().trim();
+			    String email = emailBox.getText().trim();
+	
+			    // Optional fields
+			    String middleInitial = "";
+			    String address = "";
+			    String dob = "";
+	
+			    // Basic validation
+			    if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty()
+			        || password.isEmpty() || email.isEmpty() || phoneNumber.isEmpty()) {
+			    	errorLabel.setText("Please fill out all required fields.");
+			    	errorLabel.setTextFill(Color.RED);
+			        
+			        return; // Don't proceed
+			    }
+	
+			    // You could add more specific validation like email format, password strength, etc.
+	
+			    //DBUserMethods dao = new DBUserMethods();
+			    DBUserMethods.insertUser(firstName, lastName, middleInitial, email, phoneNumber, address, password, username, dob);
+			    errorLabel.setText("Account created successfully!");
+			    
+			
 				root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				scene = new Scene(root);

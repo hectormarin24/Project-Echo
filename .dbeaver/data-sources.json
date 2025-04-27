@@ -1,0 +1,49 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-19636edcb42-3bf54e3a1655d89e": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "echo.db",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\echo.db",
+				"url": "jdbc:sqlite:C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\echo.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"sqlite_jdbc-1965a3e7bcc-57405b59c3f1b4b1": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "reservations.db",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\reservations.db",
+				"url": "jdbc:sqlite:C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\reservations.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

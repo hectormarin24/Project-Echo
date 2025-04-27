@@ -30,37 +30,42 @@
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label layoutX="361.0" layoutY="111.0" text="First Name:">
+                        <Label layoutX="361.0" layoutY="111.0" text="First Name: *">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
+
                         <TextField fx:id="firstNameBox" layoutX="361.0" layoutY="137.0" prefHeight="36.0" prefWidth="131.0" />
                         <Label layoutX="617.0" layoutY="111.0" text="LastName:">
+
+ 
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
+
                         <TextField fx:id="lastNameBox" layoutX="618.0" layoutY="134.0" prefHeight="36.0" prefWidth="150.0" />
                         <Label layoutX="368.0" layoutY="190.0" text="Email:">
+
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
                         <TextField fx:id="emailBox" layoutX="365.0" layoutY="216.0" prefHeight="36.0" prefWidth="403.0" />
-                        <Label layoutX="368.0" layoutY="332.0" text="Username:">
+                        <Label layoutX="368.0" layoutY="332.0" text="Username: *">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
                         <TextField fx:id="usernameBox" layoutX="365.0" layoutY="358.0" prefHeight="36.0" prefWidth="403.0" />
-                        <Label layoutX="371.0" layoutY="399.0" text="Password:">
+                        <Label layoutX="371.0" layoutY="399.0" text="Password: *">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
                         <TextField fx:id="passwordBox" layoutX="365.0" layoutY="425.0" prefHeight="36.0" prefWidth="403.0" />
-                        <Label layoutX="365.0" layoutY="264.0" text="Phone Number:">
+                        <Label layoutX="365.0" layoutY="264.0" text="Phone Number: *">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -71,7 +76,11 @@
                               <Font size="15.0" />
                            </font>
                         </Hyperlink>
+
                         <Label layoutX="415.0" layoutY="537.0" text="Already have an account?">
+
+                        //<Label alignment="TOP_LEFT" layoutX="408.0" layoutY="476.0" text="*required        Already have an account?" AnchorPane.leftAnchor="370.0">
+
                            <font>
                               <Font size="15.0" />
                            </font>
