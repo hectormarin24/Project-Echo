@@ -1,4 +1,4 @@
-package application;
+package mainPackage;
 
 import java.awt.Desktop;
 import java.io.IOException;

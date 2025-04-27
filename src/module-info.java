@@ -10,6 +10,7 @@ module ProjectEcho {
 	requires javafx.web;
 	
 	requires java.sql;
+	requires java.desktop;
 	 
 	
 

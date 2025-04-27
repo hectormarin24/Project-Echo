@@ -54,7 +54,8 @@ public class DBBooks {
 	            ISBN TEXT NOT NULL,
 	            shelfLocation TEXT NOT NULL,
 	            releaseDate TEXT NOT NULL,
-	            status TEXT NOT NULL
+	            status TEXT NOT NULL DEFAULT 'Unavailable' -- Unavailable, Available
+	            count INTEGER NOT NULL
 	        );
 	        """;
 	
@@ -84,10 +85,10 @@ public class DBBooks {
     
     
     public static void insertBook(String title, String author, String genre, String publisher, 
-    		String ISBN, String shelfLocation, String releaseDate, String status) {
+    		String ISBN, String shelfLocation, String releaseDate, String status, int count) {
 	    String sql = "INSERT INTO users(title, author, genre, publisher, ISBN, shelfLocation, "
-	    		+ "releaseDate, status) "
-	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+	    		+ "releaseDate, status, count) "
+	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
 	        var pstmt = conn.prepareStatement(sql)) {
@@ -99,6 +100,7 @@ public class DBBooks {
 	        pstmt.setString(6, shelfLocation);
 	        pstmt.setString(7, releaseDate);
 	        pstmt.setString(8, status);
+	        pstmt.setInt(9, count);
 	       
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
@@ -129,6 +131,75 @@ public class DBBooks {
 		}
 	}
     
+    public static int getBookAvailability(int bookid) {
+    	int count = 0;
+    	String sql = "SELECT count FROM books"
+    			+ "WHERE id = ?;";
+    	try (Connection conn = connect();
+   	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    			
+    			pstmt.setInt(1, bookid);
+    			
+	   	        ResultSet rs = pstmt.executeQuery();
+	   	        if (rs.next()) {
+	   	        	count = rs.getInt("count");
+	   	        }
+   	    } catch (SQLException e) {
+   	        e.printStackTrace();
+   	    }
+    	return count;
+    }
+    
+    
+    public static void changeBookStatus(int bookId, String status) {
+    	String sql = "UPDATE books SET status = ? "
+    			+ "WHERE id = ?;";
+    	
+    	try (Connection conn = connect();
+       		 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+       		
+    		pstmt.setString(1, status);
+    		pstmt.setInt(2, bookId);
+    		
+    		pstmt.executeUpdate();
+  	    } catch (SQLException e) {
+  	        e.printStackTrace();
+  	    }
+    }
+    
+    
+    public static void changeBookAvailability(int bookid, char type) {
+    	
+    	// If type == '0': decrement book availability
+    	// If type == '1': increment book availability
+    	
+    	int currCount = getBookAvailability(bookid);
+    	String sql = "UPDATE books SET count = ?"
+    			+ " WHERE id = ?;";
+    	
+    	try (Connection conn = connect();
+    		 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    		if (type == '0') {
+    			pstmt.setInt(1, currCount - 1);
+    			
+    			if (currCount - 1 == 0) {
+    				changeBookStatus(bookid, "Unavailable");
+    			}
+    		} else {
+    			pstmt.setInt(1, currCount + 1);
+    			
+    			if (currCount + 1 == 0) {
+    				changeBookStatus(bookid, "Available");
+    			}
+    		}
+    		pstmt.setInt(2,  bookid);
+   	        
+    		pstmt.executeUpdate();
+   	    } catch (SQLException e) {
+   	        e.printStackTrace();
+   	    }
+    }
+    
     
     public static BookObject searchBookByID(int bookid) {
     	BookObject book = null;
@@ -149,13 +220,32 @@ public class DBBooks {
 	}
     
     
-    public static ArrayList<BookObject> showAllBooks() {
+    // Partially matches keyword entered into the search bar.
+    // Also considers the genre selected. 
+    // Pressing the search button calls this and returns the whole list of books.
+    public static ArrayList<BookObject> bookSearch(String keyword, String genre) {
     	ArrayList<BookObject> bookList = new ArrayList<>();
-	    String sql = "SELECT * FROM books";
+	    String sql;
+	    if (genre.isEmpty()) {
+	    	sql = "SELECT * FROM books"
+	    			+ " WHERE title LIKE ?;";
+	    } else {
+	    	sql = "SELECT * FROM books"
+	    			+ " WHERE genre = ?"
+	    			+ " AND title LIKE ?;";
+	    }
 
 	    try (Connection conn = connect();
-	         var stmt = conn.createStatement();
-	         var rs = stmt.executeQuery(sql)) {
+	         var pstmt = conn.prepareStatement(sql)) {
+	        
+	    	if (genre.isEmpty()) {
+	    		pstmt.setString(1, '%' + keyword + '%');
+	    	} else {
+	    		pstmt.setString(1, genre);
+	    		pstmt.setString(2, '%' + keyword + '%');
+	    	}
+	    	ResultSet rs = pstmt.executeQuery();
+	    	
 	        while (rs.next()) {
 	            bookList.add(bookDataList(rs));
 	        }

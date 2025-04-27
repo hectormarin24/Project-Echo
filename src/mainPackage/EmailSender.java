@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class EmailSender {
 	private static final String user = "teamechocsus@gmail.com"; // mailer account
-	private static final String password = "ynyr yhhs ylfx sxlr";
+	private static final String password = "ynyr yhhs ylfx sxlr"; // this is the actual password
 	private final String to;
 	private final String subject;
 	private final String text;

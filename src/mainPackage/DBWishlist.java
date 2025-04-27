@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class WishlistController {
+public class DBWishlist {
 	
-	public WishlistController() {
+	public DBWishlist() {
 		String url = "jdbc:sqlite:db/echo.db";
 		
 		String sql = "CREATE TABLE IF NOT EXISTS wishlists ("
@@ -123,6 +123,34 @@ public class WishlistController {
 	            pstmt.setInt(2, bookID);
 	            
 	            pstmt.executeUpdate();
+
+	    } catch (SQLException e) {
+	            System.err.println(e.getMessage());
+	    }
+	}
+	
+	// Call at the start of the program.
+	public void pingWishlists() {
+		String url = "jdbc:sqlite:db/echo.db";
+		
+		String sql = "SELECT * FROM wishlists;";
+		
+		try (Connection conn = DriverManager.getConnection(url);
+	         Statement stmt = conn.createStatement();
+			 ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+            	BookObject book = DBBooks.searchBookByID(rs.getInt("bookID"));
+            	if (book.getStatus() == "Available") {
+            		UserObject user = DBUserMethods.searchUserByID(rs.getInt("userID"));
+                	String email = user.getEmail();
+                	String bookTitle = book.getTitle();
+                	String subject = "[Echo Library] " + bookTitle + " is now available";
+                	String message = bookTitle + " is now available to reserve or loan from the library.";
+                	EmailSender emailSend = new EmailSender(email, subject, message);
+                	emailSend.send();
+            	}
+            }
 
 	    } catch (SQLException e) {
 	            System.err.println(e.getMessage());
