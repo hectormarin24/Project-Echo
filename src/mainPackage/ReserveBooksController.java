@@ -104,10 +104,10 @@ public class ReserveBooksController
 					genreLabel2.setText("Genre: " +  genreLab2);
 					promptLabel1.setText("Prompt: " +  prompt1);
 					promptLabel2.setText("Prompt: " +  prompt2);
-					statusLabel1.setText("Status: " +  status1);
-					statusLabel2.setText("Status: " +  status2);
-					bookIdLabel1.setText("BookID: " +  IDBook1);
-					bookIdLabel2.setText("BookID: " +  IDBook2);
+					//statusLabel1.setText("Status: " +  status1);
+					//statusLabel2.setText("Status: " +  status2);
+					//bookIdLabel1.setText("BookID: " +  IDBook1);
+					//bookIdLabel2.setText("BookID: " +  IDBook2);
 					userIdLabel.setText("USERID: " +  userId);
 
 					//bookPicture1.setImage(myImage2);
@@ -190,14 +190,14 @@ public class ReserveBooksController
 		
 		
 	}
-	public void reserveBooksAccesss(ActionEvent event) throws IOException
+	public void reserveBooksAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("ReserveBooks.fxml"));
 			root = loader.load();
-			ReserveBooksController reserveBooksController = loader.getController();
-			reserveBooksController.displayReserveBooksInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
+			//ReserveBooksController reserveBooksController = loader.getController();
+			displayReserveBooksInfo("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
 			
 			//root = FXMLLoader.load(getClass().getResource("ReserveBooks.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

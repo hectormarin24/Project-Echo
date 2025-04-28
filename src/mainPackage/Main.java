@@ -103,8 +103,11 @@ public class Main extends Application {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
 		}*/
-		
-		DBUserMethods.showAllUsers();
+		//DBUserMethods.showAllUsers();
+		//DBBooks.insertBook("Harry Potter", "JK Rowling", "Fiction", "Pubcc", "57565572938293", "SF3", "09/20/2005", "Available", 1);
+		//DBBooks.createTable();
+		//DBBooks.showAllBooks();
+		//DBUserMethods.showAllUsers();
 	}
 
 

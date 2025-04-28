@@ -28,14 +28,14 @@ public class SearchBookController implements Initializable{
 	private Parent root;
 	
 	
-	//choice boc
+	//choice box
 	@FXML
 	ChoiceBox<String> keywordChoice;
 	String[] keywords = {"Choice1","Choice2","Choice3","Choice4"};
 	
 	@FXML
 	ChoiceBox<String> eBookChoice;
-	String[] ebooks = {"Ebook","Physical"};
+	String[] ebooks = {"Physical"};
 	
 	@FXML
 	ChoiceBox<String> genreChoice;

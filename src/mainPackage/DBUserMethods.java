@@ -9,8 +9,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBUserMethods {
+	
+	/*String sql = "INSERT INTO actions_log (user_id, action, timestamp) VALUES (?, ?, CURRENT_TIMESTAMP)";
+
+	try (Connection conn = DBUserMethods.connect();
+	     PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	
+	    pstmt.setInt(1, Session.currentUser.getId()); // get user ID
+	    pstmt.setString(2, "borrowed 'Moby Dick'");
+	    pstmt.executeUpdate();
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+	*/
     private static final String DB_URL = "jdbc:sqlite:db/echo.db";
-    
+    public static UserObject currentUser = null;
     
     private static Connection connect() {
         try {
@@ -46,6 +59,7 @@ public class DBUserMethods {
         pn("num " +number);
         pn("addr " +address);
         pn("username " +username);
+        pn("password " + password);
         pn("dob" +dob);
         pn("dues " +dues);
         pn("");
@@ -101,7 +115,8 @@ public class DBUserMethods {
     }
 	
 	
-	public static void insertUser(String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, String type) {
+	public static void insertUser(String Fname, String Lname, String Minitial, String email, String number, 
+			String address, String password, String username, String dob, String type) {
 	    String sql = "INSERT INTO users(Fname, Lname, Minitial, email,"
 	    		+ " number, address, password, username, dob, type) "
 	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -186,8 +201,7 @@ public class DBUserMethods {
 	}
 	
 	public static boolean checkUserExist(String username, String password) {
-	    String sql = "SELECT * FROM users WHERE username = ?"
-	    		+ "			+ password = ?";
+	    String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
 
 	    try (Connection conn = DBUserMethods.connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -195,7 +209,11 @@ public class DBUserMethods {
 	        pstmt.setString(1, username);
 	        pstmt.setString(2, password);
 	        ResultSet rs = pstmt.executeQuery();
-	       return true;
+	        if(rs.next()) {
+	        	loadUser(rs);
+	        	return true;
+	        }
+	        return rs.next();
 	        
 	        
 	    } catch (SQLException e) {
@@ -203,6 +221,45 @@ public class DBUserMethods {
 	        return false;
 	    }
 		
+	}
+	
+	
+	   
+
+	
+	private static UserObject loadUser (ResultSet rs) throws SQLException {
+		
+		Integer id = rs.getInt("id");
+        String Fname = rs.getString("Fname");
+        String Lname = rs.getString("Lname");
+        String Minitial = rs.getString("Minitial");
+        String email = rs.getString("email");
+        String number = rs.getString("number");
+        String address = rs.getString("address");
+        String password = rs.getString("password");
+        String username = rs.getString("username");
+        String dob = rs.getString("dob");
+        Integer dues = rs.getInt("dues");
+        String type = rs.getString("type");
+
+        pn("id " + id);
+        pn("fname " +Fname);
+        pn("lname " +Lname);
+        pn("minit " +Minitial);
+        pn("email " +email);
+        pn("num " +number);
+        pn("addr " +address);
+        pn("username " +username);
+        pn("password " + password);
+        pn("dob" +dob);
+        pn("dues " +dues);
+        pn("");
+        pn("");
+        
+        currentUser = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, type);
+
+
+		return currentUser;
 	}
 	
 	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
@@ -280,7 +337,7 @@ public class DBUserMethods {
 	        var rs = stmt.executeQuery(sql)) {
 	    	
 	        while (rs.next()) {
-	        	userList.add(userDataList(rs));
+	        	userDataList(rs);
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
