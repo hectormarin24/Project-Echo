@@ -59,7 +59,7 @@ public class Main extends Application {
 			//To get this to work either put a "/" in front of the file; or you take the fxml file to the application process.
 
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-			Scene scene = new Scene(root);	
+			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
 	
@@ -95,16 +95,28 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		
-		launch(args);
-		
-		/*ArrayList<UserObject> users = DBUserMethods.showAllUsers();
+		// Program startup methods
+		ArrayList<UserObject> users = DBUserMethods.showAllUsers();
 		for (int i = 0; i < users.size(); i++) {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
-		}*/
-		
+			System.out.println(user.getUsername() + " " + user.getPassword() + "\n");
+		}
 		DBUserMethods.showAllUsers();
+		
+		DBBooks.createTable();
+		DBLoans.createTable();
+		DBReservations.createTable();
+		DBUserMethods.createTable();
+		DBWishlist.createTable();
+		
+		// Emulate server at start of program
+		DBWishlist.pingWishlists();
+		DBUserMethods.insertCustomAdmin();
+		DBReservations.updateAllReservations();
+		DBLoans.checkForOverdueLoans();
+
+		launch(args);
 	}
 
 

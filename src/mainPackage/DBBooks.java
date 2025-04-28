@@ -47,15 +47,15 @@ public class DBBooks {
 	    String sql = """
 	        CREATE TABLE IF NOT EXISTS books (
 	            id INTEGER PRIMARY KEY AUTOINCREMENT,
-	            title TEXT NOT NULL,
-	            author TEXT NOT NULL,
-	            genre TEXT NOT NULL,
-	            publisher TEXT NOT NULL,
-	            ISBN TEXT NOT NULL,
-	            shelfLocation TEXT NOT NULL,
-	            releaseDate TEXT NOT NULL,
+	            title TEXT NOT NULL, 
+	            author TEXT NOT NULL, 
+	            genre TEXT NOT NULL, 
+	            publisher TEXT NOT NULL, 
+	            ISBN TEXT NOT NULL, 
+	            shelfLocation TEXT NOT NULL, 
+	            releaseDate TEXT NOT NULL, 
+	            count INTEGER NOT NULL,
 	            status TEXT NOT NULL DEFAULT 'Unavailable' -- Unavailable, Available
-	            count INTEGER NOT NULL
 	        );
 	        """;
 	
@@ -85,9 +85,9 @@ public class DBBooks {
     
     
     public static void insertBook(String title, String author, String genre, String publisher, 
-    		String ISBN, String shelfLocation, String releaseDate, String status, int count) {
+    		String ISBN, String shelfLocation, String releaseDate, int count, String status) {
 	    String sql = "INSERT INTO users(title, author, genre, publisher, ISBN, shelfLocation, "
-	    		+ "releaseDate, status, count) "
+	    		+ "releaseDate, count, status) "
 	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
@@ -99,8 +99,8 @@ public class DBBooks {
 	        pstmt.setString(5, ISBN);
 	        pstmt.setString(6, shelfLocation);
 	        pstmt.setString(7, releaseDate);
-	        pstmt.setString(8, status);
-	        pstmt.setInt(9, count);
+	        pstmt.setInt(8, count);
+	        pstmt.setString(9, status);
 	       
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
