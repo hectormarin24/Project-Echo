@@ -12,8 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="mainPackage.SearchBookController">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.SearchBookController">
    <children>
       <AnchorPane layoutX="-7.0" layoutY="-9.0" prefHeight="632.0" prefWidth="903.0">
          <children>
@@ -38,12 +37,12 @@
                               </Button>
                               <ImageView fitHeight="98.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
+                                    <Image url="@../FullLogo_Transparent.png" />
                                  </image>
                               </ImageView>
                               <ImageView fitHeight="61.0" fitWidth="83.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../Downloads/echoLibraryTransparent.png" />
+                                    <Image url="@../echoLibraryTransparent.png" />
                                  </image>
                               </ImageView>
                               <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="488.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />

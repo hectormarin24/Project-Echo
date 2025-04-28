@@ -19,7 +19,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d1c0ba" height="421.0" stroke="BLACK" strokeType="INSIDE" width="549.0" />
                   <ImageView fitHeight="221.0" fitWidth="271.0" layoutX="14.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
+                        <Image url="@../FullLogo_Transparent.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="loginButton" layoutX="332.0" layoutY="262.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="150.0" text="Login" />
