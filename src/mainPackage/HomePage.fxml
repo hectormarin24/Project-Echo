@@ -77,9 +77,9 @@
                   <Hyperlink fx:id="locationLink" layoutX="479.0" layoutY="31.0" onAction="#location" text="Location  |" />
                   <Hyperlink fx:id="homeLink" layoutX="543.0" layoutY="31.0" onAction="#home" text="Home" />
                   <Hyperlink fx:id="searchLink" layoutX="591.0" layoutY="31.0" onAction="#search" text="|  Search" />
-                  <Hyperlink fx:id="contactLink" layoutX="574.0" layoutY="608.0" onAction="#contact" text="Contact  |" />
-                  <Hyperlink fx:id="aboutLink" layoutX="638.0" layoutY="608.0" onAction="#about" text="About" />
-                  <Hyperlink fx:id="creditLink" layoutX="686.0" layoutY="608.0" onAction="#credit" text="|  Credit" />
+                  <Hyperlink fx:id="contactLink" layoutX="574.0" layoutY="608.0" onAction="#contactAccess" text="Contact  |" />
+                  <Hyperlink fx:id="aboutLink" layoutX="638.0" layoutY="608.0" onAction="#aboutAccess" text="About" />
+                  <Hyperlink fx:id="creditLink" layoutX="686.0" layoutY="608.0" onAction="#creditAccess" text="|  Credit" />
                   <Label layoutX="56.0" layoutY="134.0" prefHeight="50.0" prefWidth="680.0" text="Welcome to Echo Library. Many books to explore and read. Want to borrow a book?  " textFill="#ad6449">
                      <font>
                         <Font size="15.0" />
