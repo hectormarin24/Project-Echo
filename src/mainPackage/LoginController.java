@@ -49,6 +49,8 @@ public class LoginController {
 	}
 
 	
+	
+	
 	public void login(ActionEvent event) throws IOException
 	{
 		try 
@@ -67,9 +69,11 @@ public class LoginController {
 			
 			UserObject user = DBUserMethods.searchUserByUsername(username);
 			boolean exists = DBUserMethods.checkUserExist(username, password);
+			
+		
 			if (exists && user.getAdminStatus().equals("User"))
 			{
-			
+					CurrentUser.set(user);
 					root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 					scene = new Scene(root);
@@ -77,6 +81,7 @@ public class LoginController {
 					stage.show();
 			}
 			else if (exists && user.getAdminStatus().equals("Admin")) {
+				CurrentUser.set(user);
 				// Enter JavaFX code here
 			}
 			else {
@@ -96,6 +101,10 @@ public class LoginController {
 		}
 		
 	}
+	
+	
+	
+	
 	public void createAccount(ActionEvent event) throws IOException
 	{
 		try 

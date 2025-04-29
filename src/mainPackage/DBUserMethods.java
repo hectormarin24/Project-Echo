@@ -48,6 +48,7 @@ public class DBUserMethods {
         String password = rs.getString("password");
         String username = rs.getString("username");
         String dob = rs.getString("dob");
+        String membershipStatus = rs.getString("membershipStatus");
         Integer dues = rs.getInt("dues");
         String type = rs.getString("type");
 
@@ -60,12 +61,13 @@ public class DBUserMethods {
         pn("addr " +address);
         pn("username " +username);
         pn("password " + password);
-        pn("dob" +dob);
-        pn("dues " +dues);
+        pn("dob " + dob);
+        pn("Membership " + membershipStatus);
+        pn("dues " + dues);
         pn("");
         pn("");
         
-        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, type);
+        user = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, membershipStatus, type);
 
 
 		return user;
@@ -86,6 +88,7 @@ public class DBUserMethods {
 	            username TEXT UNIQUE NOT NULL,
 	            dob TEXT,
 	            dues INTEGER,
+	            membershipStatus TEXT NOT NULL DEFAULT 'Inactive', -- Inactive, Active
 	            type TEXT NOT NULL DEFAULT 'User' -- User, Admin
 	        );
 	        """;
@@ -240,6 +243,7 @@ public class DBUserMethods {
         String username = rs.getString("username");
         String dob = rs.getString("dob");
         Integer dues = rs.getInt("dues");
+        String membershipStatus = rs.getString("membershipStatus");
         String type = rs.getString("type");
 
         pn("id " + id);
@@ -256,9 +260,9 @@ public class DBUserMethods {
         pn("");
         pn("");
         
-        currentUser = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, type);
-
-
+        currentUser = new UserObject(id, Fname, Lname, Minitial, email, number, address, password, username, dob, dues, membershipStatus, type);
+        
+        
 		return currentUser;
 	}
 	
@@ -286,6 +290,29 @@ public class DBUserMethods {
 		return user;
 	}
 	
+	public static Integer searchUserForId(String username, String password)
+	{
+		String sql = "SELECT id FROM users "
+				+ "WHERE username = ? AND password = ?;";
+		
+		try(Connection conn = DBUserMethods.connect();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+	            int id = rs.getInt("id");
+	            return id;
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public static void chargeUser(int userId, int dues) {
 		String sql = "UPDATE users SET dues = dues + ? "

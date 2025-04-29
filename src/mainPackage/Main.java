@@ -88,7 +88,6 @@ public class Main extends Application {
 		
 		if(alert.showAndWait().get() == ButtonType.OK)
 		{
-
 			stage.close();	
 		}
 	}
@@ -96,19 +95,23 @@ public class Main extends Application {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// Program startup methods
-		ArrayList<UserObject> users = DBUserMethods.showAllUsers();
+		/*ArrayList<UserObject> users = DBUserMethods.showAllUsers();
 		for (int i = 0; i < users.size(); i++) {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
 			System.out.println(user.getUsername() + " " + user.getPassword() + "\n");
-		}
+		}*/
 		
 		// Emulate server at start of program
 		DBWishlist.pingWishlists();
-		DBUserMethods.insertCustomAdmin();
+		//DBUserMethods.insertCustomAdmin();
 		DBReservations.updateAllReservations();
 		DBLoans.checkForOverdueLoans();
-
+		DBUserMethods.createTable();
+		DBBooks.createTable();
+		//title, author, genre, publisher, isbn, shelflocation, release date
+		
+		DBBooks.showAllBooks();
 		launch(args);
 
 	}

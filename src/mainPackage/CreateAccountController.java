@@ -69,6 +69,21 @@ public class CreateAccountController {
 		*/
 	}
 	
+	public void backToLogin(ActionEvent event) throws IOException
+	{
+		try {
+		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);	
+		}
+	}
+	
 	public void returnLogin(ActionEvent event) throws IOException
 	{
 		try 
@@ -81,7 +96,7 @@ public class CreateAccountController {
 			    String email = emailBox.getText().trim();
 	
 			    // Optional fields
-			    String middleInitial = "";
+			    String middleInitial = middleInitialBox.getText().trim();
 			    String address = "";
 			    String dob = "";
 			    String type = "User";
