@@ -204,19 +204,15 @@ public class DBUserMethods {
 		return false;
 	}
 	
-	public static UserObject searchUserByName(String firstname, String lastname, String middleInitial) {
+	public static UserObject searchUserByUsername(String username) {
 		UserObject user = null;
 		String sql = "SELECT * FROM users "
-				+ "WHERE Fname = ?"
-				+ "AND Lname = ?" 
-				+ "AND Minitial = ?;";
+				+ "WHERE username = ?;";
 		
 		try(Connection conn = DBUserMethods.connect();
 			PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
-			pstmt.setString(1, firstname);
-			pstmt.setString(2, lastname);
-			pstmt.setString(3, middleInitial);
+			pstmt.setString(1, username);
 			
 			ResultSet rs = pstmt.executeQuery();
 			user = userDataList(rs);
