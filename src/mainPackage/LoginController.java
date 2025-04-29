@@ -65,7 +65,9 @@ public class LoginController {
 		    	return;
 			}
 			
-			if(DBUserMethods.checkUserExist(username, password) == true)
+			UserObject user = DBUserMethods.searchUserByUsername(username);
+			boolean exists = DBUserMethods.checkUserExist(username, password);
+			if (exists && user.getAdminStatus().equals("User"))
 			{
 			
 					root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -73,6 +75,9 @@ public class LoginController {
 					scene = new Scene(root);
 					stage.setScene(scene);
 					stage.show();
+			}
+			else if (exists && user.getAdminStatus().equals("Admin")) {
+				// Enter JavaFX code here
 			}
 			else {
 				errorLabel.setText("Username And/Or Password Incorrect");
