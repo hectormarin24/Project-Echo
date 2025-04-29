@@ -240,28 +240,24 @@ public class HomePageController
 			System.out.println(e2);
 		}
 	}
-	public void myAccount(ActionEvent event) throws IOException
+	
+	public void profileAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
 			root = loader.load();
 			ProfileController profileController = loader.getController();
-			profileController.displayInfo("1", "2", "3", "4", "5", "6");
+			profileController.displayInfo(CurrentUser.get().getFname() + " " + CurrentUser.get().getMinitial() + " " + CurrentUser.get().getLname()
+					, CurrentUser.get().getUsername(), CurrentUser.get().getEmail()
+					, CurrentUser.get().getNumber(), CurrentUser.get().getMembershipStatus(), "6");
 			
-			
-			/*FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccount.fxml"));
-			root = loader.load();
-			AdminAccountController adminAccountController = loader.getController();
-			adminAccountController.displayAdminAccountInfo("1","2","3","4","5","6");*/
 			//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
 		}
-		
 		catch(IOException e)
 		{
 			System.out.println(e);
@@ -271,7 +267,6 @@ public class HomePageController
 			System.out.println(e2);
 		}
 	}
-	
 	
 	//SOCIAL MEDIA PARTS
 		public void faceBookAccess(ActionEvent event) throws IOException
@@ -422,48 +417,35 @@ public class HomePageController
 		genreLabel4.setText("Genre " + current4 + ":");
 
 	}
-	public void searchBarToSearch(ActionEvent event)
+	
+	public void searchBarToSearch(ActionEvent event) throws IOException
 	{
 		try 
 		{
 			String search = searchBar.getText();
-			
-			if(search.isEmpty()) {
-				return;
-			}
-			
-			if(DBBooks.searchBook(search) == true)
-			{
-			
-			
+			if(DBBooks.searchBook(search)) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
 			root = loader.load();
-			SearchBookController searchBook = loader.getController();
-			searchBook.searchForBook(search);
+			SearchBookController profileController = loader.getController();
+			profileController.searchForBook(search);
 			
-			//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+			root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
 			}
-			else {
-
-		    	return;
-			}
-		
+			
 		}
 		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
 		catch(Exception e2)
 		{
 			System.out.println(e2);
 		}
 		
 	}
+
+	
 
 	
 
