@@ -52,6 +52,7 @@ public class DBBooks {
 	    String sql = """
 	        CREATE TABLE IF NOT EXISTS books (
 	            id INTEGER PRIMARY KEY AUTOINCREMENT,
+
 	            title TEXT NOT NULL,
 	            author TEXT NOT NULL,
 	            genre TEXT NOT NULL,
@@ -90,6 +91,7 @@ public class DBBooks {
     
     
     public static void insertBook(String title, String author, String genre, String publisher, 
+
     		String ISBN, String shelfLocation, String releaseDate, String status, int amount) {
 	    String sql = "INSERT INTO books(title, author, genre, publisher, ISBN, shelfLocation, "
 	    		+ "releaseDate, amount, status) "
@@ -105,6 +107,8 @@ public class DBBooks {
 	        pstmt.setString(6, shelfLocation);
 	        pstmt.setString(7, releaseDate);
 	        pstmt.setInt(8, amount);
+
+
 	        pstmt.setString(9, status);
 	       
 	        pstmt.executeUpdate();

@@ -201,7 +201,9 @@ public class DBUserMethods {
 	}
 	
 	public static boolean checkUserExist(String username, String password) {
+
 	    String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+
 
 	    try (Connection conn = DBUserMethods.connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -209,18 +211,17 @@ public class DBUserMethods {
 	        pstmt.setString(1, username);
 	        pstmt.setString(2, password);
 	        ResultSet rs = pstmt.executeQuery();
+
 	        if(rs.next()) {
 	        	loadUser(rs);
 	        	return true;
 	        }
 	        return rs.next();
 	        
-	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        return false;
 	    }
-		
+		return false;
 	}
 	
 	
