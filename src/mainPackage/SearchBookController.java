@@ -33,9 +33,7 @@ public class SearchBookController implements Initializable{
 	ChoiceBox<String> keywordChoice;
 	String[] keywords = {"Choice1","Choice2","Choice3","Choice4"};
 	
-	@FXML
-	ChoiceBox<String> eBookChoice;
-	String[] ebooks = {"Physical"};
+	
 	
 	@FXML
 	ChoiceBox<String> genreChoice;
@@ -370,28 +368,26 @@ public class SearchBookController implements Initializable{
 					System.out.println(e2);
 				}
 			}
-			public void searchBarToSearch(ActionEvent event)
+			public void searchBarToSearch(ActionEvent event) throws IOException
 			{
 				try 
 				{
 					String search = searchBar.getText();
+					if(DBBooks.searchBook(search)) {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
 					root = loader.load();
 					SearchBookController profileController = loader.getController();
 					profileController.searchForBook(search);
 					
-					//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+					root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 					scene = new Scene(root);
 					stage.setScene(scene);
 					stage.show();
-				
+					}
+					
 				}
 				
-				catch(IOException e)
-				{
-					System.out.println(e);
-				}
 				catch(Exception e2)
 				{
 					System.out.println(e2);
@@ -405,7 +401,6 @@ public class SearchBookController implements Initializable{
 			@Override
 			public void initialize(URL arg0, ResourceBundle arg1) {
 				keywordChoice.getItems().addAll(keywords);
-				eBookChoice.getItems().addAll(ebooks);
 				genreChoice.getItems().addAll(genres);
 				languageChoice.getItems().addAll(languages);
 			

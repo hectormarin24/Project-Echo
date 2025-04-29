@@ -2,7 +2,7 @@ package mainPackage;
 
 public class UserObject{
 	//Fields 
-	private String id;
+	private int id;
 	private String Fname;
     private String Lname;
     private String Minitial;
@@ -12,13 +12,14 @@ public class UserObject{
     private String password;
     private String username;
     private String dob;
-    private String dues;
+    private String membershipStatus;
+    private int dues;
     private String isAdmin;
     
     //Constructor
-    public UserObject(int id, String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, int dues, String isAdmin) {
+    public UserObject(int id, String Fname, String Lname, String Minitial, String email, String number, String address, String password, String username, String dob, int dues, String membershipStatus, String isAdmin) {
     	
-    	this.id = Integer.toString(id);
+    	this.id = id;
     	this.Fname = Fname;
     	this.Lname = Lname;
     	this.Minitial = Minitial;
@@ -28,12 +29,13 @@ public class UserObject{
     	this.password = password;
     	this.username = username;
     	this.dob = dob;
-    	this.dues = Integer.toString(dues);
+    	this.dues = dues;
+    	this.membershipStatus = membershipStatus;
     	this.isAdmin = isAdmin;
     }
     
     //Methods
-    public String getID() {
+    public int getID() {
     	return id;
     }
     
@@ -73,8 +75,12 @@ public class UserObject{
     	return dob;
     }
     
-    public String getDues() {
+    public int getDues() {
     	return dues;
+    }
+    
+    public String getMembershipStatus() {
+    	return membershipStatus;
     }
     
     public String getAdminStatus() {

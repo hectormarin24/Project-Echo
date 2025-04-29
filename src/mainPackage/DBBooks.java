@@ -60,7 +60,6 @@ public class DBBooks {
 	            ISBN TEXT NOT NULL,
 	            shelfLocation TEXT NOT NULL,
 	            releaseDate TEXT NOT NULL,
-	            amount INTEGER NOT NULL,
 	            status TEXT NOT NULL DEFAULT 'Unavailable' -- Unavailable, Available
 	        );
 	        """;
@@ -91,11 +90,10 @@ public class DBBooks {
     
     
     public static void insertBook(String title, String author, String genre, String publisher, 
-
-    		String ISBN, String shelfLocation, String releaseDate, String status, int amount) {
+    		String ISBN, String shelfLocation, int releaseDate) {
 	    String sql = "INSERT INTO books(title, author, genre, publisher, ISBN, shelfLocation, "
-	    		+ "releaseDate, amount, status) "
-	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    		+ "releaseDate) "
+	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
 	
 	    try (Connection conn = connect();
 	        var pstmt = conn.prepareStatement(sql)) {
@@ -105,12 +103,7 @@ public class DBBooks {
 	        pstmt.setString(4, publisher);
 	        pstmt.setString(5, ISBN);
 	        pstmt.setString(6, shelfLocation);
-	        pstmt.setString(7, releaseDate);
-	        pstmt.setInt(8, amount);
-
-
-	        pstmt.setString(9, status);
-	       
+	        pstmt.setInt(7, releaseDate);
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
 	    } catch (SQLException e) {
@@ -142,7 +135,7 @@ public class DBBooks {
     
     public static boolean searchBook(String search)
     {
-    	String sql = "SELECT * FROM books WHERE books = ?";
+    	String sql = "SELECT * FROM books WHERE title = ?";
 
 	    try (Connection conn = connect();
 	         PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -278,7 +271,6 @@ public class DBBooks {
  	                               rs.getString("publisher") + " - " +
  	                               rs.getString("ISBN") + " - " +
  	                               rs.getString("shelfLocation") + " - " +
- 	                               rs.getString("amount") + " - " +
  	                               rs.getString("status"));
  	        }
  	    } catch (SQLException e) {

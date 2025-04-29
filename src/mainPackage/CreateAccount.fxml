@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.CreateAccountController"
-            style="-fx-background-color: #f2ede9;">
+<AnchorPane style="-fx-background-color: #f2ede9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.CreateAccountController">
    <children>
       <!-- Main Container for the content -->
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="600.0">
@@ -31,7 +30,7 @@
             <TextField fx:id="firstNameBox" layoutX="370.0" layoutY="115.0" prefHeight="36.0" prefWidth="150.0" />
 
             <!-- Middle Initial -->
-            <Label layoutX="540.0" layoutY="90.0" text="Middle Initial:">
+            <Label layoutX="523.0" layoutY="90.0" text="Middle Initial:">
                <font>
                   <Font size="17.0" />
                </font>
@@ -39,7 +38,7 @@
             <TextField fx:id="middleInitialBox" layoutX="540.0" layoutY="115.0" prefHeight="36.0" prefWidth="60.0" promptText="*Optional*" />
 
             <!-- Last Name -->
-            <Label layoutX="620.0" layoutY="90.0" text="Last Name:">
+            <Label layoutX="661.0" layoutY="90.0" text="Last Name:">
                <font>
                   <Font size="17.0" />
                </font>
@@ -93,7 +92,7 @@
             </Button>
 
             <!-- Login Link -->
-            <Hyperlink fx:id="logInLink" layoutX="720.0" layoutY="495.0" onAction="#returnLogin" text="Log In!">
+            <Hyperlink fx:id="logInLink" layoutX="720.0" layoutY="495.0" onAction="#backToLogin" text="Log In!">
                <font>
                   <Font size="15.0" />
                </font>
@@ -115,4 +114,3 @@
       </AnchorPane>
    </children>
 </AnchorPane>
-

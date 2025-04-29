@@ -74,7 +74,9 @@ public class ProfileController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
 			root = loader.load();
 			ProfileController profileController = loader.getController();
-			profileController.displayInfo("1", "2", "3", "4", "5", "6");
+			profileController.displayInfo(CurrentUser.get().getFname() + " " + CurrentUser.get().getMinitial() + " " + CurrentUser.get().getLname()
+					, CurrentUser.get().getUsername(), CurrentUser.get().getEmail()
+					, CurrentUser.get().getNumber(), CurrentUser.get().getMembershipStatus(), "6");
 			
 			//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

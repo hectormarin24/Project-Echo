@@ -1,5 +1,6 @@
 # Project-Echo
  Library Project CSC 131
+JDK 24.0.1
 
  This is an application designed to be a way for users and administrators to access the information of a library database. 
  
@@ -8,3 +9,6 @@
  Administrators of the system can alter the information about various elements in the database, such as modifying their content, adding new elements, or deleting elements. The various elements that can be altered are books, loans, users, and reservations.
  
  When users are done with the application, it is very easy to sign out and exit the program. Thank you for using the Echo Library Application!
+
+
+
