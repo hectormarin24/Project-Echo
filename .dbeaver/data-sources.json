@@ -28,6 +28,34 @@
 				"closeIdleConnection": true,
 				"auth-model": "native"
 			}
+		},
+		"sqlite_jdbc-1967a1cc9c4-180266a6dc7e31a8": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "loans.db",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\loans.db",
+				"url": "jdbc:sqlite:C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\loans.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"sqlite_jdbc-1967a67687b-79913b2c6ddea1": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "books.db",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\books.db",
+				"url": "jdbc:sqlite:C:\\Users\\hectormarin\\OneDrive\\Documents\\GitHub\\Project-Echo\\db\\books.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
 		}
 	},
 	"connection-types": {

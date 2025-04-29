@@ -102,13 +102,6 @@ public class Main extends Application {
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
 			System.out.println(user.getUsername() + " " + user.getPassword() + "\n");
 		}
-		DBUserMethods.showAllUsers();
-		
-		DBBooks.createTable();
-		DBLoans.createTable();
-		DBReservations.createTable();
-		DBUserMethods.createTable();
-		DBWishlist.createTable();
 		
 		// Emulate server at start of program
 		DBWishlist.pingWishlists();
@@ -117,9 +110,9 @@ public class Main extends Application {
 		DBLoans.checkForOverdueLoans();
 
 		launch(args);
+
 	}
 
-
+}
 	
 
-}

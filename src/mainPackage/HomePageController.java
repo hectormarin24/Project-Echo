@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 public class HomePageController
 {
 	private Stage stage;
@@ -59,6 +60,8 @@ public class HomePageController
 	Label genreLabel3;
 	@FXML
 	Label genreLabel4;
+	@FXML
+	Label errorLabel;
 	
 	//Text for under the Images
 	
@@ -424,6 +427,15 @@ public class HomePageController
 		try 
 		{
 			String search = searchBar.getText();
+			
+			if(search.isEmpty()) {
+				return;
+			}
+			
+			if(DBBooks.searchBook(search) == true)
+			{
+			
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
 			root = loader.load();
 			SearchBookController searchBook = loader.getController();
@@ -434,6 +446,11 @@ public class HomePageController
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+			}
+			else {
+
+		    	return;
+			}
 		
 		}
 		

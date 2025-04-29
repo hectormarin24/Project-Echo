@@ -1,127 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.WishListController">
-   <children>
-      <AnchorPane fx:id="scenePane" layoutY="-4.0">
-         <children>
-            <AnchorPane prefHeight="554.0" prefWidth="774.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="626.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
-                  <Button fx:id="reserveBookButton" layoutX="54.0" layoutY="198.0" mnemonicParsing="false" onAction="#reserveBooksAccesss" text="Reserve Books">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="wishListButton" layoutX="54.0" layoutY="257.0" mnemonicParsing="false" onAction="#wishListAccess" prefHeight="39.0" prefWidth="139.0" text="Wish List">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="borrowHistoryButton" layoutX="54.0" layoutY="316.0" mnemonicParsing="false" onAction="#borrowHistoryAccess" text="Borrow History">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="profileButton" layoutX="54.0" layoutY="136.0" mnemonicParsing="false" onAction="#profileAccess" prefHeight="39.0" prefWidth="139.0" text="Profile">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="98.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="61.0" fitWidth="83.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Downloads/echoLibraryTransparent.png" />
-                     </image>
-                  </ImageView>
-                  <Line endX="-99.99998474121094" endY="295.79998779296875" layoutX="355.0" layoutY="133.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                  <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="323.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                  <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="488.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                  <Hyperlink fx:id="locationLink" layoutX="475.0" layoutY="22.0" onAction="#locationAccess" text="Location  |" />
-                  <Hyperlink fx:id="homeLink" layoutX="538.0" layoutY="22.0" onAction="#homeAccess" text="Home" />
-                  <Hyperlink fx:id="searchLink" layoutX="587.0" layoutY="22.0" onAction="#searchAccess" text="|  Search" />
-                  <Hyperlink fx:id="contactLink" layoutX="626.0" layoutY="558.0" onAction="#contactAccess" text="Contact  |" />
-                  <Hyperlink fx:id="aboutLink" layoutX="690.0" layoutY="558.0" onAction="#aboutAccess" text="About" />
-                  <Hyperlink fx:id="creditLink" layoutX="738.0" layoutY="558.0" onAction="#creditAccess" text="|  Credit" />
-                  <Button fx:id="facebookButton" layoutX="344.0" layoutY="569.0" mnemonicParsing="false" onAction="#faceBookAccess" text="FaceBook" />
-                  <Button fx:id="instagramButton" layoutX="427.0" layoutY="569.0" mnemonicParsing="false" onAction="#instagramAccess" text="Instagram" />
-                  <Button fx:id="twitterButton" layoutX="522.0" layoutY="569.0" mnemonicParsing="false" onAction="#twitterAccess" text="Twitter" />
-                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="512.0" prefHeight="50.0" prefWidth="200.0" text="Follow Echo Library On Our Social Medias!" textFill="#ad6449">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="122.0" layoutX="273.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Desktop/gabriel.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bookPicture2" fitHeight="150.0" fitWidth="122.0" layoutX="273.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../Desktop/gabriel.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="271.0" layoutY="31.0" text="WishList" textFill="#ad6449">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="titleLabel1" layoutX="422.0" layoutY="89.0" text="Title:" textFill="#ad6449">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="authorIsbnLabel1" layoutX="422.0" layoutY="118.0" text="Author and ISBN:" textFill="#ad6449" />
-                  <Label fx:id="bookTypeLabel1" layoutX="424.0" layoutY="142.0" text="Book Type:" textFill="#ad6449" />
-                  <Label fx:id="genreLabel1" layoutX="424.0" layoutY="166.0" text="Genre:" textFill="#ad6449" />
-                  <Label fx:id="promptLabel1" layoutX="424.0" layoutY="189.0" prefHeight="17.0" prefWidth="209.0" text="Prompt" textFill="#ad6449" />
-                  <Label fx:id="statusLabel1" layoutX="639.0" layoutY="101.0" text="Status:" textFill="#ad6449" />
-                  <Label fx:id="bookIdLabel1" layoutX="639.0" layoutY="133.0" text="BookID:" textFill="#ad6449" />
-                  <Hyperlink fx:id="borroLiborrowLink1" layoutX="573.0" layoutY="206.0" text="Borrow |" />
-                  <Hyperlink fx:id="wishListLink1" layoutX="629.0" layoutY="206.0" text="WishList" />
-                  <Hyperlink fx:id="removeLink1" layoutX="685.0" layoutY="206.0" text="|    Remove" />
-                  <Hyperlink fx:id="borrowLink2" layoutX="584.0" layoutY="363.0" text="Borrow |" />
-                  <Hyperlink fx:id="wishListLink2" layoutX="640.0" layoutY="363.0" text="WishList" />
-                  <Hyperlink fx:id="removeLink2" layoutX="696.0" layoutY="363.0" text="|    Remove" />
-                  <Label fx:id="titleLabel2" layoutX="429.0" layoutY="243.0" text="Title:" textFill="#ad6449">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="authorIsbnLabel2" layoutX="429.0" layoutY="272.0" text="Author and ISBN:" textFill="#ad6449" />
-                  <Label fx:id="bookTypeLabel2" layoutX="431.0" layoutY="296.0" text="Book Type:" textFill="#ad6449" />
-                  <Label fx:id="genreLabel2" layoutX="431.0" layoutY="320.0" text="Genre:" textFill="#ad6449" />
-                  <Label fx:id="promptLabel2" layoutX="431.0" layoutY="343.0" prefHeight="17.0" prefWidth="209.0" text="Prompt" textFill="#ad6449" />
-                  <Label fx:id="statusLabel2" layoutX="646.0" layoutY="255.0" text="Status:" textFill="#ad6449" />
-                  <Label fx:id="bookIdLabel2" layoutX="646.0" layoutY="287.0" text="BookID:" textFill="#ad6449" />
-                  <Label fx:id="helloEndUserLabel" layoutX="732.0" layoutY="23.0" text="Hello END USER!" textFill="#ad6449">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="signOut" layoutX="750.0" layoutY="49.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="userIdLabel" layoutX="740.0" layoutY="80.0" text="USER ID:" textFill="#ad6449" />
-                  <Button fx:id="linkedInButton" layoutX="256.0" layoutY="569.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-   </children>
+    <children>
+        <AnchorPane fx:id="scenePane" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" stroke="BLACK" strokeType="INSIDE" 
+                                  AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+
+                        <!-- Logo -->
+                        <ImageView fitHeight="100.0" fitWidth="150.0" preserveRatio="true" pickOnBounds="true" 
+                                   AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0"/>
+
+                        <!-- Side Buttons -->
+                        <VBox spacing="15.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="120.0" prefWidth="150.0">
+                            <children>
+                                <Button fx:id="profileButton" onAction="#profileAccess" text="Profile" maxWidth="1.7976931348623157E308">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="reserveBookButton" onAction="#reserveBooksAccesss" text="Reserve Books" maxWidth="1.7976931348623157E308">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="wishListButton" onAction="#wishListAccess" text="Wish List" maxWidth="1.7976931348623157E308">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Button>
+                                <Button fx:id="borrowHistoryButton" onAction="#borrowHistoryAccess" text="Borrow History" maxWidth="1.7976931348623157E308">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+
+                        <!-- Header Links -->
+                        <HBox spacing="10.0" AnchorPane.topAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                            <children>
+                                <Hyperlink fx:id="locationLink" onAction="#locationAccess" text="Location  |"/>
+                                <Hyperlink fx:id="homeLink" onAction="#homeAccess" text="Home"/>
+                                <Hyperlink fx:id="searchLink" onAction="#searchAccess" text="|  Search"/>
+                            </children>
+                        </HBox>
+
+                        <!-- Book Section Title -->
+                        <Label text="WishList" textFill="#ad6449" AnchorPane.topAnchor="70.0" AnchorPane.leftAnchor="270.0">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Label>
+
+                        <!-- First Book -->
+                        <HBox spacing="20.0" AnchorPane.topAnchor="120.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="20.0">
+                            <children>
+                                <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="120.0" preserveRatio="true" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../../../Desktop/gabriel.png" />
+                                    </image>
+                                </ImageView>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label fx:id="titleLabel1" text="Title:" textFill="#ad6449">
+                                            <font><Font size="15.0"/></font>
+                                        </Label>
+                                        <Label fx:id="authorIsbnLabel1" text="Author and ISBN:" textFill="#ad6449"/>
+                                        <Label fx:id="bookTypeLabel1" text="Book Type:" textFill="#ad6449"/>
+                                        <Label fx:id="genreLabel1" text="Genre:" textFill="#ad6449"/>
+                                        <Label fx:id="promptLabel1" text="Prompt" textFill="#ad6449"/>
+                                        <HBox spacing="5.0">
+                                            <children>
+                                                <Hyperlink fx:id="borroLiborrowLink1" text="Borrow |"/>
+                                                <Hyperlink fx:id="wishListLink1" text="WishList"/>
+                                                <Hyperlink fx:id="removeLink1" text="| Remove"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label fx:id="statusLabel1" text="Status:" textFill="#ad6449"/>
+                                                <Label fx:id="bookIdLabel1" text="BookID:" textFill="#ad6449"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Second Book -->
+                        <HBox spacing="20.0" AnchorPane.topAnchor="300.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="20.0">
+                            <children>
+                                <ImageView fx:id="bookPicture2" fitHeight="150.0" fitWidth="120.0" preserveRatio="true" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../../../Desktop/gabriel.png" />
+                                    </image>
+                                </ImageView>
+                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label fx:id="titleLabel2" text="Title:" textFill="#ad6449"/>
+                                        <Label fx:id="authorIsbnLabel2" text="Author and ISBN:" textFill="#ad6449"/>
+                                        <Label fx:id="bookTypeLabel2" text="Book Type:" textFill="#ad6449"/>
+                                        <Label fx:id="genreLabel2" text="Genre:" textFill="#ad6449"/>
+                                        <Label fx:id="promptLabel2" text="Prompt" textFill="#ad6449"/>
+                                        <HBox spacing="5.0">
+                                            <children>
+                                                <Hyperlink fx:id="borrowLink2" text="Borrow |"/>
+                                                <Hyperlink fx:id="wishListLink2" text="WishList"/>
+                                                <Hyperlink fx:id="removeLink2" text="| Remove"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label fx:id="statusLabel2" text="Status:" textFill="#ad6449"/>
+                                                <Label fx:id="bookIdLabel2" text="BookID:" textFill="#ad6449"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Footer -->
+                        <HBox spacing="20.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="340.0">
+                            <children>
+                                <Button fx:id="facebookButton" onAction="#faceBookAccess" text="FaceBook" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+                                <Button fx:id="instagramButton" onAction="#instagramAccess" text="Instagram" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+                                <Button fx:id="twitterButton" onAction="#twitterAccess" text="Twitter" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+                            </children>
+                        </HBox>
+
+                        <Label text="Follow Echo Library On Our Social Medias!" textFill="#ad6449" 
+                               AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="362.0">
+                            <font><Font size="10.0"/></font>
+                        </Label>
+
+                        <!-- Bottom Links -->
+                        <HBox spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="20.0">
+                            <children>
+                                <Hyperlink fx:id="contactLink" onAction="#contactAccess" text="Contact  |"/>
+                                <Hyperlink fx:id="aboutLink" onAction="#aboutAccess" text="About"/>
+                                <Hyperlink fx:id="creditLink" onAction="#creditAccess" text="|  Credit"/>
+                            </children>
+                        </HBox>
+
+                        <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" 
+                                   AnchorPane.leftAnchor="20.0" AnchorPane.bottomAnchor="20.0"/>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

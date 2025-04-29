@@ -94,7 +94,7 @@ public class WishListController
 				String genreLab1, String genreLab2, String prompt1, String prompt2, String status1, String status2, String IDBook1, String IDBook2, String userId)
 				{
 					titleLabel1.setText("Title: " + title1);
-					titleLabel2.setText("Title: " + title2);
+					//titleLabel2.setText("Title: " + title2);
 					authorIsbnLabel1.setText("Author and ISBN: " +  authorLabel1);
 					authorIsbnLabel2.setText("Author and ISBN: " +  authorLabel2);
 					bookTypeLabel1.setText("Book type: " +  bookLabel1);
@@ -107,7 +107,7 @@ public class WishListController
 					statusLabel2.setText("Status: " +  status2);
 					bookIdLabel1.setText("BookID: " +  IDBook1);
 					bookIdLabel2.setText("BookID: " +  IDBook2);
-					userIdLabel.setText("USERID: " +  userId);
+					//userIdLabel.setText("USERID: " +  userId);
 
 					//bookPicture1.setImage(myImage2);
 					//bookPicture2.setImage(myImage1);
