@@ -100,23 +100,8 @@ public class Main extends Application {
 		for (int i = 0; i < users.size(); i++) {
 			UserObject user = users.get(i);
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
-<<<<<<< HEAD
-		}*/
-		//DBUserMethods.showAllUsers();
-		//DBBooks.insertBook("Harry Potter", "JK Rowling", "Fiction", "Pubcc", "57565572938293", "SF3", "09/20/2005", "Available", 1);
-		//DBBooks.createTable();
-		//DBBooks.showAllBooks();
-		//DBUserMethods.showAllUsers();
-=======
 			System.out.println(user.getUsername() + " " + user.getPassword() + "\n");
 		}
-		DBUserMethods.showAllUsers();
-		
-		DBBooks.createTable();
-		DBLoans.createTable();
-		DBReservations.createTable();
-		DBUserMethods.createTable();
-		DBWishlist.createTable();
 		
 		// Emulate server at start of program
 		DBWishlist.pingWishlists();
@@ -125,10 +110,9 @@ public class Main extends Application {
 		DBLoans.checkForOverdueLoans();
 
 		launch(args);
->>>>>>> ca4946744873d65238b36135a4f440887df2fe1b
+
 	}
 
-
+}
 	
 
-}
