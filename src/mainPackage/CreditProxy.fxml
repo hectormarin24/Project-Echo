@@ -1,72 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactPageController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="488.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
-      <AnchorPane prefHeight="488.0" prefWidth="816.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button layoutX="594.0" layoutY="425.0" mnemonicParsing="false" onAction="#openGH" prefHeight="36.0" prefWidth="35.0">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/GitHubLogo.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="497.0" layoutY="426.0" mnemonicParsing="false" onAction="#openLI" prefHeight="34.0" prefWidth="42.0">
-               <graphic>
-                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/LinkedInLogo.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="384.0" layoutY="424.0" mnemonicParsing="false" onAction="#openIG" prefHeight="35.0" prefWidth="42.0">
-               <graphic>
-                  <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/InstagramLogo.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="272.0" layoutY="427.0" mnemonicParsing="false" onAction="#openX" prefHeight="0.0" prefWidth="0.0">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/XLogo.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-      <Button fx:id="FB" layoutX="153.0" layoutY="426.0" mnemonicParsing="false" onAction="#openFB" prefHeight="34.0" prefWidth="42.0">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Downloads/FacebookLogo.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-         
-      <Button layoutX="419.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToCredit" text="Credit" textFill="#ad6449" />
-      <Button layoutX="329.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToContact" text="Contact" textFill="#ad6449" />
-      <Button layoutX="250.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToAbout" text="About" textFill="#ad6449" />
-      <Button layoutX="172.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToHome" text="Home" textFill="#ad6449" />
-      <ImageView fx:id="Logo" fitHeight="129.0" fitWidth="168.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Downloads/FullLogo_Transparent.png" />
-         </image>
-      </ImageView>
-      <Text fill="#ad6449" layoutX="42.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meet the team:" wrappingWidth="753.3367309570312" AnchorPane.bottomAnchor="328.98828125" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="20.66326904296875" AnchorPane.topAnchor="143.05078125" />
-      </children></AnchorPane>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="816.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.ContactPageController">
+  <children>
+     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="488.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
+     <AnchorPane prefHeight="488.0" prefWidth="816.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+           <Button layoutX="594.0" layoutY="425.0" mnemonicParsing="false" onAction="#openBS" prefHeight="36.0" prefWidth="35.0">
+              <graphic>
+                 <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@../BlueskyLogo.png" />
+                    </image>
+                 </ImageView>
+              </graphic>
+           </Button>
+           <Button layoutX="497.0" layoutY="426.0" mnemonicParsing="false" onAction="#openLI" prefHeight="34.0" prefWidth="42.0">
+              <graphic>
+                 <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@../LinkedInLogo.png" />
+                    </image>
+                 </ImageView>
+              </graphic>
+           </Button>
+           <Button layoutX="384.0" layoutY="424.0" mnemonicParsing="false" onAction="#openIG" prefHeight="35.0" prefWidth="42.0">
+              <graphic>
+                 <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@../InstagramLogo.png" />
+                    </image>
+                 </ImageView>
+              </graphic>
+           </Button>
+           <Button layoutX="272.0" layoutY="427.0" mnemonicParsing="false" onAction="#openX" prefHeight="0.0" prefWidth="0.0">
+              <graphic>
+                 <ImageView fitHeight="25.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                       <Image url="@../XLogo.jpg" />
+                    </image>
+                 </ImageView>
+              </graphic>
+           </Button>
+     <Button fx:id="FB" layoutX="153.0" layoutY="426.0" mnemonicParsing="false" onAction="#openFB" prefHeight="34.0" prefWidth="42.0">
+        <graphic>
+           <ImageView fitHeight="34.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../FacebookLogo.png" />
+              </image>
+           </ImageView>
+        </graphic></Button>
+       
+     <Button layoutX="419.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToCredit" text="Credit" textFill="#ad6449" />
+     <Button layoutX="329.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToContact" text="Contact" textFill="#ad6449" />
+     <Button layoutX="250.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToAbout" text="About" textFill="#ad6449" />
+     <Button layoutX="172.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToHome" text="Home" textFill="#ad6449" />
+     <ImageView fx:id="Logo" fitHeight="129.0" fitWidth="168.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+           <Image url="@../FullLogo_Transparent.png" />
+        </image>
+     </ImageView>
+     <Text fill="#ad6449" layoutX="42.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meet the team:" wrappingWidth="753.3367309570312" AnchorPane.bottomAnchor="328.98828125" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="20.66326904296875" AnchorPane.topAnchor="143.05078125" />
+           <Text fill="#ad6449" layoutX="42.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hector Marin (Project Manager)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="221.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caden Pestana (Programmer)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="409.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sarah Lee (Designer)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="594.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alan Kushnir (Analyst)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="42.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Binyi Chen (Designer)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="221.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kaylina Savatdy (Quality Control)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="409.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ethan Richard (Programmer)" wrappingWidth="175.7366943359375" />
+           <Text fill="#ad6449" layoutX="594.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nicholas Safran (Programmer)" wrappingWidth="175.7366943359375" />
+           <ImageView fitHeight="91.0" fitWidth="58.0" layoutX="80.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Hector.jpg" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="67.0" layoutX="283.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Caden.jpg" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="67.0" layoutX="448.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Sarah.jpg" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="105.0" layoutX="604.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Alan.png" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="67.0" layoutX="74.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Binyi.png" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="88.0" layoutX="269.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Kaylina.jpg" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="431.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Ethan.jpg" />
+              </image>
+           </ImageView>
+           <ImageView fitHeight="91.0" fitWidth="80.0" layoutX="617.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../Nicholas.jpg" />
+              </image>
+           </ImageView>
+     </children></AnchorPane>
+  </children>
 </AnchorPane>

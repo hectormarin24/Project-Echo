@@ -80,9 +80,9 @@ public class AboutPageController {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public void openGH(ActionEvent event) {
+	public void openBS(ActionEvent event) {
 		try {
-			Desktop.getDesktop().browse(new URL("https://github.com/hectormarin24/ProjectEcho").toURI());
+			Desktop.getDesktop().browse(new URL("https://bsky.app/profile/echolibrary.bsky.social").toURI());
 		} catch (Exception e) {}
 	}
 	

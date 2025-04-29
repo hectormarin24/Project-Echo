@@ -118,7 +118,7 @@ public class HomePageController
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -160,7 +160,7 @@ public class HomePageController
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -181,7 +181,7 @@ public class HomePageController
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("AboutPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
