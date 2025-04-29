@@ -88,7 +88,19 @@ public class WishListController
 				stage.close();	
 			}
 		}
-
+		public void ifEsc()
+		{
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Sign Out");
+			alert.setHeaderText("You are about to sign out!");
+			alert.setContentText("Do you want to save before exiting?");
+			
+			if(alert.showAndWait().get() == ButtonType.OK)
+			{
+				stage = (Stage) scenePane.getScene().getWindow();
+				stage.close();	
+			}
+		}
 		
 		public void displayWishListInfo(String title1, String title2, String authorLabel1, String authorLabel2, String bookLabel1, String bookLabel2,
 				String genreLab1, String genreLab2, String prompt1, String prompt2, String status1, String status2, String IDBook1, String IDBook2, String userId)
@@ -444,71 +456,71 @@ public class WishListController
 			}
 		}
 
-	public void contactAccess(ActionEvent event) throws IOException
-	{
-		try 
+		public void contactAccess(ActionEvent event) throws IOException
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
+			try 
+			{
+				root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
 
-		
-		
-	}
-	public void aboutAccess(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			
+			
 		}
-		catch(IOException e)
+		public void aboutAccess(ActionEvent event) throws IOException
 		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
+			try 
+			{
+				root = FXMLLoader.load(getClass().getResource("AboutPage.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
 
-		
-		
-	}
-	public void creditAccess(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			
+			
 		}
-		catch(IOException e)
+		public void creditAccess(ActionEvent event) throws IOException
 		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
+			try 
+			{
+				root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+			catch(IOException e)
+			{
+				System.out.println(e);
+			}
+			catch(Exception e2)
+			{
+				System.out.println(e2);
+			}
 
-		
-		
-	}
+			
+			
+		}
 	
 }

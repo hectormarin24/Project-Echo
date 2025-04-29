@@ -18,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 //Image stuff imported
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
 
 import javafx.scene.input.KeyEvent;
@@ -58,10 +59,59 @@ public class Main extends Application {
 
 			//To get this to work either put a "/" in front of the file; or you take the fxml file to the application process.
 
-			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			/*Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Scene scene = new Scene(root);	
+			stage.setScene(scene);
+			stage.show();*/
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+			Parent root = loader.load();	
+			LoginController controller = loader.getController();
 			Scene scene = new Scene(root);	
 			stage.setScene(scene);
 			stage.show();
+			
+			
+			scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					
+					//System.out.println(event.getCode());
+					boolean ctrl = false;
+					//boolean shft = false;
+					//boolean alt = false;
+					if(event.isControlDown())
+					{
+						ctrl = true;
+					}
+					try
+					{
+						switch(event.getCode()) {
+						case ESCAPE:
+							controller.ifEsc();
+							break;
+						/*case F:
+						{
+						
+							String s = controller.ifF(ctrl);
+							Parent root = FXMLLoader.load(getClass().getResource(s));
+							Scene scene = new Scene(root);	
+							stage.setScene(scene);
+							stage.show();
+							ctrl = false;
+							break;
+	
+						}*/
+						default:
+							break;
+						}
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+				}	
+			});
+
 	
 			
 			

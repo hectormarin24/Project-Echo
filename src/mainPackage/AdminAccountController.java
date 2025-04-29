@@ -57,7 +57,19 @@ public class AdminAccountController {
 	}
 	
 	
-	
+	public void ifEsc()
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
 	
 	
 	public void displayAdminAccountInfo(String title1, String username, String email, String phoneNumber, String membership, String adminID)
@@ -384,7 +396,7 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -406,7 +418,7 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("AboutPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -428,7 +440,7 @@ public class AdminAccountController {
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

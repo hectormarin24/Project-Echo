@@ -8,8 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -27,28 +32,54 @@ public class LoginController {
 	private Parent root;
 	
 	
-	public void ifH()
+
+	/*public void ifF(boolean ctrl)
 	{
-		System.out.println("H has been pressed");
-	}
-	public void ifF()
-	{
-		System.out.println("H has been pressed");
-	}
-	public void ifI()
-	{
-		System.out.println("H has been pressed");
-	}
-	public void ifL()
-	{
-		System.out.println("H has been pressed");
-	}
+
+
+		
+			if(ctrl == true)
+			{
+				
+
+			}
+			else
+			{
+			
+			}
+	
+	}*/
+
 	public void ifEsc()
 	{
-		System.out.println("H has been pressed");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
 	}
 
-	
+	@FXML
+	private AnchorPane scenePane;
+	public void SignOut(ActionEvent event)
+	{
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Sign Out");
+		alert.setHeaderText("You are about to sign out!");
+		alert.setContentText("Do you want to save before exiting?");
+		
+		if(alert.showAndWait().get() == ButtonType.OK)
+		{
+			stage = (Stage) scenePane.getScene().getWindow();
+			stage.close();	
+		}
+	}
+
 	public void login(ActionEvent event) throws IOException
 	{
 		try 
