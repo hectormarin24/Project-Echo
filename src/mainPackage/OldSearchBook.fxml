@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+   <children>
+      <AnchorPane fx:id="scenePane" layoutX="10.0" layoutY="10.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0" />
+            <AnchorPane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <AnchorPane layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <Hyperlink fx:id="homeLink" layoutX="538.0" layoutY="22.0" onAction="#homeAccess" text="Home" />
+                              <Hyperlink fx:id="searchLink" layoutX="587.0" layoutY="22.0" onAction="#searchAccess" text="| Search" />
+                              <Label fx:id="helloEndUserLabel" layoutX="732.0" layoutY="23.0" text="Hello END USER!" textFill="#ad6449">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="signOut" layoutX="750.0" layoutY="49.0" onAction="#SignOut" prefHeight="17.0" prefWidth="76.0" text="Sign Out">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="searchBar" layoutX="99.0" layoutY="115.0" onAction="#searchBarToSearch" prefHeight="25.0" prefWidth="349.0" />
+                              <Button fx:id="searchButton" layoutX="749.0" layoutY="108.0" onAction="#searchBarToSearch" text="Search">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <ChoiceBox fx:id="keywordChoice" layoutX="449.0" layoutY="115.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="eBookChoice" layoutX="600.0" layoutY="115.0" prefWidth="150.0" />
+                              <Label fx:id="mainTitlelabel" layoutX="100.0" layoutY="80.0" text="Search Book Database:" textFill="#ad6449">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="122.0" layoutX="269.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Desktop/gabriel.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="titleLabel" layoutX="280.0" layoutY="221.0" text="Title:" textFill="#ad6449">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="authorLabel" layoutX="276.0" layoutY="256.0" text="Author:" textFill="#ad6449" />
+                              <Label fx:id="ISBNLabel" layoutX="281.0" layoutY="288.0" text="ISBN:" textFill="#ad6449" />
+                              <Label fx:id="genreLabel" layoutX="278.0" layoutY="313.0" text="Genre:" textFill="#ad6449" />
+                              <Label fx:id="shelfLabel" layoutX="275.0" layoutY="367.0" text="Shelf Location:" textFill="#ad6449" />
+                              <Label fx:id="statusLabel" layoutX="359.0" layoutY="407.0" text="Status:" textFill="#ad6449" />
+                              <Label fx:id="typeLabelBox" layoutX="362.0" layoutY="446.0" text="Type:" textFill="#ad6449" />
+                              <Label fx:id="bookNumbersLabel" layoutX="279.0" layoutY="167.0" text="Book Numbers:" textFill="#ad6449">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="followUsLabel" layoutX="362.0" layoutY="512.0" text="Follow Echo Library On Our Social Medias!" textFill="#ad6449">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="facebookButton" layoutX="344.0" layoutY="569.0" onAction="#faceBookAccess" text="FaceBook" />
+                              <Button fx:id="instagramButton" layoutX="427.0" layoutY="569.0" onAction="#instagramAccess" text="Instagram" />
+                              <Button fx:id="twitterButton" layoutX="522.0" layoutY="569.0" onAction="#twitterAccess" text="Twitter" />
+                              <Button fx:id="linkedInButton" layoutX="255.0" layoutY="569.0" onAction="#linkedInAccess" text="LinkedIn" />
+                              <Hyperlink fx:id="contactLink" layoutX="626.0" layoutY="558.0" onAction="#contactAccess" text="Contact |" />
+                              <Hyperlink fx:id="aboutLink" layoutX="690.0" layoutY="558.0" onAction="#aboutAccess" text="About" />
+                              <Hyperlink fx:id="creditLink" layoutX="738.0" layoutY="558.0" onAction="#creditAccess" text="| Credit" />
+                              <Button fx:id="booksButton" layoutX="276.0" layoutY="400.0" onAction="#bookWindowAccess" prefHeight="21.0" prefWidth="76.0" text="Books">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="wishlistButton" layoutX="670.0" layoutY="455.0" onAction="#wishlistTrigger" prefHeight="17.0" prefWidth="69.0" text="Wishlist" />
+                              <Button fx:id="reserveButton" layoutX="670.0" layoutY="403.0" onAction="#reserveTrigger" prefHeight="17.0" prefWidth="69.0" text="Reserve" />
+                              <Label fx:id="bookIdLabel" layoutX="275.0" layoutY="340.0" text="BookID:" textFill="#ad6449" />
+                              <Label fx:id="title" layoutX="383.0" layoutY="223.0" text="null" textFill="#ad6449" />
+                              <Label fx:id="author" layoutX="383.0" layoutY="256.0" text="null" textFill="#ad6449" />
+                              <Label fx:id="ISBN" layoutX="383.0" layoutY="288.0" text="null" textFill="#ad6449" />
+                              <Label fx:id="genre" layoutX="383.0" layoutY="321.0" text="null" textFill="#ad6449" />
+                              <Label fx:id="bookIDLabel" layoutX="383.0" layoutY="348.0" text="null" textFill="#ad6449" />
+                              <Label fx:id="shelflocation" layoutX="383.0" layoutY="375.0" text="null" textFill="#ad6449" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

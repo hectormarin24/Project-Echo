@@ -39,8 +39,8 @@
          </VBox>
          <Region fx:id="spacer" HBox.hgrow="ALWAYS" />
          <HBox spacing="10">
-            <Hyperlink fx:id="homeLink" onAction="#home" text="Home" />
-            <Hyperlink fx:id="searchLink" onAction="#search" text="| Search" />
+            <Hyperlink fx:id="homeLink" onAction="#homeAccess" text="Home" />
+            <Hyperlink fx:id="searchLink" onAction="#searchAccess" text="| Search" />
             <Button fx:id="myAccountButton" onAction="#profileAccess" text="My Account" />
          </HBox>
       </HBox>
@@ -136,9 +136,9 @@
          </HBox>
 
          <HBox alignment="CENTER" spacing="5">
-            <Hyperlink fx:id="contactLink" onAction="#contact" text="Contact |" />
-            <Hyperlink fx:id="aboutLink" onAction="#about" text="About" />
-            <Hyperlink fx:id="creditLink" onAction="#credit" text="| Credit" />
+            <Hyperlink fx:id="contactLink" onAction="#contactAccess" text="Contact |" />
+            <Hyperlink fx:id="aboutLink" onAction="#aboutAccess" text="About" />
+            <Hyperlink fx:id="creditLink" onAction="#creditAccess" text="| Credit" />
          </HBox>
 
          <ImageView fitHeight="80" fitWidth="100">

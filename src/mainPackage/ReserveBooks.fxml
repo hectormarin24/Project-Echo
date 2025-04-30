@@ -61,7 +61,7 @@
                 <!-- Top Navigation -->
                 <HBox alignment="TOP_RIGHT" spacing="10" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
                     <children>
-                        <Hyperlink fx:id="locationLink" onAction="#locationAccess" text="Location |" />
+
                         <Hyperlink fx:id="homeLink" onAction="#homeAccess" text="Home" />
                         <Hyperlink fx:id="searchLink" onAction="#searchAccess" text="| Search" />
                         <Label fx:id="helloEndUserLabel" text="Hello END USER!" textFill="#ad6449" />
