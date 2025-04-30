@@ -101,7 +101,6 @@ public class Main extends Application {
 			System.out.println(user.getFname() + " " + user.getMinitial() + " " + user.getLname());
 			System.out.println(user.getUsername() + " " + user.getPassword() + "\n");
 		}*/
-		
 		// Emulate server at start of program
 		DBWishlist.pingWishlists();
 		//DBUserMethods.insertCustomAdmin();

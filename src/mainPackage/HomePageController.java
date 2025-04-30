@@ -401,33 +401,33 @@ public class HomePageController
 
 	}
 	
-	public void searchBarToSearch(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			String search = searchBar.getText();
-			if(DBBooks.searchBook(search)) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
-			root = loader.load();
-			SearchBookController profileController = loader.getController();
-			profileController.searchForBook(search);
-			
-			root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-			}
-			
-		}
-		
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-		
-	}
+	public void searchBarToSearch(ActionEvent event) throws IOException {
+	    try {
+	        String search = searchBar.getText();
 
+	        if (DBBooks.searchBook(search)) {
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
+	            Parent root = loader.load();
+
+	            // Get actual book object
+	            BookObject book = DBBooks.getBookDetails(search);
+
+	            // Pass to controller
+	            SearchBookController controller = loader.getController();
+	            controller.setBook(book);
+
+	            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	            Scene scene = new Scene(root);
+	            stage.setScene(scene);
+	            stage.show();
+	        } else {
+	            System.out.println("Book not found.");
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 	
 
 	

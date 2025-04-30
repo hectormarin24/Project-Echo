@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -51,6 +52,18 @@ public class SearchBookController implements Initializable
 	private Button signOut;
 	@FXML
 	private AnchorPane scenePane;
+	
+	
+	@FXML private Label title;
+    @FXML private Label author;
+    @FXML private Label genre;
+    @FXML private Label publisher;
+    @FXML private Label ISBN;
+    @FXML private Label shelfLocation;
+    @FXML private Label releaseDate;
+    @FXML private Label status;
+    
+	
 	public void SignOut(ActionEvent event)
 	{
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -66,21 +79,22 @@ public class SearchBookController implements Initializable
 	}
 
 	
-	
+	public void setBook(BookObject book) {
+        title.setText(book.getTitle());
+        author.setText(book.getAuthor());
+        genre.setText(book.getGenre());
+        //publisher.setText(book.getPublisher());
+        //ISBN.setText(book.getISBN());
+        shelfLocation.setText(book.getLocation());
+        //releaseDate.setText(book.getReleaseDate());
+        //status.setText(book.getStatus());
+    }
 	
 	public void searchForBook(String s)
 	{
 		searchBar.setText(s);
 	}
-	public void wishlistTrigger(ActionEvent event)
-	{
 	
-	}
-	
-	public void reserveTrigger(ActionEvent event)
-	{
-		
-	}
 	
 
 	public void homeAccess(ActionEvent event) throws IOException

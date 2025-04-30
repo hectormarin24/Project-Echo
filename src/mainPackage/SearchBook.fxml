@@ -25,14 +25,12 @@
                            <children>
                               <AnchorPane prefHeight="554.0" prefWidth="774.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="626.0" layoutX="-13.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
-                                    <Button fx:id="wishlistButton" layoutX="670.0" layoutY="455.0" mnemonicParsing="false" onAction="#wishlistTrigger" prefHeight="17.0" prefWidth="69.0" text="Wishlist" />
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="626.0" layoutX="-12.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="898.0" />
                                     <Button fx:id="booksButton" layoutX="276.0" layoutY="400.0" mnemonicParsing="false" onAction="#bookWindowAccess" prefHeight="21.0" prefWidth="76.0" text="Books">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="reserveButton" layoutX="670.0" layoutY="403.0" mnemonicParsing="false" onAction="#reserveTrigger" prefHeight="17.0" prefWidth="69.0" text="Reserve" />
                                     <ImageView fitHeight="98.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
@@ -69,17 +67,15 @@
                                           <Font size="25.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="titleLabel" layoutX="274.0" layoutY="202.0" text="Title:" textFill="#ad6449">
+                                    <Label fx:id="titleLabel" layoutX="413.0" layoutY="207.0" text="Title:" textFill="#ad6449">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="authorIsbnLabel" layoutX="420.0" layoutY="242.0" text="Author and ISBN:" textFill="#ad6449" />
-                                    <Label fx:id="bookTypeLabel" layoutX="422.0" layoutY="266.0" text="Book Type:" textFill="#ad6449" />
-                                    <Label fx:id="genreLabel" layoutX="422.0" layoutY="290.0" text="Genre:" textFill="#ad6449" />
-                                    <Label fx:id="promptLabel" layoutX="422.0" layoutY="313.0" prefHeight="17.0" prefWidth="209.0" text="Prompt" textFill="#ad6449" />
+                                    <Label fx:id="authorLabel" layoutX="409.0" layoutY="248.0" text="Author:" textFill="#ad6449" />
+                                    <Label fx:id="shelfLocationLabel" layoutX="406.0" layoutY="308.0" text="Shelf Location: " textFill="#ad6449" />
+                                    <Label fx:id="genreLabel" layoutX="410.0" layoutY="281.0" text="Genre:" textFill="#ad6449" />
                                     <Label fx:id="statusLabel" layoutX="359.0" layoutY="407.0" text="Status:" textFill="#ad6449" />
-                                    <Label fx:id="bookIdLabel" layoutX="418.0" layoutY="336.0" text="BookID:" textFill="#ad6449" />
                                     <Label fx:id="helloEndUserLabel" layoutX="732.0" layoutY="23.0" text="Hello END USER!" textFill="#ad6449">
                                        <font>
                                           <Font size="15.0" />
@@ -107,6 +103,10 @@
                                     <ChoiceBox fx:id="genreChoice" layoutX="47.0" layoutY="189.0" prefHeight="25.0" prefWidth="151.0" />
                                     <ChoiceBox fx:id="languageChoice" layoutX="47.0" layoutY="277.0" prefHeight="25.0" prefWidth="151.0" />
                                     <Label fx:id="narrowSearchLabel" layoutX="53.0" layoutY="157.0" text="Narrow Your Search" textFill="#ad6449" />
+                                    <Label fx:id="author" layoutX="592.0" layoutY="248.0" text="BookID:" textFill="#ad6449" />
+                                    <Label fx:id="title" layoutX="592.0" layoutY="218.0" text="BookID:" textFill="#ad6449" />
+                                    <Label fx:id="genre" layoutX="592.0" layoutY="281.0" text="BookID:" textFill="#ad6449" />
+                                    <Label fx:id="shelfLocation" layoutX="591.0" layoutY="304.0" prefHeight="26.0" prefWidth="42.0" text="BookID:" textFill="#ad6449" />
                                  </children>
                               </AnchorPane>
                            </children>
