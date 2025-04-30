@@ -306,28 +306,6 @@ public class ReserveBooksController
 		
 		
 	}
-	public void locationAccess(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-
-		
-		
-	}
 	public void searchAccess(ActionEvent event) throws IOException
 	{
 		try 
@@ -439,6 +417,32 @@ public class ReserveBooksController
 					root = loader.load();
 					SocialMediaController socialMedia = loader.getController();
 					socialMedia.loadLinkedIn();
+					
+					
+					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+				catch(IOException e)
+				{
+					System.out.println(e);
+				}
+				catch(Exception e2)
+				{
+					System.out.println(e2);
+				}
+			}
+			public void blueSkyAccess(ActionEvent event) throws IOException
+			{
+				try
+				{
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+					root = loader.load();
+					SocialMediaController socialMedia = loader.getController();
+					socialMedia.loadBlueSky();
 					
 					
 					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));

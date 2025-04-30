@@ -78,6 +78,17 @@ public class SocialMediaController implements Initializable
 		engine.load("https://www.linkedin.com/in/echo-library-0546b3361/");
 		
 	}
+	public void loadBlueSky()
+	{
+		engine.load("https://bsky.app/profile/echolibrary.bsky.social");
+		
+	}
+	public void loadGitHub()
+	{
+		engine.load("https://github.com/hectormarin24/ProjectEcho");
+		
+	}
+
 	public void refreshPage()
 	{
 		engine.reload();

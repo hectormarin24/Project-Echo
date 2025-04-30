@@ -50,7 +50,6 @@
                   <Line endX="-99.99998474121094" endY="295.79998779296875" layoutX="355.0" layoutY="133.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
                   <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="323.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
                   <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="488.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                  <Hyperlink fx:id="locationLink" layoutX="475.0" layoutY="22.0" onAction="#locationAccess" text="Location  |" />
                   <Hyperlink fx:id="homeLink" layoutX="538.0" layoutY="22.0" onAction="#homeAccess" text="Home" />
                   <Hyperlink fx:id="searchLink" layoutX="587.0" layoutY="22.0" onAction="#searchAccess" text="|  Search" />
                   <Hyperlink fx:id="contactLink" layoutX="626.0" layoutY="558.0" onAction="#contactAccess" text="Contact  |" />
@@ -119,6 +118,7 @@
                   </Button>
                   <Label fx:id="userIdLabel" layoutX="740.0" layoutY="80.0" text="USER ID:" textFill="#ad6449" />
                   <Button fx:id="linkedInButton" layoutX="265.0" layoutY="570.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
+                  <Button fx:id="blueSkyButton" layoutX="185.0" layoutY="570.0" mnemonicParsing="false" onAction="#blueSkyAccess" text="Blue Sky" />
                </children>
             </AnchorPane>
          </children>

@@ -59,17 +59,17 @@ public class Main extends Application {
 
 			//To get this to work either put a "/" in front of the file; or you take the fxml file to the application process.
 
-			/*Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);	
 			stage.setScene(scene);
-			stage.show();*/
+			stage.show();
 			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+			/*FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
 			Parent root = loader.load();	
 			LoginController controller = loader.getController();
 			Scene scene = new Scene(root);	
 			stage.setScene(scene);
-			stage.show();
+			stage.show();*/
 			
 			
 			scene.setOnKeyPressed(new EventHandler<KeyEvent>() {

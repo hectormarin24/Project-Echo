@@ -20,6 +20,8 @@
             <Button layoutX="146.0" layoutY="584.0" mnemonicParsing="false" onAction="#loadInstaGram" prefHeight="58.0" prefWidth="147.0" text="Go to Instagram page" />
             <Button layoutX="292.0" layoutY="584.0" mnemonicParsing="false" onAction="#loadTwitter" prefHeight="58.0" prefWidth="128.0" text="Go to Twitter page" />
             <Button layoutX="420.0" layoutY="584.0" mnemonicParsing="false" onAction="#loadLinkedIn" prefHeight="58.0" prefWidth="128.0" text="Go to LinkedIn page" />
+            <Button fx:id="blueSkyButton" layoutX="548.0" layoutY="584.0" mnemonicParsing="false" onAction="#loadBlueSky" prefHeight="58.0" prefWidth="154.0" text="Go to Blue Sky Page" />
+            <Button fx:id="gitHubButton" layoutX="702.0" layoutY="584.0" mnemonicParsing="false" onAction="#loadGitHub" prefHeight="58.0" prefWidth="118.0" text="Go to GitHub Page" />
          </children>
       </AnchorPane>
    </children>

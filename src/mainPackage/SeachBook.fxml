@@ -46,7 +46,6 @@
                                  </image>
                               </ImageView>
                               <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="488.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                              <Hyperlink fx:id="locationLink" layoutX="475.0" layoutY="22.0" onAction="#locationAccess" text="Location  |" />
                               <Hyperlink fx:id="homeLink" layoutX="538.0" layoutY="22.0" onAction="#homeAccess" text="Home" />
                               <Hyperlink fx:id="searchLink" layoutX="587.0" layoutY="22.0" onAction="#searchAccess" text="|  Search" />
                               <Hyperlink fx:id="contactLink" layoutX="626.0" layoutY="558.0" onAction="#contactAccess" text="Contact  |" />
@@ -105,6 +104,7 @@
                               <ChoiceBox fx:id="geneChoice" layoutX="47.0" layoutY="203.0" prefWidth="150.0" />
                               <ChoiceBox fx:id="languageChoice" layoutX="47.0" layoutY="260.0" prefWidth="150.0" />
                               <Label fx:id="narrowResultsLabel" layoutX="47.0" layoutY="160.0" text="Narrow Your Results:" textFill="#ad6449" />
+                              <Button fx:id="blueSkyButton" layoutX="188.0" layoutY="569.0" mnemonicParsing="false" onAction="#blueSkyAccess" text="Blue Sky" />
                            </children>
                         </AnchorPane>
                      </children>
