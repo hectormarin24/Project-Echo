@@ -20,9 +20,9 @@
    <!-- Top Section -->
    <top>
       <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 10;">
-         <ImageView fitHeight="80" fitWidth="100">
+         <ImageView fitHeight="97.0" fitWidth="119.0">
             <image>
-               <Image url="@../../../../../Downloads/echoLibraryTransparent.png" />
+               <Image url="@../FullLogo_Transparent.png" />
             </image>
          </ImageView>
          <VBox>
