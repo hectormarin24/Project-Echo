@@ -82,7 +82,11 @@ public class LoginController {
 			}
 			else if (exists && user.getAdminStatus().equals("Admin")) {
 				CurrentUser.set(user);
-				// Enter JavaFX code here
+				Parent root = FXMLLoader.load(getClass().getResource("AdminAccount.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 			else {
 				errorLabel.setText("Username And/Or Password Incorrect");

@@ -51,6 +51,7 @@
                         <!-- Header Links -->
                         <HBox spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                             <children>
+
                                 <Hyperlink fx:id="homeLink" onAction="#homeAccess" text="Home" />
                                 <Hyperlink fx:id="searchLink" onAction="#searchAccess" text="|  Search" />
                             </children>
@@ -154,6 +155,13 @@
                         </HBox>
 
                         <ImageView fitHeight="60.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+
+                  <ImageView fitHeight="120.0" fitWidth="142.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../FullLogo_Transparent.png" />
+                     </image>
+                  </ImageView>
+
                     </children>
                 </AnchorPane>
             </children>

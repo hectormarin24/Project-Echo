@@ -29,6 +29,11 @@
                         <Image url="@FullLogo_Transparent.png" />
                     </image>
                 </ImageView>
+            <ImageView fitHeight="126.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../FullLogo_Transparent.png" />
+               </image>
+            </ImageView>
 
                 <!-- Navigation Buttons -->
                 <VBox spacing="15">
@@ -56,6 +61,7 @@
                 <!-- Top Navigation -->
                 <HBox alignment="TOP_RIGHT" spacing="10" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
                     <children>
+
                         <Hyperlink fx:id="homeLink" onAction="#homeAccess" text="Home" />
                         <Hyperlink fx:id="searchLink" onAction="#searchAccess" text="| Search" />
                         <Label fx:id="helloEndUserLabel" text="Hello END USER!" textFill="#ad6449" />
