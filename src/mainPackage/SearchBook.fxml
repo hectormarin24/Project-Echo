@@ -37,9 +37,9 @@
             </Label>
 
             <!-- Book Details -->
-            <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="122.0" layoutX="269.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="122.0" layoutX="110.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../../../../../Desktop/gabriel.png" />
+                    <Image url="@../gabriel.png" />
                 </image>
             </ImageView>
             <Label fx:id="titleLabel" layoutX="280.0" layoutY="221.0" text="Title:" textFill="#ad6449">
@@ -82,6 +82,11 @@
             <Label fx:id="genre" layoutX="383.0" layoutY="321.0" text="null" textFill="#ad6449" />
             <Label fx:id="bookIDLabel" layoutX="383.0" layoutY="348.0" text="null" textFill="#ad6449" />
             <Label fx:id="shelflocation" layoutX="383.0" layoutY="375.0" text="null" textFill="#ad6449" />
+            <ImageView fitHeight="88.0" fitWidth="111.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../FullLogo_Transparent.png" />
+               </image>
+            </ImageView>
 
          </children>
       </AnchorPane>

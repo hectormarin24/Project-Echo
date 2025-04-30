@@ -25,7 +25,7 @@
          <VBox alignment="CENTER">
             <ImageView fitHeight="221.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
+                  <Image url="@../FullLogo_Transparent.png" />
                </image>
             </ImageView>
          </VBox>

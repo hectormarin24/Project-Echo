@@ -110,6 +110,11 @@
                   <Image url="@../../../../../Downloads/EchoLibraryFullTransparent.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="339.0" fitWidth="349.0" layoutX="7.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../FullLogo_Transparent.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
