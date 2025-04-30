@@ -47,6 +47,35 @@ public class DBBooks {
  
  	}
 
+    public static BookObject getBookDetails(String title) {
+        BookObject book = null;
+        try {
+            Connection conn = connect();
+            String sql = "SELECT * FROM books WHERE title = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, title);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                book = new BookObject(
+                    rs.getInt("id"),
+                    rs.getString("title"),
+                    rs.getString("author"),
+                    rs.getString("genre"),
+                    rs.getString("publisher"),
+                    rs.getString("ISBN"),
+                    rs.getString("shelfLocation"),
+                    rs.getString("releaseDate"),
+                    rs.getString("status")
+                );
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return book;
+    }
     
     public static void createTable() {
 	    String sql = """
@@ -151,6 +180,7 @@ public class DBBooks {
 	        return false;
 	    }
     }
+    
     
     
     public static int getBookAvailability(int bookid) {
