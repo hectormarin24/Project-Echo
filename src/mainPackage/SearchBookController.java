@@ -20,7 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class SearchBookController implements Initializable{
+public class SearchBookController implements Initializable
+{
 	
 
 	private Stage stage;
@@ -69,11 +70,11 @@ public class SearchBookController implements Initializable{
 	
 	public void searchForBook(String s)
 	{
-		
+		searchBar.setText(s);
 	}
 	public void wishlistTrigger(ActionEvent event)
 	{
-		
+	
 	}
 	
 	public void reserveTrigger(ActionEvent event)
@@ -81,27 +82,7 @@ public class SearchBookController implements Initializable{
 		
 	}
 	
-	public void contactAccess(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-	}
+
 	public void homeAccess(ActionEvent event) throws IOException
 	{
 		try 
@@ -123,18 +104,16 @@ public class SearchBookController implements Initializable{
 			System.out.println(e2);
 		}
 	}
-	public void creditAccess(ActionEvent event) throws IOException
+	public void contactAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
 		}
-		
 		catch(IOException e)
 		{
 			System.out.println(e);
@@ -143,19 +122,20 @@ public class SearchBookController implements Initializable{
 		{
 			System.out.println(e2);
 		}
+
+		
+		
 	}
 	public void aboutAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
+			root = FXMLLoader.load(getClass().getResource("AboutPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
 		}
-		
 		catch(IOException e)
 		{
 			System.out.println(e);
@@ -164,6 +144,31 @@ public class SearchBookController implements Initializable{
 		{
 			System.out.println(e2);
 		}
+
+		
+		
+	}
+	public void creditAccess(ActionEvent event) throws IOException
+	{
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		catch(Exception e2)
+		{
+			System.out.println(e2);
+		}
+
+		
+		
 	}
 	public void searchAccess(ActionEvent event) throws IOException
 	{
@@ -186,27 +191,7 @@ public class SearchBookController implements Initializable{
 			System.out.println(e2);
 		}
 	}
-	public void locationAccess(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-	}
+	
 	public void bookWindowAccess(ActionEvent event) throws IOException
 	{
 		try 
@@ -374,16 +359,14 @@ public class SearchBookController implements Initializable{
 				{
 					String search = searchBar.getText();
 					if(DBBooks.searchBook(search)) {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
-					root = loader.load();
-					SearchBookController profileController = loader.getController();
-					profileController.searchForBook(search);
-					
-					root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-					scene = new Scene(root);
-					stage.setScene(scene);
-					stage.show();
+						root = FXMLLoader.load(getClass().getResource("SearchBook.fxml"));
+						SearchBookController searchBookController = new SearchBookController();
+						searchBookController.searchForBook(search);
+						stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+						scene = new Scene(root);
+						stage.setScene(scene);
+						stage.show();
+
 					}
 					
 				}

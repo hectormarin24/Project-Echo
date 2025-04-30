@@ -114,28 +114,7 @@ public class HomePageController
 		
 		
 	}
-	public void contact(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-	}
-	public void home(ActionEvent event) throws IOException
+	public void homeAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
@@ -156,18 +135,16 @@ public class HomePageController
 			System.out.println(e2);
 		}
 	}
-	public void credit(ActionEvent event) throws IOException
+	public void contactAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
-			root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
+			root = FXMLLoader.load(getClass().getResource("ContactPage.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
 		}
-		
 		catch(IOException e)
 		{
 			System.out.println(e);
@@ -176,8 +153,11 @@ public class HomePageController
 		{
 			System.out.println(e2);
 		}
+
+		
+		
 	}
-	public void about(ActionEvent event) throws IOException
+	public void aboutAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
@@ -186,9 +166,7 @@ public class HomePageController
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
 		}
-		
 		catch(IOException e)
 		{
 			System.out.println(e);
@@ -197,8 +175,33 @@ public class HomePageController
 		{
 			System.out.println(e2);
 		}
+
+		
+		
 	}
-	public void search(ActionEvent event) throws IOException
+	public void creditAccess(ActionEvent event) throws IOException
+	{
+		try 
+		{
+			root = FXMLLoader.load(getClass().getResource("CreditProxy.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		catch(Exception e2)
+		{
+			System.out.println(e2);
+		}
+
+		
+		
+	}
+	public void searchAccess(ActionEvent event) throws IOException
 	{
 		try 
 		{
@@ -219,27 +222,7 @@ public class HomePageController
 			System.out.println(e2);
 		}
 	}
-	public void location(ActionEvent event) throws IOException
-	{
-		try 
-		{
-			root = FXMLLoader.load(getClass().getResource("filler.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		
-		}
-		
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		catch(Exception e2)
-		{
-			System.out.println(e2);
-		}
-	}
+
 	
 	public void profileAccess(ActionEvent event) throws IOException
 	{
