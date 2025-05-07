@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ContactPageController {
@@ -18,6 +19,14 @@ public class ContactPageController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	@FXML
+	Label emailLabel;
+	@FXML
+	Label questionsLabel;
+	@FXML
+	Label phoneLabel;
+	@FXML
+	Label leaveMessagelabel;
 	
 	public void switchToAbout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("AboutPage.fxml"));

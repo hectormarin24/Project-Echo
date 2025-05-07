@@ -228,6 +228,25 @@ public class HomePageController
 	{
 		try 
 		{
+			boolean adminStatus = false;
+			if(adminStatus==true)
+			{
+				/*FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminPage.fxml"));
+				root = loader.load();
+				AdminAccountController adminControl = loader.getController();
+				adminControl.displayInfo(CurrentUser.get().getFname() + " " + CurrentUser.get().getMinitial() + " " + CurrentUser.get().getLname()
+						, CurrentUser.get().getUsername(), CurrentUser.get().getEmail()
+						, CurrentUser.get().getNumber(), CurrentUser.get().getMembershipStatus(), "6");
+				
+				//root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+				*/
+			}
+				else
+			{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
 			root = loader.load();
 			ProfileController profileController = loader.getController();
@@ -240,6 +259,7 @@ public class HomePageController
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+			}
 		}
 		catch(IOException e)
 		{
