@@ -123,6 +123,7 @@ public class DBWishlist {
 	    } catch (SQLException e) {
 	            System.err.println(e.getMessage());
 	    }
+		System.out.println(CurrentUser.get().getUsername() + " wishlisted book");
 	}
 	
 	// A user has just clicked on the "Remove" button on the wish list page on the book they want to remove.
@@ -155,7 +156,7 @@ public class DBWishlist {
 
             while (rs.next()) {
             	BookObject book = DBBooks.searchBookByID(rs.getInt("bookID"));
-            	if (book.getStatus() == "Available") {
+            	if (book != null && book.getStatus() == "Available") {
             		UserObject user = DBUserMethods.searchUserByID(rs.getInt("userID"));
                 	String email = user.getEmail();
                 	String bookTitle = book.getTitle();

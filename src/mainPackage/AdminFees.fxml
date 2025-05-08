@@ -49,35 +49,7 @@
                   <Line endX="-99.99998474121094" endY="295.79998779296875" layoutX="355.0" layoutY="133.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
                   <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="323.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
                   <Line endX="368.99993896484375" endY="-86.60000610351562" layoutX="373.0" layoutY="488.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                  <Button fx:id="facebookButton" layoutX="295.0" layoutY="568.0" mnemonicParsing="false" onAction="#faceBookAccess">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../FacebookLogo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button fx:id="instagramButton" layoutX="433.0" layoutY="567.0" mnemonicParsing="false" onAction="#instagramAccess">
-                     <graphic>
-                        <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../InstagramLogo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button fx:id="twitterButton" layoutX="362.0" layoutY="568.0" mnemonicParsing="false" onAction="#twitterAccess">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../XLogo.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Label contentDisplay="CENTER" layoutX="362.0" layoutY="512.0" prefHeight="50.0" prefWidth="200.0" text="Follow Echo Library On Our Social Medias!" textFill="#ad6449">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
+
                   <ImageView fx:id="bookPicture1" fitHeight="150.0" fitWidth="122.0" layoutX="269.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../Desktop/gabriel.png" />
@@ -135,23 +107,7 @@
                   <Label fx:id="typeLabelBox1" layoutX="642.0" layoutY="197.0" text="Type:" textFill="#ad6449" />
                   <Label fx:id="userId1" layoutX="273.0" layoutY="62.0" text="USER ID:" textFill="#ad6449" />
                   <Label fx:id="userId2" layoutX="269.0" layoutY="255.0" text="USER ID:" textFill="#ad6449" />
-                  <Button fx:id="linkedInButton" layoutX="505.0" layoutY="569.0" mnemonicParsing="false" onAction="#linkedInAccess">
-                     <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../LinkedInLogo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button layoutX="574.0" layoutY="569.0" mnemonicParsing="false" onAction="#blueskyAccess">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../BlueskyLogo.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+
                </children>
             </AnchorPane>
          </children>

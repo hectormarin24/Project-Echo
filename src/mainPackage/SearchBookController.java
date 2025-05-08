@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,23 +33,6 @@ public class SearchBookController implements Initializable
 	private Scene scene;
 	private Parent root;
 	
-	
-	//choice box
-	@FXML
-	ChoiceBox<String> keywordChoice;
-	String[] keywords = {"Choice1","Choice2","Choice3","Choice4"};
-	
-	
-	
-	@FXML
-	ChoiceBox<String> genreChoice;
-	String[] genres = {"Genre1","Genre2","Genre3","Gnere4"};
-	
-	@FXML
-	ChoiceBox<String> languageChoice;
-	String[] languages = {"Language1","Language2","Language3"};
-	
-	
 	@FXML
 	TextField searchBar;
 	@FXML
@@ -54,6 +40,8 @@ public class SearchBookController implements Initializable
 	@FXML
 	private AnchorPane scenePane;
 	
+	@FXML
+	private ListView<BookObject> bookList;
 	
 	@FXML private Label title;
     @FXML private Label author;
@@ -91,12 +79,16 @@ public class SearchBookController implements Initializable
         //status.setText(book.getStatus());
     }
 	
+	public void setBookList(ObservableList<BookObject> bookListParam) {
+		bookList.setCellFactory(param -> new BookObjectCell());
+		
+		bookList.setItems(bookListParam);
+	}
+	
 	public void searchForBook(String s)
 	{
 		searchBar.setText(s);
 	}
-	
-	
 
 	public void homeAccess(ActionEvent event) throws IOException
 	{
@@ -262,7 +254,119 @@ public class SearchBookController implements Initializable
 
 	
 	//SOCIAL MEDIA PARTS
-	@SuppressWarnings("deprecation")
+
+			public void faceBookAccess(ActionEvent event) throws IOException
+			{
+				try
+				{
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+					root = loader.load();
+					SocialMediaController socialMedia = loader.getController();
+					socialMedia.loadFaceBook();
+					
+					
+					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+				catch(IOException e)
+				{
+					System.out.println(e);
+				}
+				catch(Exception e2)
+				{
+					System.out.println(e2);
+				}
+				
+				
+			}
+			public void instagramAccess(ActionEvent event) throws IOException
+			{
+				try
+				{
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+					root = loader.load();
+					SocialMediaController socialMedia = loader.getController();
+					socialMedia.loadInstaGram();
+					
+					
+					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+				catch(IOException e)
+				{
+					System.out.println(e);
+				}
+				catch(Exception e2)
+				{
+					System.out.println(e2);
+				}		
+			}
+			public void twitterAccess(ActionEvent event) throws IOException
+			{
+				try
+				{
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+					root = loader.load();
+					SocialMediaController socialMedia = loader.getController();
+					socialMedia.loadTwitter();
+					
+					
+					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+				catch(IOException e)
+				{
+					System.out.println(e);
+				}
+				catch(Exception e2)
+				{
+					System.out.println(e2);
+				}
+			}
+			public void linkedInAccess(ActionEvent event) throws IOException
+			{
+				try
+				{
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("SocialMedia.fxml"));
+					root = loader.load();
+					SocialMediaController socialMedia = loader.getController();
+					socialMedia.loadLinkedIn();
+					
+					
+					//root = FXMLLoader.load(getClass().getResource("SocialMedia.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+				
+				}
+				catch(IOException e)
+				{
+					System.out.println(e);
+				}
+				catch(Exception e2)
+				{
+					System.out.println(e2);
+				}
+			}
+			public void searchBarToSearch(ActionEvent event) throws IOException {
+			    try {
+			        String search = searchBar.getText().toLowerCase();
+			        System.out.println(search);
+
+	/* @SuppressWarnings("deprecation")
 	public void faceBookAccess(ActionEvent event) throws IOException
 	{
 		try {
@@ -312,28 +416,36 @@ public class SearchBookController implements Initializable
 						stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 						scene = new Scene(root);
 						stage.setScene(scene);
-						stage.show();
+						stage.show(); */
 
-					}
-					
-				}
-				
-				catch(Exception e2)
-				{
-					System.out.println(e2);
-				}
-				
+
+			        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
+		            Parent root = loader.load();
+
+		            // Get actual book object
+		            //BookObject book = DBBooks.getBookDetails(search);
+		            
+		            // Get book list
+		            ObservableList<BookObject> bookList = FXCollections.observableArrayList(DBBooks.bookSearch(search, ""));
+		            
+		            // Pass to controller
+		            SearchBookController controller = loader.getController();
+		            controller.setBookList(bookList);
+		            
+		            //controller.setBook(book);
+
+		            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		            Scene scene = new Scene(root);
+		            stage.setScene(scene);
+		            stage.show();
+
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
 			}
-
-
-
 
 			@Override
 			public void initialize(URL arg0, ResourceBundle arg1) {
-				keywordChoice.getItems().addAll(keywords);
-				genreChoice.getItems().addAll(genres);
-				languageChoice.getItems().addAll(languages);
-			
 			}
 
 }

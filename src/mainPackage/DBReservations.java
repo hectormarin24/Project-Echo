@@ -44,11 +44,11 @@ public class DBReservations {
 	public static void createTable() {
 	    String sql = """
 	        CREATE TABLE IF NOT EXISTS reservations (
-	            id INTEGER PRIMARY KEY AUTOINCREMENT,
-	            userId INTEGER UNIQUE NOT NULL,
-	            bookId INTEGER UNIQUE NOT NULL,
+	            userId INTEGER NOT NULL,
+	            bookId INTEGER NOT NULL,
 	            resDate TEXT NOT NULL,
-	            status TEXT NOT NULL DEFAULT 'Active' -- Active, Cancelled, Completed
+	            status TEXT NOT NULL DEFAULT 'Active', -- Active, Cancelled, Completed
+	            PRIMARY KEY (userId, bookId)
 	        );
 	        """;
 	
@@ -83,16 +83,16 @@ public class DBReservations {
 				+ "VALUES(? , ? , ? , ?);";
 		
 		try (Connection conn = connect();
-		        var pstmt = conn.prepareStatement(sql)) {
+	        var pstmt = conn.prepareStatement(sql)) {
 		        pstmt.setInt(1, userId);
 		        pstmt.setInt(2, bookId);
 		        pstmt.setString(3, resDate);
 		        pstmt.setString(4, status);
-
+		
 		        pstmt.executeUpdate();
-		        
+		
 		        // Decrease book availability due to reservation
-		        DBBooks.changeBookAvailability(bookId, '0'); // decrement book availability
+		        //DBBooks.changeBookAvailability(bookId, '0'); // decrement book availability
 		        
 		        // Send email notification to user
 		        UserObject user = DBUserMethods.searchUserByID(userId);
@@ -101,10 +101,10 @@ public class DBReservations {
 		        EmailSender sendEmail = new EmailSender(user.getEmail(), subject, message);
 		        sendEmail.send();
 		        
-		        System.out.println("Reservation added.");
+		        System.out.println(CurrentUser.get().getUsername() + " reserved book.");
 		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    }
+		    	e.printStackTrace();
+	    }
 	}
 	
 	
@@ -141,7 +141,7 @@ public class DBReservations {
 			int rowsDeleted = pstmt.executeUpdate();
 			
 			if(rowsDeleted > 0) {
-		        DBBooks.changeBookAvailability(bookId, '1'); // increment book availability
+		        //DBBooks.changeBookAvailability(bookId, '1'); // increment book availability
 				System.out.println("Reservation with Book ID: " + bookId + " was deleted.");
 			} else {
 				System.out.println("No reservations with Book ID: " + bookId + " found.");
@@ -228,7 +228,7 @@ public class DBReservations {
 				LocalDate resDate = LocalDate.parse(rs.getString("resDate"));
 				resDate = resDate.plusDays(1);
 				if (todayDate.isAfter(resDate)) {
-			        DBBooks.changeBookAvailability(rs.getInt("id"), '1'); // increment book availability
+			        //DBBooks.changeBookAvailability(rs.getInt("id"), '1'); // increment book availability
 			        
 			        updateReservationStatus(rs.getInt("id"), "Completed");
 				}

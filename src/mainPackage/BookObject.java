@@ -28,6 +28,12 @@ public class BookObject {
     	this.status = status;
     }
     
+    // Search method
+    public String toString() {
+    	return title + " by " + author + " (" + ISBN + ") " + "\nGenre: " + genre + "\nPublisher: " 
+    			     + publisher + "\nDate of Release: " + releaseDate + "\n" + status;
+    }
+    
     //Methods
     public String getId() {
     	return id;
