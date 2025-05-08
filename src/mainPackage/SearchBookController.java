@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -358,29 +359,34 @@ public class SearchBookController implements Initializable
 					System.out.println(e2);
 				}
 			}
-			public void searchBarToSearch(ActionEvent event) throws IOException
-			{
-				try 
-				{
-					String search = searchBar.getText();
-					if(DBBooks.searchBook(search)) {
-						root = FXMLLoader.load(getClass().getResource("/mainPackage/SearchBook.fxml"));
-						SearchBookController searchBookController = new SearchBookController();
-						searchBookController.searchForBook(search);
-						stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-						scene = new Scene(root);
-						stage.setScene(scene);
-						stage.show();
+			public void searchBarToSearch(ActionEvent event) throws IOException {
+			    try {
+			        String search = searchBar.getText().toLowerCase();
+			        System.out.println(search);
 
-					}
-					
-				}
-				
-				catch(Exception e2)
-				{
-					System.out.println(e2);
-				}
-				
+			        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
+		            Parent root = loader.load();
+
+		            // Get actual book object
+		            //BookObject book = DBBooks.getBookDetails(search);
+		            
+		            // Get book list
+		            ObservableList<BookObject> bookList = FXCollections.observableArrayList(DBBooks.bookSearch(search, ""));
+		            
+		            // Pass to controller
+		            SearchBookController controller = loader.getController();
+		            controller.setBookList(bookList);
+		            
+		            //controller.setBook(book);
+
+		            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		            Scene scene = new Scene(root);
+		            stage.setScene(scene);
+		            stage.show();
+
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
 			}
 
 			@Override
