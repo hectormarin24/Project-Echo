@@ -1,7 +1,8 @@
 package mainPackage;
 import java.io.IOException;
 import javafx.scene.control.TextField;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -403,26 +404,28 @@ public class HomePageController
 	
 	public void searchBarToSearch(ActionEvent event) throws IOException {
 	    try {
-	        String search = searchBar.getText();
+	        String search = searchBar.getText().toLowerCase();
+	        System.out.println(search);
 
-	        if (DBBooks.searchBook(search)) {
-	            FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
-	            Parent root = loader.load();
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
+            Parent root = loader.load();
 
-	            // Get actual book object
-	            BookObject book = DBBooks.getBookDetails(search);
+            // Get actual book object
+            //BookObject book = DBBooks.getBookDetails(search);
+            
+            // Get book list
+            ObservableList<BookObject> bookList = FXCollections.observableArrayList(DBBooks.bookSearch(search, ""));
+            
+            // Pass to controller
+            SearchBookController controller = loader.getController();
+            controller.setBookList(bookList);
+            
+            //controller.setBook(book);
 
-	            // Pass to controller
-	            SearchBookController controller = loader.getController();
-	            controller.setBook(book);
-
-	            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-	            Scene scene = new Scene(root);
-	            stage.setScene(scene);
-	            stage.show();
-	        } else {
-	            System.out.println("Book not found.");
-	        }
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
 
 	    } catch (Exception e) {
 	        e.printStackTrace();

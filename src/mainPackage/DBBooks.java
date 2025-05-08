@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.ObservableList;
 
 public class DBBooks {
     private static final String DB_URL = "jdbc:sqlite:db/books.db";
@@ -22,29 +25,30 @@ public class DBBooks {
     }
     
     
-    public static void bookDataList(ResultSet rs) throws SQLException {
- 		
- 		if (rs.next()) {
-             String title = rs.getString("title");
-             String author = rs.getString("author");
-             String genre = rs.getString("genre");
-             String shelfLocation = rs.getString("shelfLocation");
-             int ISBN = rs.getInt("ISBN");
-             String status = rs.getString("status");
+    public static BookObject bookDataList(ResultSet rs) throws SQLException {
+ 		BookObject book = null;
+		 int id = rs.getInt("id");
+         String title = rs.getString("title");
+         String author = rs.getString("author");
+         String genre = rs.getString("genre");
+         String publisher = rs.getString("publisher");
+         String ISBN = rs.getString("ISBN");
+         String shelfLocation = rs.getString("shelfLocation");
+         String releaseDate = rs.getString("releaseDate");
+         String status = rs.getString("status");
             
  
              System.out.println("");
-             System.out.println("Title: " + title);
-             System.out.println("Author: " + author);
-             System.out.println("Genre: " + genre);
-             System.out.println("Shelf Location: " + shelfLocation);
-             System.out.println("ISBN: " + ISBN);
-             System.out.println("Status: " + status);
-             System.out.println();
-         } else {
-             System.out.println("No book found with that ID.");
-         }
- 
+         System.out.println("Title: " + title);
+         System.out.println("Author: " + author);
+         System.out.println("Genre: " + genre);
+         System.out.println("Shelf Location: " + shelfLocation);
+         System.out.println("ISBN: " + ISBN);
+         System.out.println("Status: " + status);
+         System.out.println();
+         
+         book = new BookObject(id, title, author, genre, publisher, ISBN, shelfLocation, releaseDate, status);
+ 		return book;
  	}
 
     public static BookObject getBookDetails(String title) {
@@ -86,10 +90,10 @@ public class DBBooks {
 	            author TEXT NOT NULL,
 	            genre TEXT NOT NULL,
 	            publisher TEXT NOT NULL,
-	            ISBN TEXT NOT NULL,
+	            ISBN TEXT UNIQUE NOT NULL,
 	            shelfLocation TEXT NOT NULL,
 	            releaseDate TEXT NOT NULL,
-	            status TEXT NOT NULL DEFAULT 'Unavailable' -- Unavailable, Available
+	            status TEXT NOT NULL DEFAULT 'Available' -- Unavailable, Available
 	        );
 	        """;
 	
@@ -119,7 +123,7 @@ public class DBBooks {
     
     
     public static void insertBook(String title, String author, String genre, String publisher, 
-    		String ISBN, String shelfLocation, int releaseDate) {
+    		String ISBN, String shelfLocation, String releaseDate) {
 	    String sql = "INSERT INTO books(title, author, genre, publisher, ISBN, shelfLocation, "
 	    		+ "releaseDate) "
 	    		+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -132,7 +136,7 @@ public class DBBooks {
 	        pstmt.setString(4, publisher);
 	        pstmt.setString(5, ISBN);
 	        pstmt.setString(6, shelfLocation);
-	        pstmt.setInt(7, releaseDate);
+	        pstmt.setString(7, releaseDate);
 	        pstmt.executeUpdate();
 	        System.out.println("Book added.");
 	    } catch (SQLException e) {
@@ -311,32 +315,31 @@ public class DBBooks {
     // Partially matches keyword entered into the search bar.
     // Also considers the genre selected. 
     // Pressing the search button calls this and returns the whole list of books.
-    public static ArrayList<BookObject> bookSearch(String keyword, String genre) {
-    	ArrayList<BookObject> bookList = new ArrayList<>();
+    public static List<BookObject> bookSearch(String keyword, String genre) {
+    	List<BookObject> bookList = new ArrayList<>();
 	    String sql;
 	    if (genre.isEmpty()) {
 	    	sql = "SELECT * FROM books"
-	    			+ " WHERE title LIKE ?;";
+	    			+ " WHERE LOWER(title) LIKE LOWER(?);";
 	    } else {
 	    	sql = "SELECT * FROM books"
 	    			+ " WHERE genre = ?"
-	    			+ " AND title LIKE ?;";
+	    			+ " AND LOWER(title) LIKE LOWER(?);";
 	    }
 
 	    try (Connection conn = connect();
 	         var pstmt = conn.prepareStatement(sql)) {
 	        
 	    	if (genre.isEmpty()) {
-	    		pstmt.setString(1, '%' + keyword + '%');
+	    		pstmt.setString(1, "%" + keyword + "%");
 	    	} else {
 	    		pstmt.setString(1, genre);
-	    		pstmt.setString(2, '%' + keyword + '%');
+	    		pstmt.setString(2, "%" + keyword + "%");
 	    	}
 	    	ResultSet rs = pstmt.executeQuery();
 	    	
 	        while (rs.next()) {
-	            //bookList.add(bookDataList(rs));
-	        	bookDataList(rs);
+	            bookList.add(bookDataList(rs));
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();

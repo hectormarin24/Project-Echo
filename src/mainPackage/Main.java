@@ -103,11 +103,21 @@ public class Main extends Application {
 		}*/
 		// Emulate server at start of program
 		DBWishlist.pingWishlists();
-		//DBUserMethods.insertCustomAdmin();
+		DBUserMethods.insertCustomAdmin();
 		DBReservations.updateAllReservations();
+		DBReservations.deleteTable();
+		DBReservations.createTable();
+		DBLoans.deleteTable();
+		DBLoans.createTable();
 		DBLoans.checkForOverdueLoans();
 		DBUserMethods.createTable();
+		DBBooks.deleteTable();
 		DBBooks.createTable();
+		DBBooks.insertBook("The Lightning Thief", "Rick Riordan", "Fantasy, Children, Greek", "Miramax Books, Puffin Books", "0786856297", "Fiction", "2005");
+		DBBooks.insertBook("The Sea Of Monsters","Rick Riordan","Fantasy, Greek Mythology, Young Adult","Miramax Books, Disney Hyperion","0786856866","Fiction","2006");
+		DBBooks.insertBook("The Titans Curse","Rick Riodan","Fantasy, Greek Mythology, Young Adult","Miramax Books, Hyperion Books For Children","9781423101451","Fiction","2007");
+		DBBooks.insertBook("The Battle Of The Labyrinth","Rick Riodan","Fantasy, Greek Mythology, Young Adult","Hyperion Books For Children","9781423101468","Fiction","2008");
+		DBBooks.insertBook("The Giver","Lois Lowry","Dystopian","Houghton Mifflin","9780007141425","fiction","1993");
 		//title, author, genre, publisher, isbn, shelflocation, release date
 		
 		DBBooks.showAllBooks();

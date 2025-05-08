@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -29,23 +31,6 @@ public class SearchBookController implements Initializable
 	private Scene scene;
 	private Parent root;
 	
-	
-	//choice box
-	@FXML
-	ChoiceBox<String> keywordChoice;
-	String[] keywords = {"Choice1","Choice2","Choice3","Choice4"};
-	
-	
-	
-	@FXML
-	ChoiceBox<String> genreChoice;
-	String[] genres = {"Genre1","Genre2","Genre3","Gnere4"};
-	
-	@FXML
-	ChoiceBox<String> languageChoice;
-	String[] languages = {"Language1","Language2","Language3"};
-	
-	
 	@FXML
 	TextField searchBar;
 	@FXML
@@ -53,6 +38,8 @@ public class SearchBookController implements Initializable
 	@FXML
 	private AnchorPane scenePane;
 	
+	@FXML
+	private ListView<BookObject> bookList;
 	
 	@FXML private Label title;
     @FXML private Label author;
@@ -90,12 +77,16 @@ public class SearchBookController implements Initializable
         //status.setText(book.getStatus());
     }
 	
+	public void setBookList(ObservableList<BookObject> bookListParam) {
+		bookList.setCellFactory(param -> new BookObjectCell());
+		
+		bookList.setItems(bookListParam);
+	}
+	
 	public void searchForBook(String s)
 	{
 		searchBar.setText(s);
 	}
-	
-	
 
 	public void homeAccess(ActionEvent event) throws IOException
 	{
@@ -373,7 +364,7 @@ public class SearchBookController implements Initializable
 				{
 					String search = searchBar.getText();
 					if(DBBooks.searchBook(search)) {
-						root = FXMLLoader.load(getClass().getResource("SearchBook.fxml"));
+						root = FXMLLoader.load(getClass().getResource("/mainPackage/SearchBook.fxml"));
 						SearchBookController searchBookController = new SearchBookController();
 						searchBookController.searchForBook(search);
 						stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -392,15 +383,8 @@ public class SearchBookController implements Initializable
 				
 			}
 
-
-
-
 			@Override
 			public void initialize(URL arg0, ResourceBundle arg1) {
-				keywordChoice.getItems().addAll(keywords);
-				genreChoice.getItems().addAll(genres);
-				languageChoice.getItems().addAll(languages);
-			
 			}
 
 }

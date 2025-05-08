@@ -47,13 +47,13 @@ public class DBLoans {
 	    //issue date is date loan was given
 	    String sql = """
 	        CREATE TABLE IF NOT EXISTS loans (
-		    	id INTEGER PRIMARY KEY AUTOINCREMENT,
 			    userId INTEGER NOT NULL,
 			    bookId INTEGER NOT NULL,
 			    dueDate TEXT NOT NULL,
 			    loanDate TEXT NOT NULL,
 			    returnDate TEXT,
-			    status TEXT NOT NULL DEFAULT 'On Loan'  -- 'On Loan', 'Returned', 'Overdue'
+			    status TEXT NOT NULL DEFAULT 'On Loan',  -- 'On Loan', 'Returned', 'Overdue'
+			    PRIMARY KEY (userId, bookId)
 	        );
 	        """;
 	
@@ -103,8 +103,8 @@ public class DBLoans {
 	    		pstmt.executeUpdate();
 	    		
 	    		// Decrease book availability
-	    		DBBooks.changeBookAvailability(bookId, '0');
-	    		System.out.println("Loan added.");
+	    		//DBBooks.changeBookAvailability(bookId, '0');
+	    		System.out.println(CurrentUser.get().getUsername() + " loaned book.");
 	    		
 	    	} catch (SQLException e) {
 	    		e.printStackTrace();
@@ -150,7 +150,7 @@ public class DBLoans {
    		        pstmt.executeUpdate();
    		        
    		        // Increase book availability
-   		        DBBooks.changeBookAvailability(bookId, '1');
+   		        //DBBooks.changeBookAvailability(bookId, '1');
    		} catch (SQLException e) {
    			e.printStackTrace();
    		}
@@ -207,7 +207,7 @@ public class DBLoans {
     	ArrayList<LoanObject> loans = showAllLoans();
     	for (int l = 0; l < loans.size(); l++ ) {
     		LoanObject loan = loans.get(l);
-    		if (todayDate.isAfter(LocalDate.parse(loan.getDueDate()))) {
+    		if (loan != null && todayDate.isAfter(LocalDate.parse(loan.getDueDate()))) {
     			try (Connection conn = connect();
 			         var pstmt = conn.prepareStatement(sql)) {
 			         

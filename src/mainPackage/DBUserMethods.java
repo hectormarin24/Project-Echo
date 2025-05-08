@@ -84,7 +84,7 @@ public class DBUserMethods {
 	            email TEXT UNIQUE NOT NULL,
 	            number TEXT NOT NULL,
 	            address TEXT NOT NULL,
-	            password TEXT UNIQUE NOT NULL,
+	            password TEXT NOT NULL,
 	            username TEXT UNIQUE NOT NULL,
 	            dob TEXT,
 	            dues INTEGER,
@@ -151,11 +151,11 @@ public class DBUserMethods {
 		String Fname = "admin";
 		String Lname = "123";
 		String Minitial = "test";
-		String email = "gsnyriusbg@eniubeiugbsiugbs.com";
+		String email = "admin@admin.com";
 		String number = "null";
 		String address = "null";
 		String password = "qwerty";
-		String username = "admin";
+		String username = "admin1";
 		String dob = "null";
 		String type = "Admin";
 		

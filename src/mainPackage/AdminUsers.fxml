@@ -51,14 +51,6 @@
                                  </image>
                               </ImageView>
                               <Line endX="-99.99998474121094" endY="295.79998779296875" layoutX="355.0" layoutY="133.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
-                              <Button fx:id="facebookButton" layoutX="344.0" layoutY="569.0" mnemonicParsing="false" onAction="#faceBookAccess" text="FaceBook" />
-                              <Button fx:id="instagramButton" layoutX="427.0" layoutY="569.0" mnemonicParsing="false" onAction="#instagramAccess" text="Instagram" />
-                              <Button fx:id="twitterButton" layoutX="522.0" layoutY="569.0" mnemonicParsing="false" onAction="#twitterAccess" text="Twitter" />
-                              <Label contentDisplay="CENTER" layoutX="362.0" layoutY="512.0" prefHeight="50.0" prefWidth="200.0" text="Follow Echo Library On Our Social Medias!" textFill="#ad6449">
-                                 <font>
-                                    <Font size="10.0" />
-                                 </font>
-                              </Label>
                               <Label fx:id="userLabel" layoutX="271.0" layoutY="31.0" text="Users" textFill="#ad6449">
                                  <font>
                                     <Font size="25.0" />
@@ -95,7 +87,6 @@
                               <Label fx:id="userIdLabel2" layoutX="301.0" layoutY="283.0" text="UserId:" textFill="#ad6449" />
                               <Label fx:id="overdueFeesLabel2" layoutX="329.0" layoutY="389.0" prefHeight="17.0" prefWidth="92.0" text="Overdue fees:" textFill="#ad6449" />
                               <Label fx:id="booksBorrowedLabel2" layoutX="330.0" layoutY="409.0" text="Books borrowed:" textFill="#ad6449" />
-                              <Button fx:id="linkedInButton" layoutX="258.0" layoutY="569.0" mnemonicParsing="false" onAction="#linkedInAccess" text="LinkedIn" />
                            </children>
                         </AnchorPane>
                      </children>
