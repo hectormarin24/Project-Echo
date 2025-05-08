@@ -166,10 +166,47 @@
                         </Label>
                         <HBox alignment="CENTER" spacing="20">
                             <children>
-                                <Button fx:id="facebookButton" onAction="#faceBookAccess" text="FaceBook" />
-                                <Button fx:id="instagramButton" onAction="#instagramAccess" text="Instagram" />
-                                <Button fx:id="twitterButton" onAction="#twitterAccess" text="Twitter" />
-                                <Button fx:id="linkedInButton" onAction="#linkedInAccess" text="LinkedIn" />
+                                <Button fx:id="facebookButton" onAction="#faceBookAccess">
+                           <graphic>
+                              <ImageView fitHeight="87.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../FacebookLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="twitterButton" onAction="#twitterAccess">
+                           <graphic>
+                              <ImageView fitHeight="87.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../XLogo.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="instagramButton" onAction="#instagramAccess">
+                           <graphic>
+                              <ImageView fitHeight="98.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../InstagramLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="linkedInButton" onAction="#linkedInAccess">
+                           <graphic>
+                              <ImageView fitHeight="76.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../LinkedInLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button mnemonicParsing="false" onAction="#blueskyAccess">
+                           <graphic>
+                              <ImageView fitHeight="102.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../BlueskyLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" spacing="10">
