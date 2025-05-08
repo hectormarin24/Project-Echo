@@ -12,6 +12,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.SearchBookController">
    <children>
+
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" height="613.0" stroke="BLACK" strokeType="INSIDE" width="870.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Hyperlink fx:id="homeLink" layoutX="540.0" layoutY="22.0" onAction="#homeAccess" text="Home" />
       <Hyperlink fx:id="searchLink" layoutX="579.0" layoutY="22.0" onAction="#searchAccess" text="|  Search" />
@@ -51,4 +52,5 @@
       <Line endX="902.0000610351562" endY="115.5" layoutX="-33.0" layoutY="25.0" startX="32.9999885559082" startY="115.5" stroke="#c49411" />
       <ListView fx:id="bookList" layoutX="106.0" layoutY="173.0" prefHeight="330.0" prefWidth="660.0" />
    </children>
+
 </AnchorPane>

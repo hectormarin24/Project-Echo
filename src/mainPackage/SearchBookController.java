@@ -1,5 +1,6 @@
 package mainPackage;
 
+import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -253,6 +254,7 @@ public class SearchBookController implements Initializable
 
 	
 	//SOCIAL MEDIA PARTS
+
 			public void faceBookAccess(ActionEvent event) throws IOException
 			{
 				try
@@ -363,6 +365,59 @@ public class SearchBookController implements Initializable
 			    try {
 			        String search = searchBar.getText().toLowerCase();
 			        System.out.println(search);
+
+	/* @SuppressWarnings("deprecation")
+	public void faceBookAccess(ActionEvent event) throws IOException
+	{
+		try {
+			Desktop.getDesktop().browse(new URL("https://www.facebook.com/people/Echo-Library/61575188941914/").toURI());
+		} catch (Exception e) {}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void instagramAccess(ActionEvent event) throws IOException
+	{
+		try {
+			Desktop.getDesktop().browse(new URL("https://www.instagram.com/echo_library_unlocknewworlds/").toURI());
+		} catch (Exception e) {}		
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void twitterAccess(ActionEvent event) throws IOException
+	{
+		try {
+			Desktop.getDesktop().browse(new URL("https://x.com/Echo_Library").toURI());
+		} catch (Exception e) {}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void linkedInAccess(ActionEvent event) throws IOException
+	{
+		try {
+			Desktop.getDesktop().browse(new URL("https://www.linkedin.com/in/echo-library-0546b3361/").toURI());
+		} catch (Exception e) {}
+	}
+
+	@SuppressWarnings("deprecation")
+	public void blueskyAccess(ActionEvent event) throws IOException {
+		try {
+			Desktop.getDesktop().browse(new URL("https://bsky.app/profile/echolibrary.bsky.social").toURI());
+		} catch (Exception e) {}
+	}
+			public void searchBarToSearch(ActionEvent event) throws IOException
+			{
+				try 
+				{
+					String search = searchBar.getText();
+					if(DBBooks.searchBook(search)) {
+						root = FXMLLoader.load(getClass().getResource("SearchBook.fxml"));
+						SearchBookController searchBookController = new SearchBookController();
+						searchBookController.searchForBook(search);
+						stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+						scene = new Scene(root);
+						stage.setScene(scene);
+						stage.show(); */
+
 
 			        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchBook.fxml"));
 		            Parent root = loader.load();

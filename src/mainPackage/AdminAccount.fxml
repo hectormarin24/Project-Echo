@@ -49,6 +49,7 @@
                            </image>
                         </ImageView>
                         <Line endX="-99.99998474121094" endY="295.79998779296875" layoutX="355.0" layoutY="133.0" startX="-99.99998474121094" startY="-86.60000610351562" stroke="#ad6449" />
+
                         <Label layoutX="271.0" layoutY="31.0" text="Account Profile" textFill="#ad6449">
                            <font>
                               <Font size="25.0" />
@@ -95,6 +96,7 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
+
                      </children>
                   </AnchorPane>
                </children>

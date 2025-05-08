@@ -13,9 +13,9 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainPackage.WishListController">
     <children>
-        <AnchorPane fx:id="scenePane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane fx:id="scenePane" prefHeight="618.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane prefHeight="618.0" prefWidth="910.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2ede9" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 
@@ -133,15 +133,54 @@
                         </HBox>
 
                         <!-- Footer -->
-                        <HBox spacing="20.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="340.0">
+                        <HBox layoutX="292.0" layoutY="518.0" prefHeight="26.0" prefWidth="326.0" spacing="20.0" AnchorPane.bottomAnchor="61.19999999999993" AnchorPane.leftAnchor="292.0" AnchorPane.rightAnchor="292.0">
                             <children>
-                                <Button fx:id="facebookButton" maxWidth="1.7976931348623157E308" onAction="#faceBookAccess" text="FaceBook" HBox.hgrow="ALWAYS" />
-                                <Button fx:id="instagramButton" maxWidth="1.7976931348623157E308" onAction="#instagramAccess" text="Instagram" HBox.hgrow="ALWAYS" />
-                                <Button fx:id="twitterButton" maxWidth="1.7976931348623157E308" onAction="#twitterAccess" text="Twitter" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="facebookButton" maxWidth="1.7976931348623157E308" onAction="#faceBookAccess" HBox.hgrow="ALWAYS">
+                           <graphic>
+                              <ImageView fitHeight="58.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../FacebookLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="twitterButton" maxWidth="1.7976931348623157E308" onAction="#twitterAccess" HBox.hgrow="ALWAYS">
+                           <graphic>
+                              <ImageView fitHeight="42.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../XLogo.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                                <Button fx:id="instagramButton" maxWidth="1.7976931348623157E308" onAction="#instagramAccess" HBox.hgrow="ALWAYS">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../InstagramLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button mnemonicParsing="false" onAction="#linkedInAccess">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../LinkedInLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#blueskyAccess">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../BlueskyLogo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                             </children>
                         </HBox>
 
-                        <Label text="Follow Echo Library On Our Social Medias!" textFill="#ad6449" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="362.0">
+                        <Label layoutX="361.0" layoutY="489.0" text="Follow Echo Library On Our Social Medias!" textFill="#ad6449" AnchorPane.bottomAnchor="114.19999999999999" AnchorPane.leftAnchor="361.0">
                             <font><Font size="10.0" /></font>
                         </Label>
 
